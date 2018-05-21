@@ -25,8 +25,62 @@
 			$topbar_bg = 1;
 
 			//$primary_color = esc_attr(of_get_option('itrans_primary_color', '#dd3333'));
-			$primary_color = esc_attr(get_theme_mod('primary_color', of_get_option('itrans_primary_color', '#dd3333')));
+			$primary_color = esc_attr(get_theme_mod('primary_color', '#dd3333'));
 			$topbar_bg = esc_attr(get_theme_mod('topbar_bg', 1));
+			
+			
+			/* check */
+			$tx_body_font = array();
+			$tx_title_font = array();
+			$tx_body_style = '';
+			$tx_title_style = '';
+			$tx_body_font['font-family'] = '"Open Sans", Helvetica, sans-serif';
+			$tx_body_font['font-size'] = '14px';
+			$tx_body_font['line-height']= 1.8;
+			$tx_body_font['color'] = '#575757';
+			$tx_body_font['variant'] = 400;
+			
+			$tx_title_font['font-family'] = 'Roboto, Georgia, serif';			
+
+			global $post;	
+			$custom_page_color = '';
+			
+			if ( function_exists( 'rwmb_meta' ) ) {
+				$custom_page_color = rwmb_meta('icraft_page_color', '');
+			}
+			
+			if( !empty($custom_page_color) )
+			{
+				$primary_color = $custom_page_color;
+			}
+			
+			$tx_body_font = get_theme_mod( 'body_font', $tx_body_font );
+			$tx_title_font = get_theme_mod( 'title_font', $tx_title_font );
+			
+			if ( isset( $tx_body_font['font-family'] ) ) {
+				$tx_body_style .= 'font-family: '.$tx_body_font['font-family'].'; ';
+			}
+			if ( isset( $tx_body_font['font-size'] ) ) {
+				$tx_body_style .= 'font-size: '.$tx_body_font['font-size'].'px; ';
+			}
+			if ( isset( $tx_body_font['line-height'] ) ) {
+				$tx_body_style .= 'line-height: '.$tx_body_font['line-height'].'; ';
+			}
+			if ( isset( $tx_body_font['color'] ) ) {
+				$tx_body_style .= 'color: '.$tx_body_font['color'].';';
+			}
+			/*
+			if ( isset( $tx_body_font['variant'] ) ) {
+				$tx_body_style .= 'font-weight: '.$tx_body_font['variant'].';';
+			}
+			*/
+			
+			if ( isset( $tx_title_font['font-family'] ) ) {
+				$tx_title_style .= 'font-family: '.$tx_title_font['font-family'].'; ';
+			}		
+			
+			/* check ends */
+						
 						
 
 			echo '<style type="text/css">'. "\n";
@@ -35,6 +89,9 @@
 			{
 				echo '.utilitybar {background-color: '.$primary_color.';}';
 			}
+			
+			echo 'body {'.$tx_body_style.'}';
+			echo 'h1,h2,h3,h4,h5,h6,.comment-reply-title,.widget .widget-title, .entry-header h1.entry-title {'.$tx_title_style.'}';			
 			
 			echo '.themecolor {color: '.$primary_color.';}';
 			echo '.themebgcolor {background-color: '.$primary_color.';}';
@@ -46,7 +103,7 @@
 						
 			echo 'a,a:visited,.blog-columns .comments-link a:hover {color: '.$primary_color.';}';
 
-			echo 'input:focus,textarea:focus {border: 1px solid '.$primary_color.';}';
+			echo 'input:focus,textarea:focus, .woocommerce #content div.product form.cart .button {border: 1px solid '.$primary_color.';}';
 			
 			echo 'button,input[type="submit"],input[type="button"],input[type="reset"],.nav-container .current_page_item > a > span,.nav-container .current_page_ancestor > a > span,.nav-container .current-menu-item > a span,.nav-container .current-menu-ancestor > a > span,.nav-container li a:hover span {background-color: '.$primary_color.';}';
 
@@ -115,6 +172,12 @@
 			echo '.colored-drop .nav-container ul ul a, .colored-drop ul.nav-container ul a, .colored-drop ul.nav-container ul, .colored-drop .nav-container ul ul {background-color: '.$primary_color.';}';			
 			
 			echo '.sidebar.nx-prod-pop.nx-leftsidebar .widget ul.product-categories > li ul {border-bottom-color: '.$primary_color.';}';
+			
+			echo '.woocommerce #page ul.products li.product:hover .add_to_cart_button { background-color: '.$primary_color.'; border-color: 1px solid '.$primary_color.'; }';
+			
+			echo '.nx-nav-boxedicons .header-icons.woocart .cartdrop.widget_shopping_cart.nx-animate {border-bottom-color: '.$primary_color.'}';
+			
+			echo '.nx-nav-boxedicons .site-header .header-icons > a > span.genericon:before, ul.nav-menu > li.tx-heighlight:before {background-color: '.$primary_color.'}';
 			
 			
 			if ($custom_css) {

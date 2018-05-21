@@ -36,80 +36,109 @@ function icraft_social_icons () {
 function icraft_ibanner_slider () {    
 	$arrslidestxt = array();
 	$template_dir = get_template_directory_uri();
+	$banner_text = esc_attr(get_theme_mod('banner_text', ''));
+
+	$text_alignment = esc_attr(get_theme_mod('itrans_align', 'nxs-left'));
+	$banner_overlay = esc_attr(get_theme_mod('itrans_overlay', 'nxs-max19'));
+	$itrans_sliderparallax = get_theme_mod('itrans_sliderparallax', 1);	
+	$sliderscpeed = intval(esc_attr(get_theme_mod('itrans_sliderspeed', '6'))) * 1000 ;	
 	
+	if( $banner_overlay == 'nxs-max18' || $banner_overlay == 'nxs-max19' )	
+	{
+		$text_alignment = 'left';
+	}
+		
 	$upload_dir = wp_upload_dir();
 	$upload_base_dir = $upload_dir['basedir'];
 	$upload_base_url = $upload_dir['baseurl'];	
 	
-    for($slideno=1;$slideno<=4;$slideno++){
+	$slides_preset = array (
+        array(
+            'itrans_slide_title' => esc_attr__( '<span class="themecolor">Drag & Drop</span> Ready Layouts', 'i-craft' ),
+            'itrans_slide_desc' => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-craft' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-craft' ),
+            'itrans_slide_linkurl' => esc_url('http://www.templatesnext.org/i-craft/'),
+            'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide1.jpg' ),
+        ),
+        array(
+            'itrans_slide_title' => esc_attr__( 'SiteOrigin Page Builder & Elementor', 'i-craft' ),
+            'itrans_slide_desc' => esc_attr__( 'Design Your Pages With Most Popular Page Builders', 'i-craft' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-craft' ),
+            'itrans_slide_linkurl' => '',
+            'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide2.jpg' ),
+        ),
+        array(
+            'itrans_slide_title' => esc_attr__( 'Exclusive <span class="themecolor">WooCommerce</span> Features', 'i-craft' ),
+            'itrans_slide_desc' => esc_attr__( 'Create Sections Using Pagebuilder Or TemplatesNext Shortcodes', 'i-craft' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-craft' ),
+            'itrans_slide_linkurl' => '',
+            'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide3.jpg' ),
+        ),
+        array(
+            'itrans_slide_title' => esc_attr__( 'Portfolio, Testimonial, Services...', 'i-craft' ),
+            'itrans_slide_desc' => esc_attr__( 'Use the [tx] button on your editor to create the columns, services, portfolios, testimonials and custom sliders.', 'i-craft' ),
+            'itrans_slide_linktext' => esc_attr__( 'Know More', 'i-craft' ),
+            'itrans_slide_linkurl' => '',
+            'itrans_slide_image' => esc_url( get_template_directory_uri() . '/images/slide4.jpg' ),
+        ),
+
+	);		
+	
+    for( $slideno = 0; $slideno < 4; $slideno++ ){
 			$strret = '';
+			$counter = $slideno+1;
 			
-		
-			$slide_speed = esc_attr( get_theme_mod('itrans_sliderspeed')*1000 );
-			$slide_title = esc_attr( get_theme_mod('itrans_slide'.$slideno.'_title', of_get_option ('itrans_slide'.$slideno.'_title', 'Exclusive WooCommerce Features')) );
-			$slide_desc = esc_attr( get_theme_mod('itrans_slide'.$slideno.'_desc', of_get_option ('itrans_slide'.$slideno.'_desc', 'To start setting up i-craft go to appearance &gt; Customize. Make sure you have installed recommended plugin &#34;TemplatesNext Toolkit&#34; by going appearance > install plugin.')) );
-			$slide_linktext = esc_attr( get_theme_mod('itrans_slide'.$slideno.'_linktext', of_get_option ('itrans_slide'.$slideno.'_linktext', 'Know More')) );
-			$slide_linkurl = esc_attr( get_theme_mod('itrans_slide'.$slideno.'_linkurl', of_get_option ('itrans_slide'.$slideno.'_linkurl', 'http://templatesnext.org/icraft/?page_id=783')) );			
-			$slide_image = esc_attr( get_theme_mod('itrans_slide'.$slideno.'_image', of_get_option ('itrans_slide'.$slideno.'_image', get_template_directory_uri() . '/images/slide'.$slideno.'.jpg')) );		
+			$slide_title = esc_attr(get_theme_mod('itrans_slide'.$counter.'_title', $slides_preset[$slideno]['itrans_slide_title'] ));
+			$slide_desc = esc_attr(get_theme_mod('itrans_slide'.$counter.'_desc', $slides_preset[$slideno]['itrans_slide_desc'] ));
+			$slide_linktext = esc_attr(get_theme_mod('itrans_slide'.$counter.'_linktext', $slides_preset[$slideno]['itrans_slide_linktext'] ));
+			$slide_linkurl = esc_url(get_theme_mod('itrans_slide'.$counter.'_linkurl', $slides_preset[$slideno]['itrans_slide_linkurl'] ));
+			$slide_image = esc_url(get_theme_mod('itrans_slide'.$counter.'_image', $slides_preset[$slideno]['itrans_slide_image'] ));
 			
+			$slider_height = esc_attr(get_theme_mod('slider_height', 100 ));
+			$slider_reduct = esc_attr(get_theme_mod('slider_reduction', 260 ));						
 			
-			$itrans_sliderparallax = get_theme_mod('itrans_sliderparallax', 1);
-			$itrans_slogan = get_theme_mod('banner_text', of_get_option('itrans_slogan', ''));
-			
-			
-			/*
-			if (strpos($upload_base_url,'https') !== false && strpos($slide_image,'https') !== true ) {
-				$slide_image = str_replace("http://", "https://", $slide_image );
-			}
-			*/
 			$slider_image_id = icraft_get_attachment_id_from_url( $slide_image );			
-			$slider_resized_image = wp_get_attachment_image( $slider_image_id, "icraft-slider-thumb" );
+			$slider_resized_image = wp_get_attachment_image( $slider_image_id, "icraft-slider-thumb" );			
 			
-			if (!$slide_linktext)
-			{
-				$slide_linktext="Read more";
-			}			
-			
-			if ($slide_title) {
+			if ( $slide_image ) {
 
 				if( $slide_image!='' ){
 					if( file_exists( str_replace($upload_base_url,$upload_base_dir,$slide_image) ) ){
-						$strret .= '<div class="da-img">' . $slider_resized_image .'</div>';
+						
+						$slide_image_url = wp_get_attachment_image_src( $slider_image_id, 'icraft-slider-thumb' );
+						$slide_image_url = $slide_image_url[0];						
+						//$strret .= '<div class="da-img">' . $slider_resized_image .'</div>';
+						$strret .= '<div class="da-img" style="background-image: url('.$slide_image_url.');"></div>';
 					}
 					else
 					{
-						$slide_image = $template_dir.'/images/slide'.$slideno.'.jpg';
-						$strret .= '<div class="da-img noslide-image"><img src="'.$slide_image.'" alt="'.$slide_title.'" /></div>';					
+						$slide_image = $template_dir.'/images/slide'.$counter.'.jpg';
+						//$strret .= '<div class="da-img noslide-image"><img src="'.$slide_image.'" alt="'.$slide_title.'" /></div>';
+						$strret .= '<div class="da-img noslide-image" style="background-image: url('.$slide_image.');"></div>';
 					}
 				}
 				else
 				{					
-					$slide_image = $template_dir.'/images/no-image.png';
-					$strret .= '<div class="da-img noslide-image"><img src="'.$slide_image.'" alt="'.$slide_title.'" /></div>';
+					$slide_image = $template_dir.'/images/slide'.$counter.'.jpg';
+					//$strret .= '<div class="da-img noslide-image"><img src="'.$slide_image.'" alt="'.$slide_title.'" /></div>';
+					$strret .= '<div class="da-img noslide-image" style="background-image: url('.$slide_image.');"></div>';					
 				}
 				
 				$strret .= '<div class="slider-content-wrap"><div class="nx-slider-container">';
-				$strret .= '<h2>'.$slide_title.'</h2>';
+				$strret .= '<h2>'.wp_specialchars_decode($slide_title, $quote_style = ENT_QUOTES).'</h2>';
 				$strret .= '<p>'.$slide_desc.'</p>';
 				$strret .= '<a href="'.$slide_linkurl.'" class="da-link">'.$slide_linktext.'</a>';
-				
 				$strret .= '</div></div>';
 			}
-			if ($strret !=''){
+			if ( $strret != '' ){
 				$arrslidestxt[$slideno] = $strret;
 			}
 					
 	}
 	
-	$sliderscpeed = "6000";
-	if($slide_speed)
-	{
-		$sliderscpeed = esc_attr($slide_speed);
-	}	
-	
-	if( count($arrslidestxt) > 0 ){
-		echo '<div class="ibanner" data-edit-slides="'.__('Edit Slider', 'i-craft').'">';
-		echo '	<div id="da-slider" class="da-slider" role="banner" data-slider-speed="'.$sliderscpeed.'" data-slider-parallax="'.$itrans_sliderparallax.'">';
+	if( count( $arrslidestxt ) > 0 ){
+		echo '<div class="ibanner '.$banner_overlay.' '.$text_alignment.'" data-edit-slides="Edit Slider">';
+		echo '	<div id="da-slider" class="da-slider" role="banner" data-slider-speed="'.$sliderscpeed.'" data-slider-height="'.$slider_height.'" data-slider-reduct="'.$slider_reduct.'" data-slider-parallax="'.$itrans_sliderparallax.'">';
 			
 		foreach ( $arrslidestxt as $slidetxt ) :
 			echo '<div class="nx-slider">';	
@@ -125,11 +154,9 @@ function icraft_ibanner_slider () {
         echo '    <div class="titlebar">';
         echo '        <h1>';
 		
-		if ( $itrans_slogan ) {
-						//bloginfo( 'name' );
-			echo $itrans_slogan;
+		if ($banner_text) {
+			echo $banner_text;
 		} 
-		
         echo '        </h1>';
 		echo ' 		  <h2>';
 			    		//bloginfo( 'description' );

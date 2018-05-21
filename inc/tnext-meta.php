@@ -206,8 +206,26 @@ function icraft_register_meta_boxes( $meta_boxes )
 				// Value can be 0 or 1
 				'std'  => 0,
 				'desc' => __('Remove the spaces/padding from top and bottom of the page/post', 'i-craft'),
-			),							
+			),	
 			
+			// Hide page header
+			array(
+				'name' => __( 'Hide Page Header', 'i-craft' ),
+				'id'   => "{$prefix}no_page_header",
+				'type' => 'checkbox',
+				// Value can be 0 or 1
+				'std'  => 0,
+				'desc' => __('In case you are building the page without the top navigation and logo', 'i-craft'),
+			),										
+
+			// Custom page primary color			
+			array(
+				'name'  => __( 'Custom Primary Color', 'i-craft' ),
+				'id'    => "{$prefix}page_color",
+				'type'  => 'color',
+				'std'   => '',
+				'desc' => __('Choose a custom primary color for this page', 'i-craft'),
+			),				
 			// additional page class			
 			array(
 				'name'  => __( 'Additional Page Class', 'i-craft' ),

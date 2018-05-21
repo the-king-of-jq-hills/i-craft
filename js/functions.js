@@ -206,14 +206,22 @@ jQuery(document).ready(function($) {
 	}
 	
 	
-	// Banner Parallax Effect		
-		
+	// Banner Parallax Effect
 	if ( $('.ibanner').length > 0 )
-	{
+	{			
+	
 		var slider_parallax = $('#da-slider').data('slider-parallax');
 		
+		var slider_height = $('#da-slider').data('slider-height');
+		var slider_reduct = $('#da-slider').data('slider-reduct');		
+
+		slider_height = ( (($( window ).height()/100)*slider_height) - slider_reduct );
+		
+		$('.da-img').css( "height", slider_height );
+		$('.ibanner .owl-carousel .owl-wrapper-outer').css( "height", slider_height );		
+		
 		if (slider_parallax == 1)
-		{
+		{		
 			var slidetop = parseInt($('.ibanner').offset().top);
 			
 			if( $( window ).width() > 999 )
@@ -224,39 +232,23 @@ jQuery(document).ready(function($) {
 					
 					if ($(this).scrollTop() > slidetop)
 					{
-						$('.da-img img').css('margin-top', newvalue+'px');
+						//$('.da-img img').css('margin-top', newvalue+'px');
+						$('.da-img').css('background-position', 'center '+newvalue+'px');	
 					}
 					
 					if ($(this).scrollTop() <= slidetop)
 					{
-						var slideheight = $('.active .da-img img').height();
-						$('.da-img img').css('margin-top', 0+'px');
+						var slideheight = $('.active .da-img').height();
+						//$('.da-img img').css('margin-top', 0+'px');
+						$('.da-img').css('background-position', 'center 0px');
 						$('.owl-wrapper-outer').css('max-height', slideheight+'px');
 					}		
 					//console.log('margin-top : '+newvalue+'px, ' + 'SlideTop : ' +slidetop+'px, ' + 'Scrolltop : ' +$(this).scrollTop()+'px');
 				});
 			}
 		}
-	}	
-	
-	/* featured post on scroll animation 
-	$('div#featured .post').css("opacity","0.0");
-	
-	$('div#featured').waypoint(function() {
-		$( "div#featured .post" ).each(function(index) {
-			var _this = $(this);
-			setTimeout( function () {
-				$('div#featured .post').show();
-				_this.addClass( 'animated fadeInUp' );
-				_this.css("opacity","1.0");
-   			}, (index+1) * 200);
-		});
-	},
-	{
-		offset: '100%',
-		triggerOnce: true
-	});
-	*/
+			
+	}
 	
 	/*
 	$('#primary .entry-thumbnail').waypoint(function() {
@@ -329,5 +321,17 @@ jQuery(document).ready(function($) {
 			$( '.nx-preloader .nx-ispload' ).css( "display", "none" );
 		}
 	});
+	
+	
+	if( $('.elementor-editor-active').length > 0 ) {
+		$( '.nx-ispload' ).css( "display", "none" );
+	}
+	
+	if( $('.woocommerce').length > 0 ) {
+		$('.woocommerce ul.products li.product a img').each(function() {
+			$( this ).wrap( "<span class='nx-prod-vinette'></span>" );
+		});
+	}	
+	
 });
 /**/

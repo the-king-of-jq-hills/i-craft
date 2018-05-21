@@ -185,7 +185,14 @@ function icraft_add_panels_and_sections( $wp_customize ) {
         'title'    => __('WooCommerce Theme Options', 'i-craft'),
         'description' => '',
         'priority' => 150,
-    ));		
+    ));	
+	
+	//Typographu section
+    $wp_customize->add_section('typography', array(
+        'title'    => __('Fonts', 'i-craft'),
+        'description' => '',
+        'priority' => 151,
+    ));			
 	
 	// promo sections
 	
@@ -316,9 +323,19 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Wide layout', 'i-craft' ),
 		'description' => __( 'Check to have wide layou', 'i-craft' ),
 		'section'     => 'layout',
-		'default'     => of_get_option('boxed_type', 1),			
+		'default'     => 1,			
 		'priority'    => 4,
 	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'boxed-icons',
+		'label'       => __( 'Boxed Menu Icons', 'i-craft' ),
+		'description' => __( 'The crat and search icons will appear as boxed', 'i-craft' ),
+		'section'     => 'layout',
+		'default'     => 0,			
+		'priority'    => 4,
+	);	
 	
 	$controls[] = array(
 		'type'        => 'switch',
@@ -454,6 +471,66 @@ function icraft_custom_setting( $controls ) {
 		'priority'    => 4,
 	);	
 	
+	$controls[] = array(
+		//'type'        => 'radio-buttonset',
+		'type'        => 'radio',
+		'settings'    => 'itrans_overlay',
+		'label'       => __( 'Text background', 'i-craft' ),
+		'section'     => 'slidersettings',
+		'default'     => 'nxs-max19',
+		'priority'    => 10,
+		'choices'     => array(
+			'nxs-pattern'   => esc_attr__( 'Patterned Overlay', 'i-craft' ),
+			'nxs-shadow' => esc_attr__( 'Shadowed Text', 'i-craft' ),
+			'nxs-vinette'  => esc_attr__( 'Vignette Overlay', 'i-craft' ),
+			'nxs-semitrans'  => esc_attr__( 'Semi-trans Text BG', 'i-craft' ),
+			'nxs-semitrans2'  => esc_attr__( 'Semi-trans Overlay', 'i-craft' ),			
+			'nxs-max19'  => esc_attr__( 'Craft 19', 'i-craft' ),						
+		),
+	);	
+	
+	
+	$controls[] = array(
+		'type'        => 'radio-buttonset',
+		'settings'    => 'itrans_align',
+		'label'       => __( 'Text Alignment', 'i-craft' ),
+		'section'     => 'slidersettings',
+		'default'     => 'nxs-left',
+		'priority'    => 10,
+		'choices'     => array(
+			'nxs-left'   => esc_attr__( 'Left', 'i-craft' ),
+			'nxs-center' => esc_attr__( 'Center', 'i-craft' ),
+			'nxs-right'  => esc_attr__( 'Right', 'i-craft' ),
+		),
+	);		
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_height',
+		'label'       => __( 'Slider Height (in %)', 'i-craft' ),
+		'section'     => 'slidersettings',
+		'default'     => 100,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '100',
+			'step' => '1',
+		),
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'slider_reduction',
+		'label'       => __( 'Reduction In px', 'i-craft' ),
+		'section'     => 'slidersettings',
+		'description' => __( 'Amount of pixels to be reduced from % of slider height', 'i-craft' ),		
+		'default'     => 260,
+		'choices'     => array(
+			'min'  => '0',
+			'max'  => '320',
+			'step' => '1',
+		),
+	);				
+		
 	
 	// Slide1
     $controls[] = array(
@@ -461,7 +538,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide1_title',
         'label'    => __( 'Slide1 Title', 'i-craft' ),
         'section'  => 'slide1',
-		'default'  => of_get_option('itrans_slide1_title', 'i-craft, Exclusive WooCommerce Features'),			
+		'default'  => esc_attr__('<span class="themecolor">Drag & Drop</span> Ready Layouts', 'i-craft'),			
         'priority' => 1,
     );
 	$controls[] = array(
@@ -469,7 +546,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide1_desc',
 		'label'       => __( 'Slide1 Description', 'i-craft' ),
 		'section'     => 'slide1',
-		'default'  => of_get_option('itrans_slide1_desc', 'To start setting up i-craft go to Appearance &gt; Customize. Make sure you have installed recommended plugin &rdquo;TemplatesNext Toolkit&rdquo; by going appearance &gt; install plugin.'),			
+		'default'  => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-craft' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -505,7 +582,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide2_title',
         'label'    => __( 'Slide2 Title', 'i-craft' ),
         'section'  => 'slide2',
-		'default'  => of_get_option('itrans_slide2_title', 'Live Edit With Customizer'),		
+		'default'  => esc_attr__( 'SiteOrigin Page Builder & Elementor', 'i-craft' ),		
         'priority' => 1,
     );
 	$controls[] = array(
@@ -513,7 +590,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide2_desc',
 		'label'       => __( 'Slide2 Description', 'i-craft' ),
 		'section'     => 'slide2',
-		'default'  => of_get_option('itrans_slide2_desc', 'Setup your theme from Appearance &gt; Customize , boxed/wide layout, unlimited color, custom background, blog layout, social links, additiona css styling, phone number and email id, etc.'),		
+		'default'  => esc_attr__( 'Design Your Pages With Most Popular Page Builders', 'i-craft' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -549,7 +626,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide3_title',
         'label'    => __( 'Slide3 Title', 'i-craft' ),
         'section'  => 'slide3',
-		'default'  => of_get_option('itrans_slide3_title', 'Portfolio, Testimonial, Services...'),		
+		'default'  => esc_attr__( 'Portfolio, Testimonial, Services...', 'i-craft' ),	
         'priority' => 1,
     );
 	$controls[] = array(
@@ -557,7 +634,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide3_desc',
 		'label'       => __( 'Slide3 Description', 'i-craft' ),
 		'section'     => 'slide3',
-		'default'  => of_get_option('itrans_slide3_desc', 'Once you install and activate the plugin &rdquo; TemplatesNext Toolkit &rdquo; Use the [tx] button on your editor to create the columns, services, portfolios, testimonials and custom sliders.'),		
+		'default'  => esc_attr__( 'Use the [tx] button on your editor to create the columns, services, portfolios, testimonials and custom sliders.', 'i-craft' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -587,13 +664,13 @@ function icraft_custom_setting( $controls ) {
 	);							
 	
 	
-	// Slide2
+	// Slide4
     $controls[] = array(
         'type'     => 'text',
         'settings'  => 'itrans_slide4_title',
         'label'    => __( 'Slide4 Title', 'i-craft' ),
         'section'  => 'slide4',
-		'default'  => of_get_option('itrans_slide4_title', 'Customize Your pages'),		
+		'default'  => esc_attr__( 'Exclusive <span class="themecolor">WooCommerce</span> Features', 'i-craft' ),
         'priority' => 1,
     );
 	$controls[] = array(
@@ -601,7 +678,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide4_desc',
 		'label'       => __( 'Slide4 Description', 'i-craft' ),
 		'section'     => 'slide4',
-		'default'  => of_get_option('itrans_slide4_desc', 'Customize your pages with page options (meta). Use default theme slider or itrans slider or any 3rd party slider on any page'),		
+		'default'  => esc_attr__( 'Create Sections Using Pagebuilder Or TemplatesNext Shortcodes', 'i-craft' ),
 		'priority'    => 10,
 	);
     $controls[] = array(
@@ -912,6 +989,65 @@ function icraft_custom_setting( $controls ) {
 		'choices' => array('yes' => 'Yes','no' => 'No'),
 		'type' => 'radio',
         'section'  => 'rmsettings',			
+	);
+	
+	// i-design typography
+	$controls[] = array(
+		'type'        => 'typography',
+		'settings'    => 'body_font',
+		'label'       => __( 'Body Font Style', 'i-craft' ),
+		'description' => __( 'Content font style (Variant and Subsets are not used). Default font "Roboto" Default font "Open Sans", size "14"', 'i-craft' ),
+		'section'     => 'typography',
+		'default'     => array(
+			//'font-style'     => array( 'normal', 'bold', 'italic' ),
+			'font-family'    => 'Open Sans',
+			'font-size'      => '14',
+			'color'          => '#575757',			
+			'subsets'        => 'none',
+		),
+		'priority'    => 1,
+		'choices' => array(
+			'fonts' => array(
+				'google'   => array( 'popularity', 50 ),
+				'standard' => array(
+					'Georgia,Times,"Times New Roman",serif',
+					'Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'
+				),
+			),
+		),	
+	);
+	
+	$controls[] = array(
+		'type'        => 'typography',
+		'settings'    => 'title_font',
+		'label'       => __( 'Heading Font Style', 'i-craft' ),
+		'description' => __( 'Title font style (Variant and Subsets are not used). Default font "Roboto"', 'i-craft' ),
+		'section'     => 'typography',
+		'default'     => array(
+			//'font-style'     => array( 'normal', 'bold', 'italic' ),
+			'font-family'    => 'Roboto',
+			'subsets'        => 'none',
+		),
+		'priority'    => 1,
+		'choices' => array(
+			'fonts' => array(
+				'google'   => array( 'popularity', 50 ),
+				'standard' => array(
+					'Georgia,Times,"Times New Roman",serif',
+					'Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif'
+				),
+			),
+		),	
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'nav_upper',
+		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-craft' ),
+		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-craft' ),
+		'section'     => 'typography',
+		'default'  => 0,		
+		'priority'    => 2,
 	);	
 	/*
     $controls[] = array(
@@ -923,21 +1059,6 @@ function icraft_custom_setting( $controls ) {
 		'description' => __( 'Enter a 3rd party slider shortcode, ex. meta slider, smart slider 2, wow slider, etc.', 'i-craft' ),
         'priority' => 2,
     );
-	
-
-	
-	
-	// Off
-	$controls[] = array(
-		'type'        => 'toggle',
-		'settings'     => 'toggle_demo',
-		'label'       => __( 'This is the label', 'i-craft' ),
-		'description' => __( 'This is the control description', 'i-craft' ),
-		'section'     => 'blogpage',
-		'default'     => 1,
-		'priority'    => 10,
-	);	
-	
 	*/
 	// promos
 	$controls[] = array(

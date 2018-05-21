@@ -102,7 +102,7 @@ function icraft_setup() {
 	/*
 	 * additional Image sizes.
 	 */
-	add_image_size( 'icraft-slider-thumb', 1600, 580, true ); //(cropped)	
+	add_image_size( 'icraft-slider-thumb', 1600, 900, true ); //(cropped)	
 	add_image_size( 'icraft-single-thumb', 1200, 480, true ); //(cropped)
 	
 	
@@ -264,7 +264,7 @@ add_filter( 'body_class', 'icraft_layout_body_class' );
 function icraft_layout_body_class( $classes ) {
 	// add 'class-name' to the $classes array
 	
-	if ( get_theme_mod('wide_layout', of_get_option('boxed_type')) )
+	if ( get_theme_mod('wide_layout', 1) )
 	{
 		$classes[] = 'nx-wide';		
 	} else
@@ -609,7 +609,15 @@ function icraft_body_class( $classes ) {
 		
 	// Add PreLoader Class
 	if( get_theme_mod('prod_popout', 0) == 1 )
-		$classes[] = 'nx-prod-pop';			
+		$classes[] = 'nx-prod-pop';	
+		
+	// Boxed Navigation Icons
+	if( get_theme_mod('boxed-icons', 0) == 1 )
+		$classes[] = 'nx-nav-boxedicons';
+		
+	// Top Nav Menu Items to UPPERCASE
+	if( get_theme_mod('nav_upper', 0) == 1 )
+		$classes[] = 'nx-nav-uppercase';							
 
 	return $classes;
 }
