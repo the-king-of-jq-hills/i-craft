@@ -580,7 +580,13 @@ function icraft_get_link_url() {
 function icraft_body_class( $classes ) {
 	
 	global $post; 
-	$icraft_page_class = rwmb_meta('icraft_page_class');
+	
+	$icraft_page_class = $icraft_page_nopad = "";
+	
+	if ( function_exists( 'rwmb_meta' ) ) {
+		$icraft_page_class = rwmb_meta('icraft_page_class');
+		$icraft_page_nopad = rwmb_meta('icraft_page_nopad');
+	}
 		
 	if ( ! is_multi_author() )
 		$classes[] = 'single-author';
@@ -600,7 +606,7 @@ function icraft_body_class( $classes ) {
 	if( ! empty($icraft_page_class) )
 		$classes[] = esc_attr($icraft_page_class);
 	
-	if( rwmb_meta('icraft_page_nopad') == 1 )
+	if( $icraft_page_nopad == 1 )
 		$classes[] = 'tx-nopad';
 		
 	// Add PreLoader Class

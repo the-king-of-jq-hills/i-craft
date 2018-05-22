@@ -4027,10 +4027,8 @@ body .widget .star-rating {
 
 .ibanner .da-img {
 	overflow: hidden;
-}
-
-.ibanner .da-img img {
-	max-height: 100%;
+	background-position: top center;
+	background-size: cover;
 }
 
 .socialicons ul.social li a .socico:before {
@@ -6212,7 +6210,7 @@ ul.nav-menu > li.tx-heighlight:before {
 	left: 0px;
 	top: 50%;
     transform: translateY(-50%);
-	height: 40px;
+	height: 32px;
 	width: 100%;
 	background-color: #393939;
 	z-index: 1;
@@ -6331,4 +6329,25 @@ ul.nav-menu > li.tx-heighlight > a:hover {
 /* Menu Item UPPERCASE */
 .nx-nav-uppercase ul.nav-menu > li > a {
 	text-transform: uppercase;
+}
+
+.utilitybar {
+	border-bottom: none;
+}
+
+.utilitybar .socialicons ul.social li {
+	margin-top: 6px;
+	height: 24px;
+	width: 24px;
+}
+
+.utilitybar .socialicons .socico {
+	height: 24px;
+	width: 24px;
+	line-height: 24px;
+}
+
+.utilitybar .socialicons ul.social li a .socico::before {
+    font-size: 14px;
+    line-height: 24px;
 }

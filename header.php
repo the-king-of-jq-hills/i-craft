@@ -27,7 +27,12 @@ if ( $nav_dropdown == 1 )
 	$nav_dropdown_class = "colored-drop";
 }
 
-global $post; 
+global $post;
+
+$no_page_header = 0;
+if ( function_exists( 'rwmb_meta' ) ) { 
+	$no_page_header = rwmb_meta('icraft_no_page_header');
+}
 
 ?>
 
@@ -75,7 +80,7 @@ global $post;
                 <div class="topphone">
                     <i class="topbarico genericon genericon-phone"></i>
                     <?php if ( $top_phone ) : ?>
-                        <?php _e('Call us : ','i-craft'); ?> <?php echo $top_phone; ?>
+                        <?php echo $top_phone; ?>
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>
@@ -84,7 +89,7 @@ global $post;
                 <div class="topphone">
                     <i class="topbarico genericon genericon-mail"></i>
                     <?php if ( $top_email ) : ?>
-                        <?php _e('Mail us : ','i-craft'); ?> <?php echo sanitize_email($top_email); ?>
+                        <?php echo sanitize_email($top_email); ?>
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>                
@@ -92,6 +97,7 @@ global $post;
         </div>
         <?php endif; ?>
         
+        <?php if ( $no_page_header == 0 ) : ?>
         <div class="headerwrap">
             <header id="masthead" class="site-header" role="banner">
          		<div class="headerinnerwrap">
@@ -124,11 +130,12 @@ global $post;
 							
                         </nav><!-- #site-navigation -->
 
-                        <div class="header-iconwrap">
+                        
                         <?php
                         global $woocommerce;
                         if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && empty($hide_cart) ) {
                         ?>
+                        <div class="header-iconwrap">
                             <div class="header-icons woocart">
                                 <a href="<?php echo wc_get_cart_url() ?>" >
                                     <span class="show-sidr"><?php _e('Cart','i-craft'); ?></span>
@@ -136,11 +143,12 @@ global $post;
                                     <span class="cart-counts"><?php echo sprintf($woocommerce->cart->cart_contents_count); ?></span>
                                 </a>
                                 <?php echo icraft_top_cart(); ?>
-                             </div>
+                            </div>
+                        </div>
                         <?php	
                         }
                         ?>
-                        </div>
+                        
                                     
                         <div class="topsearch">
                             <?php get_search_form(); ?>
@@ -150,14 +158,19 @@ global $post;
                 </div>
             </header><!-- #masthead -->
         </div>
+        <?php endif; ?>
         
         <!-- #Banner -->
         <?php
 		
-		$hide_title = rwmb_meta('icraft_hidetitle');
-		$show_slider = rwmb_meta('icraft_show_slider');
-		$other_slider = rwmb_meta('icraft_other_slider');
-		$custom_title = rwmb_meta('icraft_customtitle');
+		$hide_title = $show_slider = $other_slider = $custom_title = $hide_breadcrumb = "";
+		if ( function_exists( 'rwmb_meta' ) ) {
+			$hide_title = rwmb_meta('icraft_hidetitle');
+			$show_slider = rwmb_meta('icraft_show_slider');
+			$other_slider = rwmb_meta('icraft_other_slider');
+			$custom_title = rwmb_meta('icraft_customtitle');
+			$hide_breadcrumb = rwmb_meta('icraft_hide_breadcrumb');			
+		}
 		
 		$hide_front_slider = get_theme_mod('slider_stat', of_get_option('hide_front_slider', ''));
 		$other_front_slider = htmlspecialchars_decode(get_theme_mod('other_front_slider', of_get_option('other_front_slider')));
@@ -253,9 +266,6 @@ global $post;
 					
             	?>
 				<?php 
-				
-					$hide_breadcrumb = rwmb_meta('icraft_hide_breadcrumb');
-					
                     if(function_exists('bcn_display') && !$hide_breadcrumb )
                     {
 				?>
