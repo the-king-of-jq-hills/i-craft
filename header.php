@@ -19,6 +19,7 @@ $nav_dropdown_class = '';
 $top_phone = esc_attr(get_theme_mod('top_phone', of_get_option('top_bar_phone', '1-000-123-4567')));
 $top_email = esc_attr(get_theme_mod('top_email', of_get_option('top_bar_email', 'email@i-create.com')));
 $icraft_logo = get_theme_mod( 'logo', of_get_option('itrans_logo_image', get_template_directory_uri() . '/images/logo.png') );
+$icraft_logo_trans = get_theme_mod( 'logo_trans', '' );
 
 $nav_dropdown = get_theme_mod('nav_dropdown', 0);
 
@@ -101,9 +102,19 @@ if ( function_exists( 'rwmb_meta' ) ) {
         <div class="headerwrap">
             <header id="masthead" class="site-header" role="banner">
          		<div class="headerinnerwrap">
-					<?php if ($icraft_logo) : ?>
+
+					<?php if ( $icraft_logo && $icraft_logo_trans ) : ?>
                         <a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-                            <span><img src="<?php echo $icraft_logo; ?>" alt="<?php bloginfo( 'name' ); ?>" /></span>
+                            <span><img src="<?php echo $icraft_logo; ?>" alt="<?php bloginfo( 'name' ); ?>" class="icraft-logo normal-logo" /></span>
+                            <span><img src="<?php echo $icraft_logo_trans; ?>" alt="<?php bloginfo( 'name' ); ?>" class="icraft-logo trans-logo" /></span>
+                        </a>
+					<?php elseif ($icraft_logo) : ?>
+                        <a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                            <span><img src="<?php echo $icraft_logo; ?>" alt="<?php bloginfo( 'name' ); ?>" class="icraft-logo" /></span>
+                        </a>
+					<?php elseif ($icraft_logo_trans) : ?>
+                        <a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+                            <span><img src="<?php echo $icraft_logo_trans; ?>" alt="<?php bloginfo( 'name' ); ?>" class="icraft-logo" /></span>
                         </a>
                     <?php else : ?>
                         <span id="site-titlendesc">

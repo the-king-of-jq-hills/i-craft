@@ -177,7 +177,7 @@
 			
 			echo '.nx-nav-boxedicons .header-icons.woocart .cartdrop.widget_shopping_cart.nx-animate {border-bottom-color: '.$primary_color.'}';
 			
-			echo '.nx-nav-boxedicons .site-header .header-icons > a > span.genericon:before, ul.nav-menu > li.tx-heighlight:before {background-color: '.$primary_color.'}';
+			echo '.nx-nav-boxedicons .site-header .header-icons > a > span.genericon:before, ul.nav-menu > li.tx-heighlight:before, .woocommerce .nxowoo-box:hover a.button.add_to_cart_button {background-color: '.$primary_color.'}';
 			
 			
 			if ($custom_css) {

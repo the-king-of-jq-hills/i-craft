@@ -51,7 +51,7 @@ function welcome_screen_content() {
 	/* Urls */
 	$reviewURL = esc_url('//wordpress.org/support/theme/i-craft/reviews/?filter=5');
 	$goPremiumURL = esc_url('//templatesnext.org/ispirit/landing/');
-	$videoguide = esc_url('//www.templatesnext.org/icreate/video-tutorials/');
+	$videoguide = esc_url('//www.templatesnext.org/i-craft-documentions/');
 	$supportforum = esc_url('//templatesnext.org/ispirit/landing/forums/'); 
 	$toolkit = esc_url('//www.templatesnext.org/icreate/templatesnext-toolkit/');
 	$fb_page = esc_url('//www.facebook.com/templatesnext/');
@@ -102,7 +102,7 @@ function welcome_screen_content() {
                 	<div class="one-four-col">
                     	<a href="<?php echo $videoguide; ?>" target="_blank">
                             <div class="nx-dash"><span class="dashicons dashicons-video-alt2"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'Video Guide', 'i-craft' ); ?></h3>
+                            <h3 class="tx-admin-link"><?php _e( 'Documentation', 'i-craft' ); ?></h3>
                         </a>
                     </div>
                 	<div class="one-four-col">

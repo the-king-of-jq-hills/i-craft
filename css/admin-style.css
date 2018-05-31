@@ -271,3 +271,9 @@ li.customize-control {
 #accordion-section-woocomm > h3.accordion-section-title:after {
 	color: #FFF!important;	
 }
+
+#customize-control-logo_trans {
+	background-image: url("../images/logo-bg.png");
+	background-position: center;
+	background-size: cover;
+}

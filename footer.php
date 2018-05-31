@@ -7,15 +7,22 @@
  * @package i-craft
  * @since i-craft 1.0
  */
+ 
+ $no_footer = "";
+if ( function_exists( 'rwmb_meta' ) ) {
+	$no_footer = rwmb_meta('icraft_no_footer');
+} 
 ?>
 
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
+        <?php if( $no_footer != 1 ) : ?>
         	<div class="footer-bg clearfix">
                 <div class="widget-wrap">
                     <?php get_sidebar( 'main' ); ?>
                 </div>
 			</div>
+        <?php endif; ?>    
 			<div class="site-info">
                 <div class="copyright">
                 	<?php esc_attr_e( 'Copyright &copy;', 'i-craft' ); ?>  <?php bloginfo( 'name' ); ?>

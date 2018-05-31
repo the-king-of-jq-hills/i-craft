@@ -248,10 +248,20 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'logo',
 		'label'       => __( 'Site header logo', 'i-craft' ),
 		'description' => __( 'Width 280px, height 72px max. Upload logo for header', 'i-craft' ),
-        'section'  => 'basic',
+        'section'  => 'title_tagline',
         'default'  => of_get_option('itrans_logo_image', get_template_directory_uri() . '/images/logo.png'),		
 		'priority'    => 1,
 	);	
+	
+	$controls[] = array(
+		'type'        => 'upload',
+		'settings'     => 'logo_trans',
+		'label'       => __( 'Transparent Logo', 'i-craft' ),
+		'description' => __( 'Optional transparent logo for transparent header', 'i-craft' ),
+        'section'  => 'title_tagline',
+        'default'  => '',		
+		'priority'    => 2,
+	);		
 	
 	$controls[] = array(
 		'type'        => 'color',
@@ -509,7 +519,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'    => 'slider_height',
 		'label'       => __( 'Slider Height (in %)', 'i-craft' ),
 		'section'     => 'slidersettings',
-		'default'     => 100,
+		'default'     => 72,
 		'choices'     => array(
 			'min'  => '0',
 			'max'  => '100',
@@ -523,7 +533,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Reduction In px', 'i-craft' ),
 		'section'     => 'slidersettings',
 		'description' => __( 'Amount of pixels to be reduced from % of slider height', 'i-craft' ),		
-		'default'     => 260,
+		'default'     => 60,
 		'choices'     => array(
 			'min'  => '0',
 			'max'  => '320',

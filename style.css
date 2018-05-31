@@ -4,7 +4,7 @@ Theme URI: http://www.templatesnext.org/i-craft/
 Author: templatesnext team
 Author URI: http://templatesnext.org/
 Description: The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
-Version: 2.0.8
+Version: 3.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: One-Column, Two-Columns, Right-Sidebar, Custom-Colors, Custom-Menu,  Featured-Images, Flexible-Header, Full-Width-Template, Microformats, Post-Formats, Sticky-Post, Theme-Options, Threaded-Comments, Translation-Ready
@@ -6055,7 +6055,6 @@ body .widget .star-rating {
 	margin-bottom: 4px;	
 }
 
-
 .woocommerce ul.products li.product .onsale {
     right: 0px;
     left: auto;
@@ -6070,6 +6069,7 @@ body .widget .star-rating {
     margin: 0px !important;
 	font-weight: 600;
 	text-transform: uppercase;
+	z-index: 2;
 }
 
 .woocommerce ul.products li.product a .nx-prod-vinette {
@@ -6350,4 +6350,78 @@ ul.nav-menu > li.tx-heighlight > a:hover {
 .utilitybar .socialicons ul.social li a .socico::before {
     font-size: 14px;
     line-height: 24px;
+}
+
+/* Fullscreen transparent Header */
+.site-header .trans-logo {
+	display: none;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .site-title,
+.nx-fullscreen .site-header:not(.fixeddiv) .site-description {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .trans-logo {
+	display: inline-block;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .normal-logo {
+	display: none;
+}
+
+
+.nx-fullscreen .site-header:not(.fixeddiv) ul.nav-container > li > a,
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container > ul > li > a {
+	color: #FFFFFF;
+}
+/*
+.nx-fullscreen .utilitybar {
+	display: none;
+}
+*/
+.nx-fullscreen .site .headerwrap {
+	background:  rgba(0,0,0,0.1);
+	background: transparent;
+	position: relative;
+	height: 0px;
+	min-height: 0px;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	background-color: rgba(0,0,0,0.1);
+	min-height: 88px;
+	border-bottom: 1px solid rgba(0,0,0,0.0);
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container .nav-menu > li > a,
+.nx-fullscreen .site-header:not(.fixeddiv) .nav-container .nav-menu > li > a:visited {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .search-field,
+.nx-fullscreen .site-header:not(.fixeddiv) .search-field:focus {
+	color: #FFF;
+}
+
+.nx-fullscreen .site-header:not(.fixeddiv) .searchico:before {
+	color: #FFF;
+}
+
+.elementor-page .hentry, 
+.tx-nopad .hentry {
+    padding: 0px;
+}
+
+.entry-content a.elementor-button,
+.entry-content a.elementor-button:visited {
+	color: #ffffff;
+}
+
+.tx-noubar .utilitybar {
+	display: none;
 }

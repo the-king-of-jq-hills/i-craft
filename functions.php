@@ -206,7 +206,7 @@ function icraft_scripts_styles() {
 	wp_enqueue_script( 'infinitescroll', get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array( 'jquery' ), '2017-01-16', true );	
 	
 	// Loads JavaScript file with functionality specific to i-craft.
-	wp_enqueue_script( 'icraft-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2017-12-01', true );
+	wp_enqueue_script( 'icraft-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2018-05-22', true );
 	
 	
 	//$blog_layout = of_get_option('itrans_blog_layout');
@@ -242,7 +242,7 @@ function icraft_scripts_styles() {
 	}
 
 	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'icraft-ie', get_template_directory_uri() . '/css/ie.css', array( 'icraft-style' ), '2013-07-18' );
+	wp_enqueue_style( 'icraft-ie', get_template_directory_uri() . '/css/ie.css', array( 'icraft-style' ), '2018-05-22' );
 	wp_style_add_data( 'icraft-ie', 'conditional', 'lt IE 9' );
 	
 	
@@ -581,11 +581,13 @@ function icraft_body_class( $classes ) {
 	
 	global $post; 
 	
-	$icraft_page_class = $icraft_page_nopad = "";
+	$icraft_page_class = $icraft_page_nopad = $icraft_trans_header = $icraft_no_ubar = "";
 	
 	if ( function_exists( 'rwmb_meta' ) ) {
 		$icraft_page_class = rwmb_meta('icraft_page_class');
 		$icraft_page_nopad = rwmb_meta('icraft_page_nopad');
+		$icraft_no_ubar = rwmb_meta('icraft_no_ubar');		
+		$icraft_trans_header = rwmb_meta('icraft_trans_header');		
 	}
 		
 	if ( ! is_multi_author() )
@@ -608,6 +610,12 @@ function icraft_body_class( $classes ) {
 	
 	if( $icraft_page_nopad == 1 )
 		$classes[] = 'tx-nopad';
+
+	if( $icraft_no_ubar == 1 )
+		$classes[] = 'tx-noubar';		
+		
+	if( $icraft_trans_header == 1 )
+		$classes[] = 'nx-fullscreen';		
 		
 	// Add PreLoader Class
 	if( get_theme_mod('pre_loader', 0) == 1 )
@@ -883,27 +891,27 @@ function icraft_register_required_plugins() {
 
 }
 
-/*
-add_action('admin_notices', 'icraft_admin_notice_04');
-function icraft_admin_notice_04() {
+
+add_action('admin_notices', 'icraft_admin_notice_005');
+function icraft_admin_notice_005() {
     global $current_user ;
         $user_id = $current_user->ID;
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-craft/reviews/?filter=5');
-    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_04') ) {
+    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_005') ) {
         echo '<div class="updated"><p><div style="line-height: 20px;">'; 
-		printf(__('If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
-		printf(__('<br>We have added a new feature called "infinite scroll" for product listing pages and search result pages. Turn it On/Off from Customizer - WooCommerce', 'i-craft' ), '?icraft_notice_ignore_04=0');
-		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss this notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_04=0');
+		echo esc_html__('i-craft 2.0.8 is a major update, Please clean your browser cashe and server cache (if using any cashing plugin or minifification plugin).', 'i-craft');
+		printf(__('<br>If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
+		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss this notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_005=0');
         echo "</div></p></div>";
     }
 }
 
-add_action('admin_init', 'icraft_notice_ignore_04');
-function icraft_notice_ignore_04() {
+add_action('admin_init', 'icraft_notice_ignore_005');
+function icraft_notice_ignore_005() {
     global $current_user;
 	$user_id = $current_user->ID;
-	if ( isset($_GET['icraft_notice_ignore_04']) && '0' == $_GET['icraft_notice_ignore_04'] ) {
-    	add_user_meta($user_id, 'icraft_ignore_notice_04', 'true', true);
+	if ( isset($_GET['icraft_notice_ignore_005']) && '0' == $_GET['icraft_notice_ignore_005'] ) {
+    	add_user_meta($user_id, 'icraft_ignore_notice_005', 'true', true);
     }
 }
-*/
+/**/

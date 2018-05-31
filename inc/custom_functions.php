@@ -94,8 +94,8 @@ function icraft_ibanner_slider () {
 			$slide_linkurl = esc_url(get_theme_mod('itrans_slide'.$counter.'_linkurl', $slides_preset[$slideno]['itrans_slide_linkurl'] ));
 			$slide_image = esc_url(get_theme_mod('itrans_slide'.$counter.'_image', $slides_preset[$slideno]['itrans_slide_image'] ));
 			
-			$slider_height = esc_attr(get_theme_mod('slider_height', 100 ));
-			$slider_reduct = esc_attr(get_theme_mod('slider_reduction', 260 ));						
+			$slider_height = esc_attr(get_theme_mod('slider_height', 72 ));
+			$slider_reduct = esc_attr(get_theme_mod('slider_reduction', 60 ));						
 			
 			$slider_image_id = icraft_get_attachment_id_from_url( $slide_image );			
 			$slider_resized_image = wp_get_attachment_image( $slider_image_id, "icraft-slider-thumb" );			
