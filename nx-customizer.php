@@ -132,7 +132,31 @@ function icraft_add_panels_and_sections( $wp_customize ) {
         'title'    => __('Layout Options', 'i-craft'),
         'description' => '',
         'priority' => 130,
+    ));
+	
+	
+    
+	
+	$wp_customize->add_section('nxtopbar', array(
+        'title'    => __('Topbar Options', 'i-craft'),
+        'description' => '',
+        'priority' => 130,
+    ));
+	
+    $wp_customize->add_section('nxheader', array(
+        'title'    => __('Header Options', 'i-craft'),
+        'description' => '',
+        'priority' => 130,
     ));	
+	
+    $wp_customize->add_section('nxfooter', array(
+        'title'    => __('Footer Options', 'i-craft'),
+        'description' => '',
+        'priority' => 130,
+    ));	
+	
+	
+					
 	
     $wp_customize->add_section('social', array(
         'title'    => __('Social Links', 'i-craft'),
@@ -227,7 +251,7 @@ function icraft_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'top_phone',
         'label'    => __( 'Phone Number', 'i-craft' ),
-        'section'  => 'basic',
+        'section'  => 'nxtopbar',
         'default'  => of_get_option('top_bar_phone', '1-000-123-4567'),		
         'priority' => 1,
 		'description' => __( 'Phone number that appears on top bar.', 'i-craft' ),
@@ -237,7 +261,7 @@ function icraft_custom_setting( $controls ) {
         'type'     => 'text',
         'settings'  => 'top_email',
         'label'    => __( 'Email Address', 'i-craft' ),
-        'section'  => 'basic',
+        'section'  => 'nxtopbar',
         'default'  => sanitize_email(of_get_option('top_bar_email', 'email@i-create.com')),
         'priority' => 1,
 		'description' => __( 'Email Id that appears on top bar.', 'i-craft' ),		
@@ -278,7 +302,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'topbar_bg',
 		'label'       => __( 'Primary Colored Topbar BG', 'i-craft' ),
 		'description' => __( 'Turn off primary colored topbar background', 'i-craft' ),
-		'section'     => 'layout',
+		'section'     => 'nxtopbar',
 		'default'     => 1,		
 		'priority'    => 3,
 	);
@@ -288,7 +312,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'pre_loader',
 		'label'       => __( 'Turn ON Page Preloader', 'i-craft' ),
 		'description' => __( 'Turn ON/OFF loding animation before page load', 'i-craft' ),
-		'section'     => 'basic',
+		'section'     => 'layout',
 		'default'     => 0,		
 		'priority'    => 3,
 	);
@@ -298,10 +322,183 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'nav_dropdown',
 		'label'       => __( 'Primary Colored Dropdown Menu', 'i-craft' ),
 		'description' => __( 'Turn off primary colored dropdown Menu', 'i-craft' ),
-		'section'     => 'layout',
-		'default'     => 0,		
+		'section'     => 'nxheader',
+		'default'     => 1,		
 		'priority'    => 3,
+	);
+	
+	/* NX Header controls */
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'show_search',
+		'label'       => __( 'Show Search Site Search', 'i-max' ),
+		'description' => __( 'Turn the search ON/OFF on main navigation', 'i-max' ),
+		'section'     => 'nxheader',
+		'default'     => 1,
+		'priority'    => 4,
+	);	
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'boxed-icons',
+		'label'       => __( 'Boxed Menu Icons', 'i-craft' ),
+		'description' => __( 'The crat and search icons will appear as boxed', 'i-craft' ),
+		'section'     => 'nxheader',
+		'default'     => 0,			
+		'priority'    => 4,
+	);
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'nav_upper',
+		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-craft' ),
+		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-craft' ),
+		'section'     => 'nxheader',
+		'default'  => 0,		
+		'priority'    => 5,
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'nav_font_size',
+		'label'       => __( 'Top Navigation Font size', 'i-craft' ),
+		'section'     => 'nxheader',
+		'priority'    => 6,
+		'default'     => 14,
+		'choices'     => array(
+			'min'  => '12',
+			'max'  => '18',
+			'step' => '1',
+		),		
+		'output' => array(
+			array(
+				'element'  => '.nav-container li a',
+				'property' => 'font-size',
+				'units'	   => 'px',
+			),
+		),
+		
+	);	
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'     => 'nav_font_weight',
+		'label'       => __( 'Top Navigation Font Weight', 'i-craft' ),
+		'section'     => 'nxheader',
+		'priority'    => 6,
+		'default'     => 400,
+		'choices'     => array(
+			'min'  => '200',
+			'max'  => '800',
+			'step' => '100',
+		),		
+		'output' => array(
+			array(
+				'element'  => '.nav-container li a',
+				'property' => 'font-weight',
+			),
+		),
+		
+	);
+	
+	/* NXFooter controls */	
+    $controls[] = array(
+        'type'     => 'text',
+        'settings'  => 'copyright_text',
+        'label'    => __( 'Copyright Text', 'i-craft' ),
+		'description' => __( 'Bottom footer copyright text', 'i-craft' ),		
+        'section'  => 'nxfooter',
+		'default'  => __( 'Copyright &copy; ', '').get_bloginfo( 'name' ),		
+        'priority' => 1,
+    );		
+	
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_bg',
+		'label'       => __( 'Footer Widget Area Background Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#383838',
+		'priority'    => 2,
+		'output' => array(
+			array(
+				'element'  => '.footer-bg, .site-footer .sidebar-container',
+				'property' => 'background-color',
+			),
+		),		
+	);
+	/**/
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_title_color',
+		'label'       => __( 'Footer Widgets Title Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#FFFFFF',
+		'priority'    => 3,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget .widget-title',
+				'property' => 'color',
+			),
+		),		
 	);		
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_text_color',
+		'label'       => __( 'Footer Widgets Text Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#bbbbbb',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget, .site-footer .widget-area .widget li',
+				'property' => 'color',
+			),
+		),		
+	);
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'footer_link_color',
+		'label'       => __( 'Footer Widgets Link Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#dddddd',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .widget-area .widget a',
+				'property' => 'color',
+			),
+		),		
+	);
+	
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'bottom_footer_bg',
+		'label'       => __( 'Bottom Footer background Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#272727',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer',
+				'property' => 'background-color',
+			),
+		),		
+	);
+	$controls[] = array(
+		'type'        => 'color',
+		'settings'     => 'bottom_footer_text_color',
+		'label'       => __( 'Bottom Footer Text Color', 'i-craft' ),
+		'section'     => 'nxfooter',
+		'default'     => '#777777',
+		'priority'    => 4,
+		'output' => array(
+			array(
+				'element'  => '.site-footer .site-info, .site-footer .site-info a',
+				'property' => 'color',
+			),
+		),		
+	);		
+	
 		
 	$controls[] = array(
 		'type'        => 'radio-image',
@@ -336,16 +533,7 @@ function icraft_custom_setting( $controls ) {
 		'default'     => 1,			
 		'priority'    => 4,
 	);
-	
-	$controls[] = array(
-		'type'        => 'switch',
-		'settings'     => 'boxed-icons',
-		'label'       => __( 'Boxed Menu Icons', 'i-craft' ),
-		'description' => __( 'The crat and search icons will appear as boxed', 'i-craft' ),
-		'section'     => 'layout',
-		'default'     => 0,			
-		'priority'    => 4,
-	);	
+
 	
 	$controls[] = array(
 		'type'        => 'switch',
@@ -389,7 +577,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_facebook',
         'label'    => __( 'Facebook', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),		
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_facebook', '#'),		
         'priority' => 1,
     );	
@@ -399,7 +587,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_twitter',
         'label'    => __( 'Twitter', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'natopbar',
 		'default'  => of_get_option('itrans_social_twitter', '#'),	
         'priority' => 1,
     );
@@ -409,7 +597,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_flickr',
         'label'    => __( 'Flickr', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_flickr', '#'),	
         'priority' => 1,
     );	
@@ -419,7 +607,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_feed',
         'label'    => __( 'RSS', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_feed', '#'),	
         'priority' => 1,
     );	
@@ -429,7 +617,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_instagram',
         'label'    => __( 'Instagram', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_instagram', '#'),	
         'priority' => 1,
     );	
@@ -439,7 +627,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_googleplus',
         'label'    => __( 'Google Plus', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_googleplus', '#'),	
         'priority' => 1,
     );	
@@ -449,7 +637,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_youtube',
         'label'    => __( 'YouTube', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'social',
+        'section'  => 'nxtopbar',
 		'default'  => of_get_option('itrans_social_youtube', '#'),	
         'priority' => 1,
     );	
@@ -1049,16 +1237,7 @@ function icraft_custom_setting( $controls ) {
 			),
 		),	
 	);
-	
-	$controls[] = array(
-		'type'        => 'switch',
-		'settings'     => 'nav_upper',
-		'label'       => __( 'Turn All Top Menu Item UPPERCASE', 'i-craft' ),
-		'description' => __( 'Turns all top navigation manu item to UPPERCASE', 'i-craft' ),
-		'section'     => 'typography',
-		'default'  => 0,		
-		'priority'    => 2,
-	);	
+
 	/*
     $controls[] = array(
         'type'     => 'text',

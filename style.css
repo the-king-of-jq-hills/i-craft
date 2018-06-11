@@ -1,14 +1,14 @@
 /*
-Theme Name: i-craft
-Theme URI: http://www.templatesnext.org/i-craft/
-Author: templatesnext team
-Author URI: http://templatesnext.org/
-Description: The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
-Version: 3.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: One-Column, Two-Columns, Right-Sidebar, Custom-Colors, Custom-Menu,  Featured-Images, Flexible-Header, Full-Width-Template, Microformats, Post-Formats, Sticky-Post, Theme-Options, Threaded-Comments, Translation-Ready
-Text Domain: i-craft
+Theme Name: 		i-craft
+Theme URI: 			http://www.templatesnext.org/i-craft/
+Author: 			templatesnext team
+Author URI: 		http://templatesnext.org/
+Description: 		The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
+Version: 			3.0.2
+License: 			GNU General Public License v2 or later
+License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
+Tags: 				one-column, news, blog, two-columns, rtl-language-support, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
+Text Domain: 		i-craft
 
 icraft WordPress Theme, Copyright 2014 TemplatesNext.org
 icraft is distributed under the terms of the GNU GPL
@@ -4401,6 +4401,15 @@ body .widget .star-rating {
 	font-size: 24px;
 }
 
+.navbar .widget_shopping_cart_content > p.buttons > a.button.wc-forward,
+.navbar .widget_shopping_cart_content > p.buttons > a.button.checkout {
+	margin-right: 8px;
+	padding: 6px 12px;
+	color: #FFFFFF;
+	background-color: #333;
+	border: 1px solid #333;
+}
+
 .elementor-page .site-main,
 .tx-nopad .site-main {
 	padding-top: 0px;
@@ -6412,16 +6421,63 @@ ul.nav-menu > li.tx-heighlight > a:hover {
 	color: #FFF;
 }
 
-.elementor-page .hentry, 
-.tx-nopad .hentry {
-    padding: 0px;
+.nx-fullscreen .site-header:not(.fixeddiv) .genericon::before {
+	color: #FFFFFF;
 }
 
+/* Elementor Templates */
+.tx-nopad .hentry,
+.nx-full-width .hentry,
+.elementor-page .hentry {
+    padding: 0px;
+}
+.tx-nopad .entry-header,
+.nx-full-width .entry-header,
+.elementor-page .entry-header {
+	margin-bottom: 0px;
+}
+.tx-nopad .site-main,
+.nx-full-width .site-main,
+.elementor-page .site-main {
+    padding-top: 0px;
+	padding-bottom: 0px;
+}
+.tx-nopad .entry-meta,
+.nx-full-width .entry-meta,
+.elementor-page .entry-meta {
+	margin: 0px;
+}
 .entry-content a.elementor-button,
 .entry-content a.elementor-button:visited {
 	color: #ffffff;
 }
 
+/* full width template */
+.nx-full-width .site .site-main {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	max-width: 100%;
+}
+
+.nx-full-width .site .site-main .content-area {
+	margin: 0px;
+	padding: 0px;
+}
+
+.nx-full-width .site .site-main .content-area .entry-header {
+	display: none;
+}
+
 .tx-noubar .utilitybar {
 	display: none;
 }
+/**/
+.site-footer .widget-area .widget .widget-title {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.site-footer .widget-area .widget ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+

@@ -109,7 +109,7 @@ $tx_faqs = array (
             'answeer' => __( 'Step 1. Go to menu "Appearance" > "Customize", <br />Step 2. Open section "WooCommerce", <br />Step 3. Turn on the "Turn On Normal Search" toggle.', 'i-craft' ),
     ),			
 	array(
-            'question' => __( 'I activated my new theme and it doesn’t look like the demo. What’s up with this?', 'i-craft' ),
+            'question' => __( 'I activated my new theme and it does not look like the demo. What is up with this?', 'i-craft' ),
             'answeer' => __( 'By default the Wordpress comes with only one sample post and a page. Once you activate a theme, it requres little bit of setup, like logo, color, social links, etc. 
 				<br />We have added inbuilt options to import the demo contents and setup in one click to help you achieve a starting point for your website.', 'i-craft' ),
     ),

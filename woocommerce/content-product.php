@@ -11,14 +11,11 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.0.0
+ * @version 3.4.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 global $product;
 
@@ -27,9 +24,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php post_class(); ?>>
+<li <?php if (function_exists('wc_product_class')) { wc_product_class(); } else { post_class(); } ?>>
 	<span class="nxowoo-box">
 	<?php
+	//post_class();
 	/**
 	 * woocommerce_before_shop_loop_item hook.
 	 *

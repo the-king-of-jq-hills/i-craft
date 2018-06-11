@@ -15,7 +15,10 @@ get_header(); ?>
 	<?php 
 		global $post;
 		
-		$sub_title = esc_attr(rwmb_meta('icraft_portfolio_subtitle'));
+		$sub_title = '';
+		if ( function_exists( 'rwmb_meta' ) ) {
+			$sub_title = esc_attr(rwmb_meta('icraft_portfolio_subtitle'));
+		}
 	?>
     
             

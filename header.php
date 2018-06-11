@@ -21,7 +21,7 @@ $top_email = esc_attr(get_theme_mod('top_email', of_get_option('top_bar_email', 
 $icraft_logo = get_theme_mod( 'logo', of_get_option('itrans_logo_image', get_template_directory_uri() . '/images/logo.png') );
 $icraft_logo_trans = get_theme_mod( 'logo_trans', '' );
 
-$nav_dropdown = get_theme_mod('nav_dropdown', 0);
+$nav_dropdown = get_theme_mod('nav_dropdown', 1);
 
 if ( $nav_dropdown == 1 )
 {
@@ -160,10 +160,11 @@ if ( function_exists( 'rwmb_meta' ) ) {
                         }
                         ?>
                         
-                                    
+                        <?php if ( get_theme_mod('show_search', 1) == 1 ) : ?>            
                         <div class="topsearch">
                             <?php get_search_form(); ?>
                         </div>
+                        <?php endif; ?>	
                     </div><!-- #navbar -->
                     <div class="clear"></div>
                 </div>
@@ -219,7 +220,7 @@ if ( function_exists( 'rwmb_meta' ) ) {
             
         <?php elseif(!$hide_title) : ?>
         
-        <div class="iheader" style="">
+        <div class="iheader nx-titlebar" style="">
         	<div class="titlebar">
             	
                 <?php
@@ -241,8 +242,7 @@ if ( function_exists( 'rwmb_meta' ) ) {
 						the_title();
 						echo '</h1>';
 						
-					} elseif( is_archive() )
-					{
+					} elseif( is_archive() ) {
 						echo '<h1 class="entry-title">';
 							if ( is_day() ) :
 								printf( __( 'Daily Archives: %s', 'i-craft' ), get_the_date() );
@@ -263,31 +263,25 @@ if ( function_exists( 'rwmb_meta' ) ) {
 						echo '</h1>';
 					} else
 					{
-						if ( !empty($custom_title) )
-						{
+						if ( !empty($custom_title) ) {
 							echo '<h1 class="entry-title">'.esc_attr($custom_title).'</h1>';
-						}
-						else
-						{
+						} else {
 							echo '<h1 class="entry-title">';
 							the_title();
 							echo '</h1>';
 						}						
 					}
-					
-            	?>
-				<?php 
-                    if(function_exists('bcn_display') && !$hide_breadcrumb )
-                    {
-				?>
-                	<div class="nx-breadcrumb">
-                <?php
-                        bcn_display();
-				?>
-                	</div>
-                <?php		
-                    } 
-                ?>               
+
+                    if(function_exists('bctx_display') && !$hide_breadcrumb ) {
+                		echo '<div class="nx-breadcrumb">';
+							bctx_display(); 
+						echo '</div>';
+                    } elseif(function_exists('bcn_display') && !$hide_breadcrumb ) {
+                		echo '<div class="nx-breadcrumb">';
+							bcn_display();
+						echo '</div>';
+                    }
+                ?> 
             	
             </div>
         </div>

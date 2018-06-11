@@ -7,8 +7,9 @@
  * @package i-craft
  * @since i-craft 1.0
  */
- 
- $no_footer = "";
+
+$default_copyright = 'Copyright &copy; '.get_bloginfo( 'name' ) ;
+$no_footer = "";
 if ( function_exists( 'rwmb_meta' ) ) {
 	$no_footer = rwmb_meta('icraft_no_footer');
 } 
@@ -25,7 +26,8 @@ if ( function_exists( 'rwmb_meta' ) ) {
         <?php endif; ?>    
 			<div class="site-info">
                 <div class="copyright">
-                	<?php esc_attr_e( 'Copyright &copy;', 'i-craft' ); ?>  <?php bloginfo( 'name' ); ?>
+                	<?php //esc_attr_e( 'Copyright &copy;', 'i-craft' ); ?>  <?php //bloginfo( 'name' ); ?>
+                    <?php esc_attr_e(get_theme_mod('copyright_text', $default_copyright )); ?>
                 </div>            
             	<div class="credit-info">
 					<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'i-craft' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'i-craft' ); ?>">

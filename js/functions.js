@@ -245,7 +245,6 @@ jQuery(document).ready(function($) {
 						$('.da-img').css('background-position', 'center center');
 						$('.owl-wrapper-outer').css('max-height', slideheight+'px');
 					}		
-					//console.log('center'+yPos+'px, New Value : '+newvalue+'px, ' + 'SlideTop : ' +slidetop+'px, ' + 'Scrolltop : ' +$(this).scrollTop()+'px');
 				});
 			}
 		}
@@ -286,32 +285,13 @@ jQuery(document).ready(function($) {
 		$( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
 	}
 	
-	function destryandload ()
+	// Title height adjustment for transparent header
+	if ( $('.nx-titlebar').length > 0 && $('.nx-fullscreen').length > 0 )
 	{
-		/*
-		$( '.woo-border-box' ).each(function() {
-			if ( $( this ).children( 'a:first-child' ).children('img').length > 1 && !$( this ).hasClass( 'nx-flipit' ) )
-			{
-				$( this ).addClass( 'nx-flipit' );
-			}		
-		});		
+		$('.iheader').css( "height", 180);
+		$('.titlebar').css( "paddingTop", 88);
 		
-		var $container2 = $('.loop-list .woo-isotope');
-		var $container2 = $('.loop-list .woo-isotope').isotope('destroy');
-		
-		$('.loop-list .woo-isotope').imagesLoaded()
-		.done( function( instance ) {
-		})
-		.fail( function() {
-			var $container2 = $('.loop-list .woo-isotope').isotope({
-				itemSelector: '.product',
-				layoutMode: 'masonry'
-			});			
-  		});
-		*/		
-	}	
-	
-		
+	}		
 		
 })(jQuery);
 

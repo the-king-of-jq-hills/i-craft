@@ -230,7 +230,7 @@ function icraft_register_meta_boxes( $meta_boxes )
 
 			// Hide page header
 			array(
-				'name' => __( 'Hide Top Utilitybar', 'i-craft' ),
+				'name' => __( 'Hide Topbar', 'i-craft' ),
 				'id'   => "{$prefix}no_ubar",
 				'type' => 'checkbox',
 				// Value can be 0 or 1
@@ -254,7 +254,30 @@ function icraft_register_meta_boxes( $meta_boxes )
 				'type'  => 'color',
 				'std'   => '',
 				'desc' => __('Choose a custom primary color for this page', 'i-craft'),
-			),				
+			),
+			
+			// Custom page primary color			
+			array(
+				'name'  => __( 'Topbar Background Color', 'i-craft' ),
+				'id'    => "{$prefix}topbar_bg_color",
+				'type'  => 'color',
+				'std'   => '',
+				'desc' => __('Top bar with phone, email and social link background color', 'i-craft'),
+			),
+			/* Requires Meta Box Update 
+			array(
+				'name'  => __( 'Custom Page Logo Normal', 'i-craft' ),
+				'id'    => "{$prefix}page_logo_normal",
+				'type'  => 'single_image',
+			),
+			// additional page class			
+			array(
+				'name'  => __( 'Custom Page Logo Reverse', 'i-craft' ),
+				'id'    => "{$prefix}page_logo_trans",
+				'type'  => 'single_image',
+			),
+			*/
+									
 			// additional page class			
 			array(
 				'name'  => __( 'Additional Page Class', 'i-craft' ),

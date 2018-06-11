@@ -631,7 +631,17 @@ function icraft_body_class( $classes ) {
 		
 	// Top Nav Menu Items to UPPERCASE
 	if( get_theme_mod('nav_upper', 0) == 1 )
-		$classes[] = 'nx-nav-uppercase';							
+		$classes[] = 'nx-nav-uppercase';
+		
+	if ( is_page_template( 'page_full-width.php' ) ) {
+		$classes[] = 'nx-full-width';
+	}
+	
+	if ( get_theme_mod('show_search', 1) == 1 )	{
+		$classes[] = 'nx-show-search';
+	} else 	{
+		$classes[] = 'nx-no-search';
+	}					
 
 	return $classes;
 }
@@ -728,9 +738,9 @@ add_action( 'customize_controls_enqueue_scripts', 'icraft_customizer_control' );
 /*-----------------------------------------------------------------------------------*/
 /*	Metabox
 /*-----------------------------------------------------------------------------------*/ 
-
-include( get_template_directory() . '/inc/tnext-meta.php' );
-require_once( get_template_directory() . '/inc/meta-box/meta-box.php' );
+if ( function_exists( 'rwmb_meta' ) ) {
+	include( get_template_directory() . '/inc/tnext-meta.php' );
+}
 
 
 /*-----------------------------------------------------------------------------------*/
@@ -821,7 +831,6 @@ function icraft_register_required_plugins() {
 * If the source is NOT from the .org repo, then source is also required.
 */
     $plugins = array(
-
          // This is an example of how to include a plugin from a private repo in your theme.
         array(
             'name' => 'Breadcrumb NavXT', // The plugin name.
@@ -833,37 +842,26 @@ function icraft_register_required_plugins() {
             'name' => 'TemplatesNext ToolKit', // The plugin name.
             'slug' => 'templatesnext-toolkit', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),	
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'WooCommerce', // The plugin name.
-            'slug' => 'woocommerce', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
         ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'Contact Form 7', // The plugin name.
-            'slug' => 'contact-form-7', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),	
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'Page Builder by SiteOrigin', // The plugin name.
-            'slug' => 'siteorigin-panels', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),	
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'SiteOrigin Widgets Bundle', // The plugin name.
-            'slug' => 'so-widgets-bundle', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),	
          // This is an example of how to include a plugin from a private repo in your theme.
         array(
             'name' => 'One Click Demo Import', // The plugin name.
             'slug' => 'one-click-demo-import', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        )									
+        ),
+         // This is an example of how to include a plugin from a private repo in your theme.
+        array(
+            'name' => 'SiteOrigin PageBuilder ', // The plugin name.
+            'slug' => 'siteorigin-panels', // The plugin slug (typically the folder name).
+            'required' => false, // If false, the plugin is only 'recommended' instead of required.
+        ),
+         // This is an example of how to include a plugin from a private repo in your theme.
+        array(
+            'name' => 'SiteOrigin Widgets Bundle', // The plugin name.
+            'slug' => 'so-widgets-bundle', // The plugin slug (typically the folder name).
+            'required' => false, // If false, the plugin is only 'recommended' instead of required.
+        ),		
+							
 
     );
 
