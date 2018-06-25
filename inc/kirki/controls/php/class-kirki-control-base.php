@@ -128,14 +128,14 @@ class Kirki_Control_Base extends WP_Customize_Control {
 			'kirkiL10n',
 			array(
 				'isScriptDebug'        => ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ),
-				'noFileSelected'       => esc_attr__( 'No File Selected', 'kirki' ),
-				'remove'               => esc_attr__( 'Remove', 'kirki' ),
-				'default'              => esc_attr__( 'Default', 'kirki' ),
-				'selectFile'           => esc_attr__( 'Select File', 'kirki' ),
-				'standardFonts'        => esc_attr__( 'Standard Fonts', 'kirki' ),
-				'googleFonts'          => esc_attr__( 'Google Fonts', 'kirki' ),
-				'defaultCSSValues'     => esc_attr__( 'CSS Defaults', 'kirki' ),
-				'defaultBrowserFamily' => esc_attr__( 'Default Browser Font-Family', 'kirki' ),
+				'noFileSelected'       => esc_attr__( 'No File Selected', 'i-craft' ),
+				'remove'               => esc_attr__( 'Remove', 'i-craft' ),
+				'default'              => esc_attr__( 'Default', 'i-craft' ),
+				'selectFile'           => esc_attr__( 'Select File', 'i-craft' ),
+				'standardFonts'        => esc_attr__( 'Standard Fonts', 'i-craft' ),
+				'googleFonts'          => esc_attr__( 'Google Fonts', 'i-craft' ),
+				'defaultCSSValues'     => esc_attr__( 'CSS Defaults', 'i-craft' ),
+				'defaultBrowserFamily' => esc_attr__( 'Default Browser Font-Family', 'i-craft' ),
 			)
 		);
 

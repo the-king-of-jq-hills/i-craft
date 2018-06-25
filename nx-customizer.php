@@ -134,9 +134,6 @@ function icraft_add_panels_and_sections( $wp_customize ) {
         'priority' => 130,
     ));
 	
-	
-    
-	
 	$wp_customize->add_section('nxtopbar', array(
         'title'    => __('Topbar Options', 'i-craft'),
         'description' => '',
@@ -155,8 +152,6 @@ function icraft_add_panels_and_sections( $wp_customize ) {
         'priority' => 130,
     ));	
 	
-	
-					
 	
     $wp_customize->add_section('social', array(
         'title'    => __('Social Links', 'i-craft'),
@@ -226,6 +221,12 @@ function icraft_add_panels_and_sections( $wp_customize ) {
         'priority' => 170,
     ));
 	
+    $wp_customize->add_section('mmode', array(
+        'title'    => __('Coming Soon/Maintenance Mode', 'i-craft'),
+        'description' => __('', 'i-craft'),
+        'priority' => 180,
+    ));	
+	
 	// Responsive Menu sections
 	
 	$wp_customize->add_section('rmgeneral', array(
@@ -273,7 +274,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Site header logo', 'i-craft' ),
 		'description' => __( 'Width 280px, height 72px max. Upload logo for header', 'i-craft' ),
         'section'  => 'title_tagline',
-        'default'  => of_get_option('itrans_logo_image', get_template_directory_uri() . '/images/logo.png'),		
+        'default'  => get_template_directory_uri() . '/images/logo-black-2.png',		
 		'priority'    => 1,
 	);	
 	
@@ -283,7 +284,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Transparent Logo', 'i-craft' ),
 		'description' => __( 'Optional transparent logo for transparent header', 'i-craft' ),
         'section'  => 'title_tagline',
-        'default'  => '',		
+        'default'  => get_template_directory_uri() . '/images/logo-white-2.png',
 		'priority'    => 2,
 	);		
 	
@@ -292,7 +293,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'primary_color',
 		'label'       => __( 'Primary Color', 'i-craft' ),
 		'description' => __( 'Choose your theme color', 'i-craft' ),
-		'section'     => 'layout',
+		'section'     => 'colors',
 		'default'     => of_get_option('itrans_primary_color', '#dd3333'),
 		'priority'    => 1,
 	);	
@@ -331,8 +332,8 @@ function icraft_custom_setting( $controls ) {
 	$controls[] = array(
 		'type'        => 'switch',
 		'settings'     => 'show_search',
-		'label'       => __( 'Show Search Site Search', 'i-max' ),
-		'description' => __( 'Turn the search ON/OFF on main navigation', 'i-max' ),
+		'label'       => __( 'Show Site Search', 'i-craft' ),
+		'description' => __( 'Turn the search ON/OFF on main navigation', 'i-craft' ),
 		'section'     => 'nxheader',
 		'default'     => 1,
 		'priority'    => 4,
@@ -408,7 +409,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Copyright Text', 'i-craft' ),
 		'description' => __( 'Bottom footer copyright text', 'i-craft' ),		
         'section'  => 'nxfooter',
-		'default'  => __( 'Copyright &copy; ', '').get_bloginfo( 'name' ),		
+		'default'  => __( 'Copyright &copy; ', 'i-craft').get_bloginfo( 'name' ),		
         'priority' => 1,
     );		
 	
@@ -958,7 +959,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Hide Topnav Cart', 'i-craft' ),
 		'description' => __( 'Hide cart from top nav', 'i-craft' ),
 		'section'     => 'woocomm',
-		'default'  => of_get_option('hide_cart', ''),		
+		'default'  	  => 0,		
 		'priority'    => 1,
 	);
 	
@@ -968,7 +969,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Turn On Normal Search', 'i-craft' ),
 		'description' => __( 'Product only search will be turned off.', 'i-craft' ),
 		'section'     => 'woocomm',
-		'default'  => of_get_option('normal_search', ''),		
+		'default'     => 0,		
 		'priority'    => 1,
 	);
 	
@@ -1249,6 +1250,86 @@ function icraft_custom_setting( $controls ) {
         'priority' => 2,
     );
 	*/
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'mmode_status',
+		'label'       => __( 'Turn ON Maintenance Mode', 'i-craft' ),
+		'description' => esc_attr__( 'Logged in admins will view a normal site.', 'i-craft' ),
+		'section'     => 'mmode',
+		'default'  	  => 0,		
+		'priority'    => 1,
+	);	
+
+	$controls[] = array(
+		'label' => esc_attr__( 'Title', 'i-craft'),
+		'description' => __('Maintanance mode/coming soon title', 'i-craft'),
+		'settings' => 'mmode_title',
+		'default' => esc_attr__( 'Under Maintenance', 'i-craft' ),
+		'class' => '',
+		'type' => 'text',
+        'section'  => 'mmode',
+		'priority'    => 2,		
+	);
+
+	$controls[] = array(
+		'label' => esc_attr__( 'Description', 'i-craft'),
+		'description' => __('Maintanance mode/coming soon description', 'i-craft'),
+		'settings' => 'mmode_desc',
+		'default' => esc_attr__( 'We are currently in maintenance mode. Please check back shortly.', 'i-craft' ),
+		'class' => '',
+		'type' => 'textarea',
+        'section'  => 'mmode',
+		'priority'    => 3,					
+	);
+	
+	$controls[] = array(
+		'type'        => 'background',
+		'settings'    => 'mmode_bg',
+		'label'       => esc_attr__( 'Background', 'i-craft' ),
+		'description' => esc_attr__( 'Background image and color', 'i-craft' ),
+		'section'     => 'mmode',
+		'default'     => array(
+			'background-color'      => 'rgba(20,20,20,.8)',
+			'background-image'      => get_template_directory_uri() . '/images/bg-7.jpg',
+			'background-repeat'     => 'repeat',
+			'background-position'   => 'center center',
+			'background-size'       => 'cover',
+			'background-attachment' => 'scroll',
+		),
+		'priority'    => 4,		
+	);	
+	
+	$controls[] = array(
+	  'type'        => 'date',
+	  'settings'    => 'mmode_days',
+	  'label'       => esc_html__( 'Date', 'i-craft' ),
+	  'description' => __( 'Estimated maintanance until', 'i-craft' ),
+	  'section'     => 'mmode',
+	  /*
+	  'default'     => 12,
+	  
+	  'choices'     => array(
+		'min'  => '0',
+		'max'  => '100',
+		'step' => '1',
+	  ),
+	  */	  
+	);
+	$controls[] = array(
+	  'type'        => 'slider',
+	  'settings'    => 'mmode_hours',
+	  'label'       => esc_html__( 'Hours', 'i-craft' ),
+	  'description' => __( 'Estimated hours add to days', 'i-craft' ),
+	  'section'     => 'mmode',
+	  'default'     => 16,
+	  'choices'     => array(
+		'min'  => '0',
+		'max'  => '24',
+		'step' => '1',
+	  ),	  
+	);	
+	
 	// promos
 	$controls[] = array(
 		'type'        => 'custom',

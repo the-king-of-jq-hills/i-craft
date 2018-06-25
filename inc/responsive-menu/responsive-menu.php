@@ -26,7 +26,7 @@ function icraft_enqueue_scripts() {
 function tx_search_form() {
 	
 	$normal_search = 0;
-	$normal_search = get_theme_mod('normal_search', of_get_option('normal_search'));	
+	$normal_search = get_theme_mod('normal_search', 0);	
 	$search_form = "";
 	
 	$search_form .= '<form role="search" method="get" class="wpr-search-form" action="' . site_url() . '">';
@@ -44,7 +44,7 @@ function tx_search_form() {
 function icraft_add_cart() 
 {
 	global $woocommerce;
-	$hide_cart = get_theme_mod('hide_cart', of_get_option('hide_cart'));
+	$hide_cart = get_theme_mod('hide_cart', 0);
 	$itemlink = '';
 						
 	if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) && empty($hide_cart) ) {

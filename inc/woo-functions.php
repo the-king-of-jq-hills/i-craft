@@ -28,8 +28,17 @@ if (!function_exists('icraft_loop_columns')) {
 	}
 }
 
-// Display 12 products per page.
-add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+/**
+ * Change number of products that are displayed per page (shop page)
+ */
+add_filter( 'loop_shop_per_page', 'icraft_loop_shop_per_page', 20 );
+
+function icraft_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 12;
+  return $cols;
+}
 
 
 /**

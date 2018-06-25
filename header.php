@@ -16,10 +16,10 @@ $top_phone = '';
 $top_email = '';
 $nav_dropdown_class = '';
 
-$top_phone = esc_attr(get_theme_mod('top_phone', of_get_option('top_bar_phone', '1-000-123-4567')));
-$top_email = esc_attr(get_theme_mod('top_email', of_get_option('top_bar_email', 'email@i-create.com')));
-$icraft_logo = get_theme_mod( 'logo', of_get_option('itrans_logo_image', get_template_directory_uri() . '/images/logo.png') );
-$icraft_logo_trans = get_theme_mod( 'logo_trans', '' );
+$top_phone = esc_attr(get_theme_mod('top_phone', '1-000-123-4567'));
+$top_email = esc_attr(get_theme_mod('top_email', 'email@i-create.com'));
+$icraft_logo = get_theme_mod( 'logo', get_template_directory_uri() . '/images/logo-black-2.png' );
+$icraft_logo_trans = get_theme_mod( 'logo_trans', get_template_directory_uri() . '/images/logo-white-2.png' );
 
 $nav_dropdown = get_theme_mod('nav_dropdown', 1);
 

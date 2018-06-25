@@ -55,7 +55,7 @@ function icraft_register_meta_boxes( $meta_boxes )
 		'fields' => array(
 			// Hide Title
 			array(
-				'name' => __( 'Hide Title', 'i-craft' ),
+				'name' => __( 'Hide Title Bar', 'i-craft' ),
 				'id'   => "{$prefix}hidetitle",
 				'type' => 'checkbox',
 				// Value can be 0 or 1
@@ -157,7 +157,7 @@ function icraft_register_meta_boxes( $meta_boxes )
 			),
 			
 			array(
-				'name'  => __( 'Portfolio Link(External)', 'i-craft' ),
+				'name'  => __( 'Portfolio Link (External)', 'i-craft' ),
 				'id'    => "{$prefix}portfolio_url",
 				'desc'  => __( 'Enter an external link for the item (optional) (NOTE: INCLUDE HTTP://).', 'i-craft' ),				
 				'type'  => 'text',

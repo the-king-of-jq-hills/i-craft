@@ -58,3 +58,10 @@ jQuery(document).ready(function ($) {
         }
     });
 });
+
+
+/* insert variable after logo in customizer 
+jQuery(document).ready(function($) {
+	$( "#customize-info" ).after( recomended_not );
+});
+*/

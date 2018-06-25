@@ -118,9 +118,11 @@ function icraft_setup() {
 	// Custom Background 
 	add_theme_support( 'custom-background', $icraft_defaults_bg );
 	
-
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
+	
+	// Add Support for woocommerce
+	add_theme_support( 'woocommerce' );	
 	
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
@@ -754,6 +756,14 @@ include get_template_directory() . '/inc/icraft-custom-style.php';
 include get_template_directory() . '/inc/woo-functions.php';
 
 /*-----------------------------------------------------------------------------------*/
+/*	Maintanance mode on
+/*-----------------------------------------------------------------------------------*/ 
+$mmode_status = get_theme_mod('mmode_status', 0);
+if($mmode_status == 1) {
+	include get_template_directory() . '/inc/m-mode/m-mode.php';
+}
+
+/*-----------------------------------------------------------------------------------*/
 /*	changing default Excerpt length 
 /*-----------------------------------------------------------------------------------*/ 
 
@@ -817,9 +827,6 @@ function icraft_admin_js() {
     wp_enqueue_script( 'icraft-admin-script', get_template_directory_uri() . '/js/admin-script.js' );
 }
 
-// Add Support for woocommerce
-add_theme_support( 'woocommerce' );
-
 // Adding TGM Plugin activation
 require_once dirname( __FILE__ ) . '/inc/class-tgm-plugin-activation.php';
 
@@ -833,36 +840,10 @@ function icraft_register_required_plugins() {
     $plugins = array(
          // This is an example of how to include a plugin from a private repo in your theme.
         array(
-            'name' => 'Breadcrumb NavXT', // The plugin name.
-            'slug' => 'breadcrumb-navxt', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
             'name' => 'TemplatesNext ToolKit', // The plugin name.
             'slug' => 'templatesnext-toolkit', // The plugin slug (typically the folder name).
             'required' => false, // If false, the plugin is only 'recommended' instead of required.
         ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'One Click Demo Import', // The plugin name.
-            'slug' => 'one-click-demo-import', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'SiteOrigin PageBuilder ', // The plugin name.
-            'slug' => 'siteorigin-panels', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),
-         // This is an example of how to include a plugin from a private repo in your theme.
-        array(
-            'name' => 'SiteOrigin Widgets Bundle', // The plugin name.
-            'slug' => 'so-widgets-bundle', // The plugin slug (typically the folder name).
-            'required' => false, // If false, the plugin is only 'recommended' instead of required.
-        ),		
-							
-
     );
 
     /**
@@ -890,26 +871,30 @@ function icraft_register_required_plugins() {
 }
 
 
-add_action('admin_notices', 'icraft_admin_notice_005');
-function icraft_admin_notice_005() {
+add_action('admin_notices', 'icraft_admin_notice_006');
+function icraft_admin_notice_006() {
     global $current_user ;
         $user_id = $current_user->ID;
+		$support_url = esc_url('https://wordpress.org/support/theme/i-craft/');
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-craft/reviews/?filter=5');
-    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_005') ) {
+    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_006') ) {
         echo '<div class="updated"><p><div style="line-height: 20px;">'; 
-		echo esc_html__('i-craft 2.0.8 is a major update, Please clean your browser cashe and server cache (if using any cashing plugin or minifification plugin).', 'i-craft');
-		printf(__('<br>If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
-		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss this notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_005=0');
+		echo esc_html__('i-craft 3.0.2 receives major updates, New theme options and page options were added. Meta Box functionality (page options) were moved to accompanying plugin &quot;TemplatesNext ToolKit&quot; for more flexibility.', 'i-craft');
+		echo '<br />';
+		echo esc_html__('Use page template &quot;TX Full Width&quot; for inserting page builder pre-built layouts. ', 'i-craft');		
+		printf(__('Use the  <a href="%1$s" target="_blank">support forum</a> to report an issue.', 'i-craft'), $support_url);
+		//printf(__('<br>If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
+		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss Tthis Notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_006=0');
         echo "</div></p></div>";
     }
 }
 
-add_action('admin_init', 'icraft_notice_ignore_005');
-function icraft_notice_ignore_005() {
+add_action('admin_init', 'icraft_notice_ignore_006');
+function icraft_notice_ignore_006() {
     global $current_user;
 	$user_id = $current_user->ID;
-	if ( isset($_GET['icraft_notice_ignore_005']) && '0' == $_GET['icraft_notice_ignore_005'] ) {
-    	add_user_meta($user_id, 'icraft_ignore_notice_005', 'true', true);
+	if ( isset($_GET['icraft_notice_ignore_006']) && '0' == $_GET['icraft_notice_ignore_006'] ) {
+    	add_user_meta($user_id, 'icraft_ignore_notice_006', 'true', true);
     }
 }
 /**/
