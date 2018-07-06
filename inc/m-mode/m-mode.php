@@ -88,7 +88,7 @@ if ( ! function_exists( 'icraft_maintenance_mode' ) ) {
 		$maintenance_html .= '<h1>'.esc_html(get_theme_mod('mmode_title', esc_attr__( 'Under Maintenance', 'i-craft' ))).'</h1>';
 		$maintenance_html .= '<p>'.esc_html(get_theme_mod('mmode_desc', esc_attr__( 'We are currently in maintenance mode. Please check back shortly.', 'i-craft' ))).'</p>';
 		
-		if( !empty(get_theme_mod('mmode_days')) ) {
+		if( $mmode_date ) {
 			$maintenance_html .= '<div class="mm-clock-wrap"><div class="mm-clock"></div></div>';
 		}
 		

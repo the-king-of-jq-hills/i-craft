@@ -24,7 +24,6 @@
 			$primary_color = "#95C837";
 			$topbar_bg = 1;
 
-			//$primary_color = esc_attr(of_get_option('itrans_primary_color', '#dd3333'));
 			$primary_color = esc_attr(get_theme_mod('primary_color', '#dd3333'));
 			$topbar_bg = esc_attr(get_theme_mod('topbar_bg', 1));
 			

@@ -1,8 +1,7 @@
 <?php
 
 $normal_search = 0;
-//$normal_search = of_get_option('normal_search', 0);
-$normal_search = get_theme_mod('normal_search', of_get_option('normal_search'));
+$normal_search = get_theme_mod('normal_search', 0);
 
 ?>
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">

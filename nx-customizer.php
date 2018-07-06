@@ -253,7 +253,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'top_phone',
         'label'    => __( 'Phone Number', 'i-craft' ),
         'section'  => 'nxtopbar',
-        'default'  => of_get_option('top_bar_phone', '1-000-123-4567'),		
+        'default'  => '1-000-123-4567',		
         'priority' => 1,
 		'description' => __( 'Phone number that appears on top bar.', 'i-craft' ),
     );
@@ -263,7 +263,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'top_email',
         'label'    => __( 'Email Address', 'i-craft' ),
         'section'  => 'nxtopbar',
-        'default'  => sanitize_email(of_get_option('top_bar_email', 'email@i-create.com')),
+        'default'  => sanitize_email('email@i-create.com'),
         'priority' => 1,
 		'description' => __( 'Email Id that appears on top bar.', 'i-craft' ),		
     );
@@ -294,7 +294,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Primary Color', 'i-craft' ),
 		'description' => __( 'Choose your theme color', 'i-craft' ),
 		'section'     => 'colors',
-		'default'     => of_get_option('itrans_primary_color', '#dd3333'),
+		'default'     => '#dd3333',
 		'priority'    => 1,
 	);	
 	
@@ -507,7 +507,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Blog Posts Layout', 'i-craft' ),
 		'description' => __( '(Choose blog posts layout (one column/two column)', 'i-craft' ),
 		'section'     => 'layout',
-		'default'     => of_get_option('itrans_blog_layout', 'onecol'),
+		'default'     => 'onecol',
 		'priority'    => 2,
 		'choices'     => array(
 			'onecol' => get_template_directory_uri() . '/images/onecol.png',
@@ -521,7 +521,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Show Full Content', 'i-craft' ),
 		'description' => __( 'Show full content on blog pages', 'i-craft' ),
 		'section'     => 'layout',
-		'default'     => of_get_option('full_content', 0),		
+		'default'     => 0,		
 		'priority'    => 3,
 	);		
 	
@@ -542,7 +542,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Main Sidebar on left (default sidebar appears on right)', 'i-craft' ),
 		'description' => __( 'move the main sidebar position to left', 'i-craft' ),
 		'section'     => 'layout',
-		'default'     => of_get_option('sidebar_side', 0),			
+		'default'     => 0,			
 		'priority'    => 4,
 	);	
 	
@@ -553,7 +553,6 @@ function icraft_custom_setting( $controls ) {
 		'description' => __( 'add extra style(CSS) codes here', 'i-craft' ),
 		'section'     => 'layout',
 		'default'     => '',
-		'default'     => of_get_option('itrans_extra_style', ''),		
 		'priority'    => 10,
 	);	
 	
@@ -579,7 +578,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Facebook', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),		
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_facebook', '#'),		
+		'default'  => '#',		
         'priority' => 1,
     );	
 	
@@ -588,8 +587,8 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_social_twitter',
         'label'    => __( 'Twitter', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
-        'section'  => 'natopbar',
-		'default'  => of_get_option('itrans_social_twitter', '#'),	
+        'section'  => 'nxtopbar',
+		'default'  => '#',	
         'priority' => 1,
     );
 	
@@ -599,7 +598,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Flickr', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_flickr', '#'),	
+		'default'  => '#',	
         'priority' => 1,
     );	
 	
@@ -609,7 +608,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'RSS', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_feed', '#'),	
+		'default'  => '#',	
         'priority' => 1,
     );	
 	
@@ -619,7 +618,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Instagram', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_instagram', '#'),	
+		'default'  => '#',	
         'priority' => 1,
     );	
 	
@@ -629,7 +628,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Google Plus', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_googleplus', '#'),	
+		'default'  => '#',	
         'priority' => 1,
     );	
 	
@@ -639,7 +638,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'YouTube', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => of_get_option('itrans_social_youtube', '#'),	
+		'default'  => '#',	
         'priority' => 1,
     );	
 	
@@ -741,19 +740,19 @@ function icraft_custom_setting( $controls ) {
         'priority' => 1,
     );
 	$controls[] = array(
-		'type'        => 'textarea',
-		'settings'     => 'itrans_slide1_desc',
-		'label'       => __( 'Slide1 Description', 'i-craft' ),
-		'section'     => 'slide1',
-		'default'  => esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-craft' ),
-		'priority'    => 10,
+		'type'        	=> 'textarea',
+		'settings'     	=> 'itrans_slide1_desc',
+		'label'       	=> __( 'Slide1 Description', 'i-craft' ),
+		'section'     	=> 'slide1',
+		'default'  		=> esc_attr__( 'Perfect For Business And WooCommerce WordPress Sites', 'i-craft' ),
+		'priority'    	=> 10,
 	);
     $controls[] = array(
         'type'     => 'text',
         'settings'  => 'itrans_slide1_linktext',
         'label'    => __( 'Slide1 Link text', 'i-craft' ),
         'section'  => 'slide1',
-		'default'  => of_get_option('itrans_slide1_linktext', 'Know More'),		
+		'default'  => __( 'Know More', 'i-craft' ),		
         'priority' => 1,
     );
     $controls[] = array(
@@ -761,17 +760,16 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide1_linkurl',
         'label'    => __( 'Slide1 Link URL', 'i-craft' ),
         'section'  => 'slide1',
-		'default'  => of_get_option('itrans_slide1_linkurl', 'http://templatesnext.org/icraft/'),		
+		'default'  => esc_url('http://templatesnext.org/icraft/'),		
         'priority' => 1,
     );
 	$controls[] = array(
-		'type'        => 'upload',
-		'settings'     => 'itrans_slide1_image',
-		'label'       => __( 'Slide1 Image', 'i-craft' ),
-        'section'  	  => 'slide1',
-		'default'  => of_get_option('itrans_slide1_image', get_template_directory_uri() . '/images/slide1.jpg'),
-		//'default'  => of_get_option('itrans_slide1_image'),			
-		'priority'    => 1,
+		'type'        	=> 'upload',
+		'settings'     	=> 'itrans_slide1_image',
+		'label'       	=> __( 'Slide1 Image', 'i-craft' ),
+        'section'  	  	=> 'slide1',
+		'default'  		=> esc_url( get_template_directory_uri() . '/images/slide1.jpg'),
+		'priority'    	=> 1,
 	);							
 	
 	
@@ -797,7 +795,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide2_linktext',
         'label'    => __( 'Slide2 Link text', 'i-craft' ),
         'section'  => 'slide2',
-		'default'  => of_get_option('itrans_slide2_linktext', 'Know More'),		
+		'default'  => esc_attr__('Know More', 'i-craft'),		
         'priority' => 1,
     );
     $controls[] = array(
@@ -805,17 +803,16 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide2_linkurl',
         'label'    => __( 'Slide2 Link URL', 'i-craft' ),
         'section'  => 'slide2',
-		'default'  => of_get_option('itrans_slide2_linkurl', 'https://wordpress.org/'),		
+		'default'  => esc_url('https://wordpress.org/'),		
         'priority' => 1,
     );
 	$controls[] = array(
-		'type'        => 'upload',
-		'settings'     => 'itrans_slide2_image',
-		'label'       => __( 'Slide2 Image', 'i-craft' ),
-        'section'  	  => 'slide2',
-		'default'  => of_get_option('itrans_slide2_image', get_template_directory_uri() . '/images/slide2.jpg'),
-		//'default'  => of_get_option('itrans_slide2_image'),					
-		'priority'    => 1,
+		'type'        	=> 'upload',
+		'settings'     	=> 'itrans_slide2_image',
+		'label'      	=> __( 'Slide2 Image', 'i-craft' ),
+        'section'  	  	=> 'slide2',
+		'default'  		=> esc_url( get_template_directory_uri() . '/images/slide2.jpg'),
+		'priority'    	=> 1,
 	);							
 		
 		
@@ -841,7 +838,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide3_linktext',
         'label'    => __( 'Slide3 Link text', 'i-craft' ),
         'section'  => 'slide3',
-		'default'  => of_get_option('itrans_slide3_linktext', 'Know More'),			
+		'default'  => esc_attr__('Know More', 'i-craft'),			
         'priority' => 1,
     );
     $controls[] = array(
@@ -849,7 +846,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide3_linkurl',
         'label'    => __( 'Slide3 Link URL', 'i-craft' ),
         'section'  => 'slide3',
-		'default'  => of_get_option('itrans_slide3_linkurl', 'https://wordpress.org/'),		
+		'default'  => esc_url('https://wordpress.org/'),		
         'priority' => 1,
     );
 	$controls[] = array(
@@ -857,8 +854,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'     => 'itrans_slide3_image',
 		'label'       => __( 'Slide3 Image', 'i-craft' ),
         'section'  	  => 'slide3',
-		'default'  => of_get_option('itrans_slide3_image', get_template_directory_uri() . '/images/slide3.jpg'),
-		//'default'  => of_get_option('itrans_slide3_image'),					
+		'default'  => esc_url(get_template_directory_uri() . '/images/slide3.jpg'),
 		'priority'    => 1,
 	);							
 	
@@ -885,7 +881,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide4_linktext',
         'label'    => __( 'Slide4 Link text', 'i-craft' ),
         'section'  => 'slide4',
-		'default'  => of_get_option('itrans_slide4_linktext', 'Know More'),		
+		'default'  => esc_attr__('Know More', 'i-craft'),		
         'priority' => 1,
     );
     $controls[] = array(
@@ -893,17 +889,16 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'itrans_slide4_linkurl',
         'label'    => __( 'Slide4 Link URL', 'i-craft' ),
         'section'  => 'slide4',
-		'default'  => of_get_option('itrans_slide4_linkurl', 'https://wordpress.org/'),		
+		'default'  => esc_url('https://wordpress.org/'),		
         'priority' => 1,
     );
 	$controls[] = array(
-		'type'        => 'upload',
-		'settings'     => 'itrans_slide4_image',
-		'label'       => __( 'Slide4 Image', 'i-craft' ),
-        'section'  	  => 'slide4',
-		'default'  => of_get_option('itrans_slide4_image', get_template_directory_uri() . '/images/slide4.jpg'),
-		//'default'  => of_get_option('itrans_slide4_image'),			
-		'priority'    => 1,
+		'type'        	=> 'upload',
+		'settings'     	=> 'itrans_slide4_image',
+		'label'       	=> __( 'Slide4 Image', 'i-craft' ),
+        'section'  	  	=> 'slide4',
+		'default'  		=> esc_url(get_template_directory_uri() . '/images/slide4.jpg'),
+		'priority'    	=> 1,
 	);
 	
 	// Blog page setting
@@ -914,7 +909,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Hide i-craft Slider', 'i-craft' ),
 		'description' => __( 'Turn Off or On to hide/show default i-craft slider', 'i-craft' ),
 		'section'     => 'blogpage',
-		'default'  => of_get_option('hide_front_slider', ''),		
+		'default'  => 0,		
 		'priority'    => 1,
 	);
 	
@@ -923,7 +918,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'other_front_slider',
         'label'    => __( 'Other Slider Shortcode', 'i-craft' ),
         'section'  => 'blogpage',
-		'default'  => of_get_option('other_front_slider', ''),		
+		'default'  => '',		
         'priority' => 1,
 		'description' => __( 'Enter a 3rd party slider shortcode, ex. meta slider, smart slider 2, wow slider, etc.', 'i-craft' ),		
     );	
@@ -934,7 +929,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'banner_text',
         'label'    => __( 'Banner Text', 'i-craft' ),
         'section'  => 'blogpage',
-        'default'  => of_get_option('itrans_slogan', 'Banner Text Here'),
+        'default'  => esc_attr__('Banner Text Here', 'i-craft'),
         'priority' => 1,
 		'description' => __( 'if you are using a logo and want your site title or slogan to appear on the header banner', 'i-craft' ),		
     );		
@@ -944,13 +939,13 @@ function icraft_custom_setting( $controls ) {
 	// Blog page setting
 	
 	$controls[] = array(
-		'type'        => 'switch',
-		'settings'     => 'hide_login',
-		'label'       => __( 'Hide Topnav Login', 'i-craft' ),
-		'description' => __( 'Hide login menu item from top nav', 'i-craft' ),
-		'section'     => 'woocomm',
-		'default'  => of_get_option('hide_login', ''),		
-		'priority'    => 1,
+		'type'        	=> 'switch',
+		'settings'     	=> 'hide_login',
+		'label'      	=> __( 'Hide Topnav Login', 'i-craft' ),
+		'description' 	=> __( 'Hide login menu item from top nav', 'i-craft' ),
+		'section'     	=> 'woocomm',
+		'default'  		=> '',		
+		'priority'    	=> 1,
 	);
 	
 	$controls[] = array(

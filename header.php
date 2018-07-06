@@ -10,7 +10,7 @@
 ?>
 <?php
 
-$hide_cart = get_theme_mod('hide_cart', of_get_option('hide_cart'));
+$hide_cart = get_theme_mod('hide_cart', 0);
 
 $top_phone = '';
 $top_email = '';
@@ -175,19 +175,23 @@ if ( function_exists( 'rwmb_meta' ) ) {
         <!-- #Banner -->
         <?php
 		
-		$hide_title = $show_slider = $other_slider = $custom_title = $hide_breadcrumb = "";
+		$hide_title = $show_slider = $other_slider = $custom_title = $hide_breadcrumb = $smart_slider_3 = "";
 		if ( function_exists( 'rwmb_meta' ) ) {
 			$hide_title = rwmb_meta('icraft_hidetitle');
 			$show_slider = rwmb_meta('icraft_show_slider');
 			$other_slider = rwmb_meta('icraft_other_slider');
 			$custom_title = rwmb_meta('icraft_customtitle');
-			$hide_breadcrumb = rwmb_meta('icraft_hide_breadcrumb');			
+			$hide_breadcrumb = rwmb_meta('icraft_hide_breadcrumb');	
+			$smart_slider_3 = rwmb_meta('icraft_smart_slider');		
 		}
 		
-		$hide_front_slider = get_theme_mod('slider_stat', of_get_option('hide_front_slider', ''));
-		$other_front_slider = htmlspecialchars_decode(get_theme_mod('other_front_slider', of_get_option('other_front_slider')));
+		$hide_front_slider = get_theme_mod('slider_stat', 0);
+		$other_front_slider = htmlspecialchars_decode(get_theme_mod('other_front_slider', ''));
 		$itrans_slogan = get_theme_mod('banner_text', 'Banner Text Here');
-
+		
+		if( $smart_slider_3 ) {
+			$other_slider = '[smartslider3 slider='.$smart_slider_3.']';
+		}
 		
 		if( $other_slider ) :
 		?>		

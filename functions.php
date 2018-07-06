@@ -211,8 +211,8 @@ function icraft_scripts_styles() {
 	wp_enqueue_script( 'icraft-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2018-05-22', true );
 	
 	
-	//$blog_layout = of_get_option('itrans_blog_layout');
-	$blog_layout = get_theme_mod('blog_layout', of_get_option('itrans_blog_layout'));
+	//blog_layout
+	$blog_layout = get_theme_mod('blog_layout', 'onecol');
 
 	// Add Source Sans Pro and Bitter fonts, used in the main stylesheet.
 	wp_enqueue_style( 'icraft-fonts', icraft_fonts_url(), array(), null );
@@ -249,7 +249,7 @@ function icraft_scripts_styles() {
 	
 	
 	wp_enqueue_style( 'itrans-extra-stylesheet', get_template_directory_uri() . '/css/extra-style.css', array(), '2014-03-11' );
-	$custom_css = htmlspecialchars_decode( get_theme_mod('itrans_extra_style', of_get_option('itrans_extra_style')));
+	$custom_css = htmlspecialchars_decode( get_theme_mod('itrans_extra_style', ''));
 	
 	if ( $custom_css ) {
 		wp_add_inline_style( 'itrans-extra-stylesheet', $custom_css );
@@ -266,16 +266,13 @@ add_filter( 'body_class', 'icraft_layout_body_class' );
 function icraft_layout_body_class( $classes ) {
 	// add 'class-name' to the $classes array
 	
-	if ( get_theme_mod('wide_layout', 1) )
-	{
+	if ( get_theme_mod('wide_layout', 1) ) {
 		$classes[] = 'nx-wide';		
-	} else
-	{
+	} else {
 		$classes[] = 'nx-boxed';
 	}
 	
-	if ( get_theme_mod('sidebar_side', of_get_option('sidebar_side')) )
-	{
+	if ( get_theme_mod('sidebar_side', 0) ) {
 		$classes[] = 'nx-leftsidebar';		
 	}
 	
@@ -293,7 +290,7 @@ function icraft_layout_body_class( $classes ) {
  */
 function icraft_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'i-craft' ),
+		'name'          => __( 'Main Bottom Widget Area', 'i-craft' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Appears in the footer section of the site.', 'i-craft' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -395,8 +392,7 @@ function twocol_blog_body_class( $classes ) {
 
 	$blog_layout = 'onecol';
 	
-	//$blog_layout = of_get_option ('itrans_blog_layout');
-	$blog_layout = get_theme_mod('blog_layout', of_get_option('itrans_blog_layout'));
+	$blog_layout = get_theme_mod('blog_layout', 'onecol');
 	
 	if ( $blog_layout == 'twocol' ) {
 		// add 'class-name' to the $classes array
@@ -740,6 +736,11 @@ add_action( 'customize_controls_enqueue_scripts', 'icraft_customizer_control' );
 /*-----------------------------------------------------------------------------------*/
 /*	Metabox
 /*-----------------------------------------------------------------------------------*/ 
+/*
+if ( !function_exists( 'rwmb_meta' ) ) {
+	include( get_template_directory() . '/inc/meta-box/meta-box.php');
+}
+*/
 if ( function_exists( 'rwmb_meta' ) ) {
 	include( get_template_directory() . '/inc/tnext-meta.php' );
 }

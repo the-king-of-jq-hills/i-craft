@@ -11,7 +11,7 @@ function icraft_social_icons () {
 		$socio_list .= '<ul class="social">';	
 		foreach ( $services as $service ) :
 			
-			$active[$service] = esc_url( get_theme_mod('itrans_social_'.$service, of_get_option ('itrans_social_'.$service, '#')) );
+			$active[$service] = esc_url( get_theme_mod('itrans_social_'.$service, '#') );
 			
 			if ($active[$service]) { 
 				$socio_list .= '<li><a href="'.$active[$service].'" title="'.$service.'" target="_blank"><i class="genericon socico genericon-'.$service.'"></i></a></li>';
@@ -158,10 +158,6 @@ function icraft_ibanner_slider () {
 			echo $banner_text;
 		} 
         echo '        </h1>';
-		echo ' 		  <h2>';
-			    		//bloginfo( 'description' );
-						//echo of_get_option('itrans_sub_slogan');
-		echo '		</h2>';
         echo '    </div>';
         echo '</div>';
 	}
