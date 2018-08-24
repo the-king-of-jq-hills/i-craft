@@ -271,7 +271,7 @@ function icraft_custom_setting( $controls ) {
 	$controls[] = array(
 		'type'        => 'upload',
 		'settings'     => 'logo',
-		'label'       => __( 'Site header logo', 'i-craft' ),
+		'label'       => __( 'Site Header Logo', 'i-craft' ),
 		'description' => __( 'Width 280px, height 72px max. Upload logo for header', 'i-craft' ),
         'section'  => 'title_tagline',
         'default'  => get_template_directory_uri() . '/images/logo-black-2.png',		
@@ -281,7 +281,7 @@ function icraft_custom_setting( $controls ) {
 	$controls[] = array(
 		'type'        => 'upload',
 		'settings'     => 'logo_trans',
-		'label'       => __( 'Transparent Logo', 'i-craft' ),
+		'label'       => __( 'Transparent Header Logo', 'i-craft' ),
 		'description' => __( 'Optional transparent logo for transparent header', 'i-craft' ),
         'section'  => 'title_tagline',
         'default'  => get_template_directory_uri() . '/images/logo-white-2.png',
@@ -673,7 +673,7 @@ function icraft_custom_setting( $controls ) {
 		//'type'        => 'radio-buttonset',
 		'type'        => 'radio',
 		'settings'    => 'itrans_overlay',
-		'label'       => __( 'Text background', 'i-craft' ),
+		'label'       => __( 'Text Background/Slider Style', 'i-craft' ),
 		'section'     => 'slidersettings',
 		'default'     => 'nxs-max19',
 		'priority'    => 10,
@@ -932,7 +932,17 @@ function icraft_custom_setting( $controls ) {
         'default'  => esc_attr__('Banner Text Here', 'i-craft'),
         'priority' => 1,
 		'description' => __( 'if you are using a logo and want your site title or slogan to appear on the header banner', 'i-craft' ),		
-    );		
+    );	
+	
+	$controls[] = array(
+		'type'        => 'switch',
+		'settings'     => 'blog_trans_header',
+		'label'       => __( 'Turn ON Transparent Header', 'i-craft' ),
+		'description' => __( 'Turn OFF or ON transparent header on default blog page', 'i-craft' ),
+		'section'     => 'blogpage',
+		'default'     => 0,
+		'priority'    => 4,
+	);		
 	
 	// WooCommerce Settings
 	

@@ -295,7 +295,7 @@ function icraft_register_meta_boxes( $meta_boxes )
 				'std'   => '',
 				'desc' => __('Top bar with phone, email and social link background color', 'i-craft'),
 			),
-			/* Requires Meta Box Update 
+			/* Requires Meta Box Update */
 			array(
 				'name'  => __( 'Custom Page Logo Normal', 'i-craft' ),
 				'id'    => "{$prefix}page_logo_normal",
@@ -307,7 +307,7 @@ function icraft_register_meta_boxes( $meta_boxes )
 				'id'    => "{$prefix}page_logo_trans",
 				'type'  => 'single_image',
 			),
-			*/
+			
 									
 			// additional page class			
 			array(

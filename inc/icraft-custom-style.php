@@ -150,7 +150,7 @@
 
 			echo '.da-dots > span > span,.tx-slider .tx-slide-button a, .tx-slider .tx-slide-button a:visited {background-color: '.$primary_color.';}';
 
-			echo '.iheader,.format-status,.tx-service:hover .tx-service-icon span {background-color: '.$primary_color.';}';
+			echo '.iheader,.format-status,.tx-service:hover .tx-service-icon span, .nav-container .tx-highlight:after {background-color: '.$primary_color.';}';
 			
 			echo '.tx-cta {border-left: 6px solid '.$primary_color.';}';
 			

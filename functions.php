@@ -579,7 +579,13 @@ function icraft_body_class( $classes ) {
 	
 	global $post; 
 	
-	$icraft_page_class = $icraft_page_nopad = $icraft_trans_header = $icraft_no_ubar = "";
+	$icraft_page_class = $icraft_page_nopad = $icraft_trans_header = $icraft_no_ubar = $woo_shop = "";
+	
+	if ( class_exists( 'WooCommerce' ) ) {
+		if ( is_shop() ) {
+			$woo_shop = 1;
+		}
+	}
 	
 	if ( function_exists( 'rwmb_meta' ) ) {
 		$icraft_page_class = rwmb_meta('icraft_page_class');
@@ -612,7 +618,7 @@ function icraft_body_class( $classes ) {
 	if( $icraft_no_ubar == 1 )
 		$classes[] = 'tx-noubar';		
 		
-	if( $icraft_trans_header == 1 )
+	if( $icraft_trans_header == 1 || ( is_home() && get_theme_mod('blog_trans_header', 0) == 1 ) || ( $woo_shop == 1 && get_theme_mod('blog_trans_header', 0) == 1) )
 		$classes[] = 'nx-fullscreen';		
 		
 	// Add PreLoader Class
@@ -872,30 +878,30 @@ function icraft_register_required_plugins() {
 }
 
 
-add_action('admin_notices', 'icraft_admin_notice_006');
-function icraft_admin_notice_006() {
+add_action('admin_notices', 'icraft_admin_notice_007');
+function icraft_admin_notice_007() {
     global $current_user ;
         $user_id = $current_user->ID;
 		$support_url = esc_url('https://wordpress.org/support/theme/i-craft/');
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-craft/reviews/?filter=5');
-    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_006') ) {
+    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_007') ) {
         echo '<div class="updated"><p><div style="line-height: 20px;">'; 
 		echo esc_html__('i-craft 3.0.2 receives major updates, New theme options and page options were added. Meta Box functionality (page options) were moved to accompanying plugin &quot;TemplatesNext ToolKit&quot; for more flexibility.', 'i-craft');
 		echo '<br />';
 		echo esc_html__('Use page template &quot;TX Full Width&quot; for inserting page builder pre-built layouts. ', 'i-craft');		
 		printf(__('Use the  <a href="%1$s" target="_blank">support forum</a> to report an issue.', 'i-craft'), $support_url);
 		//printf(__('<br>If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
-		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss Tthis Notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_006=0');
+		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss Tthis Notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_007=0');
         echo "</div></p></div>";
     }
 }
 
-add_action('admin_init', 'icraft_notice_ignore_006');
-function icraft_notice_ignore_006() {
+add_action('admin_init', 'icraft_notice_ignore_007');
+function icraft_notice_ignore_007() {
     global $current_user;
 	$user_id = $current_user->ID;
-	if ( isset($_GET['icraft_notice_ignore_006']) && '0' == $_GET['icraft_notice_ignore_006'] ) {
-    	add_user_meta($user_id, 'icraft_ignore_notice_006', 'true', true);
+	if ( isset($_GET['icraft_notice_ignore_007']) && '0' == $_GET['icraft_notice_ignore_007'] ) {
+    	add_user_meta($user_id, 'icraft_ignore_notice_007', 'true', true);
     }
 }
 /**/

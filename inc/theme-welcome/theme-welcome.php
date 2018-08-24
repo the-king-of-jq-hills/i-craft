@@ -21,7 +21,7 @@ function welcome_screen_do_activation_redirect() {
     return;
   }
 
-  // Redirect to bbPress about page
+  // Redirect to i-craft about page
   wp_safe_redirect( add_query_arg( array( 'page' => 'welcome-screen-about' ), admin_url( 'themes.php' ) ) );
 
 }
@@ -56,6 +56,9 @@ function welcome_screen_content() {
 	$toolkit = esc_url('//www.templatesnext.org/icreate/templatesnext-toolkit/');
 	$fb_page = esc_url('//www.facebook.com/templatesnext/');
 	$pb_tutorial = esc_url('https://siteorigin.com/page-builder/documentation/');
+	
+	$intro_video_url = esc_url( 'https://www.youtube.com/embed/Gh_roekInwg?rel=0&amp;controls=1&amp;showinfo=0&amp;color=white&quot;theme=light' );
+	$intro_video = '<iframe width="100%" src="'. $intro_video_url . '" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';	
 
 
 	$ocdi_buttont = "";
@@ -74,11 +77,42 @@ function welcome_screen_content() {
         	<div class="nx-info-wrap">
             	
                 <div class="nx-welcome"><?php _e( 'Welcome To ', 'i-craft' ); echo $name_version; ?></div>
-                <div class="tx-wspace-24"></div>  
+                <div class="tx-wspace-24"></div>
+                
+                
                 <div class="nx-info-desc" style="width: 100%;">
+                
                     <p>
 						<?php _e( 'i-craft is a Flexible Multipurpose WordPress theme. <br>i-craft supports most of the popular page builders like SiteOrigin Page Builder, Elementor, Brizy, Visual Composer, etc.', 'i-craft' ); ?>
-                    </p>
+                    </p>                
+                	<div class="nx-admin-row">
+
+						<div class="col-1-2" style="padding-left: 0px; margin-left: 0px; width: 60%;">
+                        	<h2 style="margin: 12px 0px;"><?php esc_attr_e('I-CRAFT Setup Guide', 'i-craft'); ?></h4>
+                        	<div class="video-wrapper">
+                            	<?php echo $intro_video; ?>
+                            </div>
+                        </div>
+                        <div class="col-1-2" style="padding-right: 0px; margin-right: 0px; width: 36%;">            	
+							<div>
+                            	<ul class="setup-list">
+                                	<li><b><?php esc_attr_e('0:03','i-craft'); ?> </b><?php esc_html_e('Installing TemplatesNext Toolkit', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('0:36','i-craft'); ?> </b><?php esc_html_e('Setting-up Top Menu', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('1:08','i-craft'); ?> </b><?php esc_html_e('Highlighting A Menu Item', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('1:49','i-craft'); ?> </b><?php esc_html_e('Adding Logo', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('2:58','i-craft'); ?> </b><?php esc_html_e('Maintenance/Coming Soon Mode', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('4:17','i-craft'); ?> </b><?php esc_html_e('Blog/Shop Page Settings', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('5.07','i-craft'); ?> </b><?php esc_html_e('Theme Slider', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('6:03','i-craft'); ?> </b><?php esc_html_e('Topbar Customization', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('6:53','i-craft'); ?> </b><?php esc_html_e('Header Customization', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('7:42','i-craft'); ?> </b><?php esc_html_e('Creating A Front Page', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('15:03','i-craft'); ?> </b><?php esc_html_e('Setting A Page As Your Front/Home Page', 'i-craft'); ?></li>
+                                	<li><b><?php esc_attr_e('15:34','i-craft'); ?> </b><?php esc_html_e('A Preview : Premium Theme I-SPIRIT', 'i-craft'); ?></li>
+                                </ul>
+                            </div>                                                       
+                        </div>
+                        
+                    </div>                 
                     <a class="button button-primary button-hero" href="<?php echo $reviewURL; ?>">
                     <?php _e( 'Post Your Review', 'i-craft' ); ?>
                     </a>  
@@ -134,6 +168,9 @@ function welcome_screen_content() {
                     <a href="?page=welcome-screen-about&tab=icraft_faq" class="nav-tab <?php echo $active_tab == 'icraft_faq' ? 'nav-tab-active' : ''; ?> nx-plug">
                     	<?php _e( 'FAQs/Support', 'i-craft' ); ?>
                     </a>
+                    <a href="?page=welcome-screen-about&tab=icraft_vid" class="nav-tab <?php echo $active_tab == 'icraft_vid' ? 'nav-tab-active' : ''; ?> nx-plug">
+                    	<?php _e( 'Video Guide', 'i-craft' ); ?>
+                    </a>                     
                 </h2>
                 
                 <?php
@@ -357,6 +394,26 @@ function welcome_screen_content() {
         			</div>      
                         
 				<?php	
+					} elseif ( $active_tab == 'icraft_vid' ) {
+				?>     
+                	<div class="nx-tab-content"> 
+                		<p>&nbsp;</p>
+                        <ul class="vd-thumb">
+                        	<li><a href="#media-popup" data-media="//www.youtube.com/embed/J7mJSnuko_w?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/so-pb.png'); ?>" alt="" /></a></li>
+                            <li><a href="#media-popup" data-media="//www.youtube.com/embed/sCStWRm6iUU?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/elementor.png'); ?>" alt="" /></a></li>
+                            <li><a href="#media-popup" data-media="//www.youtube.com/embed/KFuO0Jg6Ps4?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/brizy-n-ss3.png'); ?>" alt="" /></a></li>
+                        </ul>    
+                            
+                        <div class="popup" id="media-popup">
+                        	<div class="nx-videowrapper">
+                            	<iframe width="560" height="315" src="" frameborder="0" autoplay="1" allowfullscreen></iframe>
+                                <div class="clvideo"><a href="#"><?php esc_attr_e('Close Video', 'i-craft'); ?></a></div>
+                            </div>
+                        </div>                       
+						<div class="tx-wspace-12"></div>
+        			</div>      
+                        
+				<?php	
 					}
 				?>
   
@@ -398,4 +455,7 @@ add_action( 'admin_enqueue_scripts', 'icraft_welcome_scripts' );
 function icraft_welcome_scripts() {
 	wp_enqueue_style( 'nx-welcome-style', get_template_directory_uri() . '/inc/theme-welcome/css/nx-welcome.css', array(), '1.01' );
 	wp_enqueue_script( 'nx-welcome-script', get_template_directory_uri() . '/inc/theme-welcome/js/nx-welcome.js' );
+	
+	$activation_button = icraft_customizer_activate_notice();
+	wp_localize_script('nx-welcome-script', 'recomended_notice', $activation_button);
 }

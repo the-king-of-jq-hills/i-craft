@@ -23,16 +23,26 @@ $icraft_logo_trans = get_theme_mod( 'logo_trans', get_template_directory_uri() .
 
 $nav_dropdown = get_theme_mod('nav_dropdown', 1);
 
-if ( $nav_dropdown == 1 )
-{
+if ( $nav_dropdown == 1 ) {
 	$nav_dropdown_class = "colored-drop";
 }
 
 global $post;
 
 $no_page_header = 0;
+$custom_logo_normal = $custom_logo_reverse = '';
+
 if ( function_exists( 'rwmb_meta' ) ) { 
+
 	$no_page_header = rwmb_meta('icraft_no_page_header');
+	if(rwmb_meta( 'icraft_page_logo_normal' )) {
+		$custom_logo_normal = rwmb_meta( 'icraft_page_logo_normal', '' );
+		$icraft_logo = $custom_logo_normal['full_url'];
+	}
+	if(rwmb_meta( 'icraft_page_logo_trans' )) {
+		$custom_logo_reverse = rwmb_meta( 'icraft_page_logo_trans', '' );
+		$icraft_logo_trans = $custom_logo_reverse['full_url'];
+	}	
 }
 
 ?>
