@@ -28,6 +28,11 @@
 			$topbar_bg = esc_attr(get_theme_mod('topbar_bg', 1));
 			
 			
+			$overlay_grc_1 = esc_attr(get_theme_mod('nxs_bg_color_1', 'rgba(231,14,119,.72)'));
+			$overlay_grc_2 = esc_attr(get_theme_mod('nxs_bg_color_2', 'rgba(250,162,20,.72)'));
+			$overlay_angle = esc_attr(get_theme_mod('nxs_gradient_angle', 135));
+			
+			
 			/* check */
 			$tx_body_font = array();
 			$tx_title_font = array();
@@ -100,7 +105,9 @@
 			
 			echo '.tx-slider .owl-pagination .owl-page > span { background: transparent; border-color: '.$primary_color.';  }';
 			echo '.tx-slider .owl-pagination .owl-page.active > span { background-color: '.$primary_color.'; }';
-			echo '.tx-slider .owl-controls .owl-buttons .owl-next, .tx-slider .owl-controls .owl-buttons .owl-prev { background-color: '.$primary_color.'; }';				
+			echo '.tx-slider .owl-controls .owl-buttons .owl-next, .tx-slider .owl-controls .owl-buttons .owl-prev { background-color: '.$primary_color.'; }';
+			
+			echo '.nxs-gradient .nx-slider .da-img:after { background: '.$overlay_grc_1.'; background: linear-gradient('.$overlay_angle.'deg, '.$overlay_grc_1.' 0%, '.$overlay_grc_2.' 100%);}';			
 						
 			echo 'a,a:visited,.blog-columns .comments-link a:hover {color: '.$primary_color.';}';
 

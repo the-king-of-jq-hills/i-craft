@@ -304,7 +304,6 @@ jQuery(document).ready(function($) {
 		}
 	});
 	
-	
 	if( $('.elementor-editor-active').length > 0 ) {
 		$( '.nx-ispload' ).css( "display", "none" );
 	}
@@ -313,6 +312,10 @@ jQuery(document).ready(function($) {
 		$('.woocommerce ul.products li.product a img').each(function() {
 			$( this ).wrap( "<span class='nx-prod-vinette'></span>" );
 		});
+	}
+	
+	if( $('.header-icons').length || $('.topsearch').length ) {
+		$('.nav-menu').addClass('nx-navicons');
 	}	
 	
 });

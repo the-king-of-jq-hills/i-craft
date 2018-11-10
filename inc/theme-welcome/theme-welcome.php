@@ -50,11 +50,12 @@ function welcome_screen_content() {
 	
 	/* Urls */
 	$reviewURL = esc_url('//wordpress.org/support/theme/i-craft/reviews/?filter=5');
-	$goPremiumURL = esc_url('//templatesnext.org/ispirit/landing/');
+	$goPremiumURL = esc_url('//templatesnext.org/ispirit/landing/?ref=icraftw');
 	$videoguide = esc_url('//www.templatesnext.org/i-craft-documentions/');
 	$supportforum = esc_url('//templatesnext.org/ispirit/landing/forums/'); 
 	$toolkit = esc_url('//www.templatesnext.org/icreate/templatesnext-toolkit/');
 	$fb_page = esc_url('//www.facebook.com/templatesnext/');
+	$demo_url = esc_url('//www.templatesnext.org/i-craft/?ref=icraftw');
 	$pb_tutorial = esc_url('https://siteorigin.com/page-builder/documentation/');
 	
 	$intro_video_url = esc_url( 'https://www.youtube.com/embed/Gh_roekInwg?rel=0&amp;controls=1&amp;showinfo=0&amp;color=white&quot;theme=light' );
@@ -109,46 +110,20 @@ function welcome_screen_content() {
                                 	<li><b><?php esc_attr_e('15:03','i-craft'); ?> </b><?php esc_html_e('Setting A Page As Your Front/Home Page', 'i-craft'); ?></li>
                                 	<li><b><?php esc_attr_e('15:34','i-craft'); ?> </b><?php esc_html_e('A Preview : Premium Theme I-SPIRIT', 'i-craft'); ?></li>
                                 </ul>
+								<a href="//www.youtube.com/watch?v=M_-HUs4EN-8?autoplay=1" target="_blank" style="display: block; margin: 16px 0px;"><?php printf( esc_html__( 'Demo import video guide.', 'i-craft' )); ?></a>                                
                             </div>                                                       
                         </div>
                         
                     </div>                 
-                    <a class="button button-primary button-hero" href="<?php echo $reviewURL; ?>">
-                    <?php _e( 'Post Your Review', 'i-craft' ); ?>
+                    <a class="button button-primary button-hero" target="_blank" href="<?php echo $demo_url; ?>">
+                    <?php _e( 'Live Demo', 'i-craft' ); ?>
                     </a>  
-                    <a class="button button-primary button-hero" href="<?php echo $goPremiumURL; ?>">
+                    <a class="button button-primary button-hero" target="_blank" href="<?php echo $goPremiumURL; ?>">
                     	<?php _e( 'Go Premium', 'i-craft' ); ?>
                     </a>  
                 </div>
                 <div class="tx-wspace-12"></div>
                 <div class="tx-wspace-24"></div>
-                <div class="tx-wspace-24"></div>                  
-                <div class="nx-admin-row">
-                	<div class="one-four-col">
-                    	<a href="<?php echo $videoguide; ?>" target="_blank">
-                            <div class="nx-dash"><span class="dashicons dashicons-video-alt2"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'Documentation', 'i-craft' ); ?></h3>
-                        </a>
-                    </div>
-                	<div class="one-four-col">
-                    	<a href="<?php echo $supportforum; ?>" target="_blank">
-                            <div class="nx-dash"><span class="dashicons dashicons-format-chat"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'Support Forum', 'i-craft' ); ?></h3>
-                        </a>
-                    </div>
-                	<div class="one-four-col">
-                    	<a href="<?php echo $toolkit; ?>" target="_blank">
-                            <div class="nx-dash"><span class="dashicons dashicons-migrate"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'TemplatesNext Toolkit', 'i-craft' ); ?></h3>
-                        </a>
-                    </div>
-                	<div class="one-four-col">
-                    	<a href="<?php echo $fb_page; ?>" target="_blank">
-                            <div class="nx-dash"><span class="dashicons dashicons-facebook-alt"></span></div>
-                            <h3 class="tx-admin-link"><?php _e( 'Community', 'i-craft' ); ?></h3>
-                        </a>
-                    </div>                                                            
-                </div>
                 <div class="tx-wspace-24"></div>
                 <?php
 					if( isset( $_GET[ 'tab' ] ) ) {
@@ -304,8 +279,8 @@ function welcome_screen_content() {
                         <p style="font-weight: 600; color: #272727;">
                             <?php _e( 'Following plugins were used while creating the &quot;One Click Demo&quot;s. <br>Once you are done with installing and activating the plugins go to', 'i-craft' ); ?>
                             <a class="" href="<?php echo admin_url(); ?>themes.php?page=pt-one-click-demo-import">
-                            <?php _e( 'I-Craft Demo Setup', 'i-craft' ); ?>
-                            </a>                             
+                            <?php _e( 'Theme Demo Setup', 'i-craft' ); ?>
+                            </a>
                         </p>                       
                         <ol>
 							<?php
@@ -399,6 +374,7 @@ function welcome_screen_content() {
                 	<div class="nx-tab-content"> 
                 		<p>&nbsp;</p>
                         <ul class="vd-thumb">
+                        	<li><a href="#media-popup" data-media="//www.youtube.com/embed/M_-HUs4EN-8?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/ocdi.png'); ?>" alt="" /></a></li>                        
                         	<li><a href="#media-popup" data-media="//www.youtube.com/embed/J7mJSnuko_w?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/so-pb.png'); ?>" alt="" /></a></li>
                             <li><a href="#media-popup" data-media="//www.youtube.com/embed/sCStWRm6iUU?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/elementor.png'); ?>" alt="" /></a></li>
                             <li><a href="#media-popup" data-media="//www.youtube.com/embed/KFuO0Jg6Ps4?autoplay=1"><img src="<?php echo esc_url(get_template_directory_uri() . '/inc/theme-welcome/images/brizy-n-ss3.png'); ?>" alt="" /></a></li>
@@ -417,7 +393,36 @@ function welcome_screen_content() {
 					}
 				?>
   
-                <div class="tx-wspace-24"></div><div class="tx-wspace-24"></div>    
+                <div class="tx-wspace-24"></div>
+                <div class="tx-wspace-24"></div>
+                
+                <div class="tx-wspace-24"></div>                  
+                <div class="nx-admin-row">
+                	<div class="one-four-col">
+                    	<a href="<?php echo $videoguide; ?>" target="_blank">
+                            <div class="nx-dash"><span class="dashicons dashicons-video-alt2"></span></div>
+                            <h3 class="tx-admin-link"><?php _e( 'Documentation', 'i-craft' ); ?></h3>
+                        </a>
+                    </div>
+                	<div class="one-four-col">
+                    	<a href="<?php echo $supportforum; ?>" target="_blank">
+                            <div class="nx-dash"><span class="dashicons dashicons-format-chat"></span></div>
+                            <h3 class="tx-admin-link"><?php _e( 'Support Forum', 'i-craft' ); ?></h3>
+                        </a>
+                    </div>
+                	<div class="one-four-col">
+                    	<a href="<?php echo $toolkit; ?>" target="_blank">
+                            <div class="nx-dash"><span class="dashicons dashicons-migrate"></span></div>
+                            <h3 class="tx-admin-link"><?php _e( 'TemplatesNext Toolkit', 'i-craft' ); ?></h3>
+                        </a>
+                    </div>
+                	<div class="one-four-col">
+                    	<a href="<?php echo $fb_page; ?>" target="_blank">
+                            <div class="nx-dash"><span class="dashicons dashicons-facebook-alt"></span></div>
+                            <h3 class="tx-admin-link"><?php _e( 'Community', 'i-craft' ); ?></h3>
+                        </a>
+                    </div>                                                            
+                </div>                
  	
             </div>
 

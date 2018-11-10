@@ -4,7 +4,7 @@ Theme URI: 			http://www.templatesnext.org/i-craft/
 Author: 			templatesnext team
 Author URI: 		http://templatesnext.org/
 Description: 		The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
-Version: 			3.0.8
+Version: 			3.1.6
 License: 			GNU General Public License v2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 Tags: 				one-column, news, blog, two-columns, rtl-language-support, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
@@ -3580,22 +3580,22 @@ nav.navigation .nav-links a:visited {
 	padding-bottom: 32px;
 }
 
-.widget ul,
-.widget ol {
+.sidebar-container .widget ul,
+.sidebar-container .widget ol {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
 
-.widget li {
+.sidebar-container .widget li {
 	padding: 12px 0px;
 	border-bottom: 1px solid #e7e7e7;
 	vertical-align: middle;
 }
 
-.widget .menu li:before,
-.widget_pages li:before,
-.widget_meta li:before {
+.sidebar-container .widget .menu li:before,
+.sidebar-container .widget_pages li:before,
+.sidebar-container .widget_meta li:before {
 	content: '\f501';
 	display: inline-block;
 	width: 12px;
@@ -3612,25 +3612,25 @@ nav.navigation .nav-links a:visited {
 	color: #999;
 }
 
-.widget .children li:last-child {
+.sidebar-container .widget .children li:last-child {
 	padding-bottom: 0;
 	border-bottom: none;
 }
 
-.widget li > ul,
-.widget li > ol {
+.sidebar-container .widget li > ul,
+.sidebar-container .widget li > ol {
 	margin-left: 20px;
 }
 
-.widget li {
+.sidebar-container .widget li {
 	color: #999;
 }
 
-.widget a {
+.sidebar-container .widget a {
 	color: #575757;
 }
 
-.widget a:hover {
+.sidebar-container .widget a:hover {
 	color: #95C837;
 	text-decoration: none;
 }
@@ -6522,3 +6522,152 @@ Menu item highlight style
 	z-index: 30000;	
 }
 
+.nxs-gradient .nx-slider .da-img:after {
+	position: absolute;
+	content: " ";
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+
+.ibanner.nxs-gradient .da-slider .owl-controls .owl-page span { 
+	border-color:#FFF; 
+}
+			
+.ibanner.nxs-gradient .da-slider .owl-controls .owl-page.active span, 
+.ibanner.nxs-gradient .da-slider .owl-controls.clickable .owl-page:hover span {  
+	background-color: #FFF; 
+}
+
+.ibanner.nxs-gradient .da-slider .da-link,
+.ibanner.nxs-gradient .da-slider .da-link:visited {
+	background: transparent!important;
+	border: 1px solid #FFF;
+	color: #FFF;
+}
+
+.nav-container .nav-menu:not(.nx-navicons) {
+	padding-right: 0px;
+}
+
+.nav-container .nav-menu:not(.nx-navicons) li:last-child {
+	padding-right: 10px;
+}
+
+.nx-wide-nav .ubarinnerwrap,
+.nx-wide-nav .headerinnerwrap {
+	max-width: 100%;
+}
+
+.ss-style-triangles,
+.ss-style-doublediagonal {
+	z-index: 124!important;
+}
+.ss-style-doublediagonal:before {
+	opacity: 0.56;
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.nx-ticker-wrap {  
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+	height: 20px;
+	/*
+	background-color: rgba(215,29,77, 0.64); 
+	*/
+	box-sizing: content-box;
+	font-size: 16px;
+}
+
+.nx-ticker {
+    display: block;
+    height: 20px;
+    line-height: 1;  
+    white-space: nowrap;
+    box-sizing: content-box;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 2px;
+}
+
+.nx-ticker {
+    -webkit-animation-iteration-count: infinite; 
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+   	-webkit-animation-name: ticker;
+    animation-name: ticker;
+    -webkit-animation-duration: 30s;
+    animation-duration: 30s;
+}
+
+.nx-ticker .nx-ticker__item {
+    display: inline-block;
+    padding: 0 32px;
+	list-style-type: square;
+}
+
+.nx-ticker .nx-ticker__item:first-child {
+	margin-left: 300px;
+}
+
+.entry-content .panel-grid .so-panel.widget .notice-board h3.widget-title {
+	margin-bottom: 24px;
+}
+
+.entry-content .panel-layout .panel-grid .notice-board ul {
+	margin-left: 0px;
+}
+
+.entry-content .panel-layout .panel-grid .notice-board ul,
+.entry-content .panel-layout .panel-grid .notice-board ul li {
+	color: #fff;
+	line-height: 1.4;
+	margin-bottom: 12px;	
+}
+
+.entry-content .panel-layout .panel-grid .so-panel.widget .notice-board ul li a {
+	font-size: 16px;
+}
+
+.entry-content .panel-layout .panel-grid .notice-board ul li span.post-date {
+	display: block; 
+	clear: both;
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.tx-post-comm {
+	display: none;
+}
+
+.tx-meta .tx-author {
+	display: none;
+}

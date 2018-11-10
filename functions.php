@@ -878,30 +878,30 @@ function icraft_register_required_plugins() {
 }
 
 
-add_action('admin_notices', 'icraft_admin_notice_007');
-function icraft_admin_notice_007() {
+add_action('admin_notices', 'icraft_admin_notice_008');
+function icraft_admin_notice_008() {
     global $current_user ;
         $user_id = $current_user->ID;
+		$about_url = admin_url('themes.php?page=welcome-screen-about');
 		$support_url = esc_url('https://wordpress.org/support/theme/i-craft/');
 		$notice_url = esc_url('https://wordpress.org/support/theme/i-craft/reviews/?filter=5');
-    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_007') ) {
-        echo '<div class="updated"><p><div style="line-height: 20px;">'; 
-		echo esc_html__('i-craft 3.0.2 receives major updates, New theme options and page options were added. Meta Box functionality (page options) were moved to accompanying plugin &quot;TemplatesNext ToolKit&quot; for more flexibility.', 'i-craft');
-		echo '<br />';
-		echo esc_html__('Use page template &quot;TX Full Width&quot; for inserting page builder pre-built layouts. ', 'i-craft');		
-		printf(__('Use the  <a href="%1$s" target="_blank">support forum</a> to report an issue.', 'i-craft'), $support_url);
-		//printf(__('<br>If you like our work please take couple of minutes to provide i-craft a review <a href="%1$s" target="_blank">here</a>, that helps us a lot.', 'i-craft'), $notice_url);
-		printf(__('<br><a href="%1$s"><span class="dismiss-cross">X</span><span class="dismiss-text">Dismiss Tthis Notice</span></a><div class="clear"></div>', 'i-craft' ), '?icraft_notice_ignore_007=0');
+		$ocdi_url = esc_url('https://www.youtube.com/watch?v=M_-HUs4EN-8');		
+    if ( ! get_user_meta($user_id, 'icraft_ignore_notice_008') ) {
+        echo '<div class="updated tx-dash-notice"><p><div style="line-height: 20px;">'; 
+		printf(__('<div style="font-size: 16px;">Welcome to I-CRAFT! To know more about I-CRAFT and its features go to <a href="%1$s">about page</a>.</div>', 'i-craft'), $about_url);
+		printf(__('<div style="font-size: 16px;">New ready to use demos are added. View &quot;One Click Demo Import&quot; <a href="%1$s" target="_blank">video guide</a> to know more.</div>', 'i-craft'), $ocdi_url);		
+		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero" style="margin-top: 16px;">Get Started With I-CRAFT</a><div class="clear"></div>', 'i-craft' ), $about_url);			
+		printf(__('<a href="%1$s" class="tx-dashnotice-close">Dismiss</a>', 'i-craft' ), '?icraft_notice_ignore_008=0');
         echo "</div></p></div>";
     }
 }
 
-add_action('admin_init', 'icraft_notice_ignore_007');
-function icraft_notice_ignore_007() {
+add_action('admin_init', 'icraft_notice_ignore_008');
+function icraft_notice_ignore_008() {
     global $current_user;
 	$user_id = $current_user->ID;
-	if ( isset($_GET['icraft_notice_ignore_007']) && '0' == $_GET['icraft_notice_ignore_007'] ) {
-    	add_user_meta($user_id, 'icraft_ignore_notice_007', 'true', true);
+	if ( isset($_GET['icraft_notice_ignore_008']) && '0' == $_GET['icraft_notice_ignore_008'] ) {
+    	add_user_meta($user_id, 'icraft_ignore_notice_008', 'true', true);
     }
 }
 /**/

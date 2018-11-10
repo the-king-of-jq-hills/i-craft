@@ -678,15 +678,56 @@ function icraft_custom_setting( $controls ) {
 		'default'     => 'nxs-max19',
 		'priority'    => 10,
 		'choices'     => array(
-			'nxs-pattern'   => esc_attr__( 'Patterned Overlay', 'i-craft' ),
-			'nxs-shadow' => esc_attr__( 'Shadowed Text', 'i-craft' ),
-			'nxs-vinette'  => esc_attr__( 'Vignette Overlay', 'i-craft' ),
-			'nxs-semitrans'  => esc_attr__( 'Semi-trans Text BG', 'i-craft' ),
-			'nxs-semitrans2'  => esc_attr__( 'Semi-trans Overlay', 'i-craft' ),			
-			'nxs-max19'  => esc_attr__( 'Craft 19', 'i-craft' ),						
+			'nxs-pattern'   	=> esc_attr__( 'Patterned Overlay', 'i-craft' ),
+			'nxs-shadow' 		=> esc_attr__( 'Shadowed Text', 'i-craft' ),
+			'nxs-vinette'  		=> esc_attr__( 'Vignette Overlay', 'i-craft' ),
+			'nxs-semitrans'  	=> esc_attr__( 'Semi-trans Text BG', 'i-craft' ),
+			'nxs-semitrans2'  	=> esc_attr__( 'Semi-trans Overlay', 'i-craft' ),			
+			'nxs-max19'  		=> esc_attr__( 'Craft 19', 'i-craft' ),
+			'nxs-gradient'  	=> esc_attr__( 'Gradient', 'i-craft' ),						
 		),
 	);	
 	
+	$controls[] = array(
+		'type'        	=> 'color',
+		'settings'     	=> 'nxs_bg_color_1',
+		'label'       	=> __( 'Overlay Gradient Color 1', 'i-craft' ),
+		'section'     	=> 'slidersettings',
+		'default'     	=> 'rgba(231,14,119,.72)',
+		'priority'    	=> 12,
+		'choices'     	=> array(
+							'alpha' => true,
+						),		
+		'active_callback' => 'icraft_nxs_gradient',
+	);	
+	
+	$controls[] = array(
+		'type'        	=> 'color',
+		'settings'     	=> 'nxs_bg_color_2',
+		'label'       	=> __( 'Overlay Gradient Color 2', 'i-craft' ),
+		'section'     	=> 'slidersettings',
+		'default'     	=> 'rgba(250,162,20,.72)',
+		'priority'    	=> 13,
+		'choices'     	=> array(
+							'alpha' => true,
+						),		
+		'active_callback' => 'icraft_nxs_gradient',
+	);
+	
+	$controls[] = array(
+		'type'        => 'slider',
+		'settings'    => 'nxs_gradient_angle',
+		'label'       => __( 'Gradient Angle', 'i-craft' ),
+		'section'     => 'slidersettings',
+		'default'     => 135,
+		'choices'     => array(
+						'min'  => '0',
+						'max'  => '360',
+						'step' => '1',
+					),
+		'active_callback' => 'iexcel_nxs_gradient',	
+		'priority'    	=> 14,					
+	);			
 	
 	$controls[] = array(
 		'type'        => 'radio-buttonset',
@@ -694,7 +735,7 @@ function icraft_custom_setting( $controls ) {
 		'label'       => __( 'Text Alignment', 'i-craft' ),
 		'section'     => 'slidersettings',
 		'default'     => 'nxs-left',
-		'priority'    => 10,
+		'priority'    => 20,
 		'choices'     => array(
 			'nxs-left'   => esc_attr__( 'Left', 'i-craft' ),
 			'nxs-center' => esc_attr__( 'Center', 'i-craft' ),
@@ -707,6 +748,7 @@ function icraft_custom_setting( $controls ) {
 		'settings'    => 'slider_height',
 		'label'       => __( 'Slider Height (in %)', 'i-craft' ),
 		'section'     => 'slidersettings',
+		'priority'    => 21,		
 		'default'     => 72,
 		'choices'     => array(
 			'min'  => '0',
@@ -720,7 +762,8 @@ function icraft_custom_setting( $controls ) {
 		'settings'    => 'slider_reduction',
 		'label'       => __( 'Reduction In px', 'i-craft' ),
 		'section'     => 'slidersettings',
-		'description' => __( 'Amount of pixels to be reduced from % of slider height', 'i-craft' ),		
+		'description' => __( 'Amount of pixels to be reduced from % of slider height', 'i-craft' ),
+		'priority'    => 22,				
 		'default'     => 60,
 		'choices'     => array(
 			'min'  => '0',
@@ -1336,49 +1379,38 @@ function icraft_custom_setting( $controls ) {
 	);	
 	
 	// promos
+	/*
 	$controls[] = array(
 		'type'        => 'custom',
 		'settings'    => 'custom_demo',
-		'label' => __( 'TemplatesNext Promo', 'i-craft' ),
+		'label' => __( 'Useful Links', 'i-craft' ),
 		'section'     => 'nxpromo',
 		'default'	  => '<div class="promo-box">
         <div class="promo-2">
         	<div class="promo-wrap">
-                <a href="http://templatesnext.org/ispirit/landing/" target="_blank">Go Premium</a>  			
-            	<a href="http://templatesnext.org/i-craft/" target="_blank">i-craft Demos</a>
-                <a href="https://www.facebook.com/templatesnext" target="_blank">Facebook</a> 
-                <a href="http://templatesnext.org/ispirit/landing/forums/" target="_blank">Support</a>                                 
-                <!-- <a href="http://templatesnext.org/icraft/docs">Documentation</a> -->
-                <a href="https://wordpress.org/support/view/theme-reviews/i-craft#postform" target="_blank">Rate i-craft</a>                
-                <div class="donate">                
-                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="hosted_button_id" value="M2HN47K2MQHAN">
-                    <table>
-                    <tr><td><input type="hidden" name="on0" value="If you like my work, you can buy me">If you like my work, you can buy me</td></tr><tr><td><select name="os0">
-                        <option value="a cup of coffee">1 cup of coffee $10.00 USD</option>
-                        <option value="2 cup of coffee">2 cup of coffee $20.00 USD</option>
-                        <option value="3 cup of coffee">3 cup of coffee $30.00 USD</option>
-                    </select></td></tr>
-                    </table>
-                    <input type="hidden" name="currency_code" value="USD">
-                    <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online.">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-                    </form>
-                </div>                                                                          
+                <a href="'. esc_url('//templatesnext.org/ispirit/landing/').'" target="_blank">' . esc_html__( 'Go Premium', 'i-craft' ) . '</a>	
+            	<a href="'. admin_url('themes.php?page=welcome-screen-about') .'" target="_blank">' . esc_html__( 'Getting Started With I-CRAFT', 'i-craft' ) . '</a>
+                <a href="'. esc_url('//www.facebook.com/templatesnext').'" target="_blank">' . esc_html__( 'Facebook', 'i-craft' ) . '</a> 
+                <a href="'. esc_url('//templatesnext.org/ispirit/landing/forums/').'" target="_blank">' . esc_html__( 'Support', 'i-craft' ) . '</a>                                 
             </div>
         </div>
 		</div>',
 		'priority' => 10,
-	);	
+	);
+	*/	
 	
     return $controls;
 }
 add_filter( 'kirki/controls', 'icraft_custom_setting' );
 
 
-
-
-
+function icraft_nxs_gradient() {
+	//'setting' => 'itrans_overlay', 'operator' => '==', 'value' => 'nxs-gradient'
+	if ( get_theme_mod('itrans_overlay') == 'nxs-gradient' ) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 

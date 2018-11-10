@@ -80,7 +80,7 @@ function icraft_customizer_activate_notice () {
 	$activation_button = '';
 	
 	$activation_button .= '<div class="nx-cstnt">';								
-	$activation_button .= '<p>'.esc_attr__('Install the accompanying plugin &quot;TemplatesNext ToolKit&quot; to activate all the features of this theme.', 'i-craft').'</p>';								
+	$activation_button .= '<p>'.esc_attr__('Install accompanying plugin &quot;TemplatesNext ToolKit&quot; to activate all the features of this theme.', 'i-craft').'</p>';								
 	if ( is_plugin_active( 'templatesnext-toolkit/tx-toolkit.php' ) ) {
 		$activation_button .= '<a href="#" class="button disabled">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';  
 	} elseif( icraft_is_plugin_installed($pluginTitle) == false ) {

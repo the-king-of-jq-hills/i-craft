@@ -205,33 +205,62 @@ function icraft_import_files() {
   return array(
   	/**/
     array(
-      'import_file_name'             	=> 'i-craft Demo Craft-18',
-      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft.wordpress.2.xml',
-      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-widgets-2.wie',
-      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-export-2.dat',
-      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo-3.jpg',
-      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.org/icraft/?page_id=1053',
+      'import_file_name'             	=> 'Agency 1',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-1.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-agency-1.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/1635-2/',
     ),
     array(
-      'import_file_name'             	=> 'i-craft Demo Shop',
-      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft.wordpress-1.xml',
-      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-widgets.wie',
-      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-export-1.dat',
-      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo-1.jpg',
-      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.org/icraft/',
+      'import_file_name'             	=> 'Agency 2',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-2.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-agency-2.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/agency-2-pb/',
     ),
 	
     array(
-      'import_file_name'             	=> 'i-craft Demo Business',
-      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft.wordpress-1.xml',
-      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-widgets.wie',
-      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-export-1.dat',
-      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo-2.jpg',
-      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.org/icraft/?page_id=325',	  
+      'import_file_name'             	=> 'Business Home 1',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-business-1.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-business-1.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/business-home-1-pb//',	  
     ),	
+	
+    array(
+      'import_file_name'             	=> 'Fashion Shop 1',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-fashion-shop-1.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-fashion-shop.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/',
+    ),
+    array(
+      'import_file_name'             	=> 'Shop Shaurya',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop-shaurya.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-shaurya.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/shop-shaurya/',
+    ),
+	
+    array(
+      'import_file_name'             	=> 'Craft-18 Shop',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-demo.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-18-shop.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-craft-18.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/shop-blank/',	  
+    ),		
   );
 }
 add_filter( 'pt-ocdi/import_files', 'icraft_import_files' );
@@ -239,23 +268,23 @@ add_filter( 'pt-ocdi/import_files', 'icraft_import_files' );
 add_filter( 'pt-ocdi/disable_pt_branding', '__return_true' );
 
 function icraft_after_import_setup($selected_import) {
-		if ( 'i-craft Demo Shop' === $selected_import['import_file_name'] ) {
+		if ( 'Agency 1' === $selected_import['import_file_name'] ) {
 
 		// Assign menus to their locations.
-		$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
+			$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
 	
-		set_theme_mod( 'nav_menu_locations', array(
+			set_theme_mod( 'nav_menu_locations', array(
 				'primary' => $main_menu->term_id,
 			)
 		);
 		
-		$front_page_id = get_page_by_title( 'Front Page Shop' );
+		$front_page_id = get_page_by_title( 'Agency 1' );
        	if ( isset( $front_page_id->ID ) ) {
 			update_option( 'page_on_front', $front_page_id->ID );
         	update_option( 'show_on_front', 'page' );
        	}		
 		
-	} elseif ( 'i-craft Demo Business' === $selected_import['import_file_name'] ) {
+	} elseif ( 'Agency 2' === $selected_import['import_file_name'] ) {
 	
 		// Assign menus to their locations.
 		$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
@@ -264,13 +293,13 @@ function icraft_after_import_setup($selected_import) {
 			)
 		);
 		
-		$front_page_id = get_page_by_title( 'Front Page' );
+		$front_page_id = get_page_by_title( 'Agency 2' );
        	if ( isset( $front_page_id->ID ) ) {
 			update_option( 'page_on_front', $front_page_id->ID );
         	update_option( 'show_on_front', 'page' );
        	}			
 	
-	} elseif ( 'i-craft Demo Craft-18' === $selected_import['import_file_name'] ) {
+	} elseif ( 'Business Home 1' === $selected_import['import_file_name'] ) {
 	
 		// Assign menus to their locations.
 		$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
@@ -279,7 +308,53 @@ function icraft_after_import_setup($selected_import) {
 			)
 		);
 		
-		$front_page_id = get_page_by_title( 'Craft-18' );
+		$front_page_id = get_page_by_title( 'Business Home 1' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Fashion Shop 1' === $selected_import['import_file_name'] ) {
+
+		// Assign menus to their locations.
+			$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
+	
+			set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Fashion Shop 1' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
+	} elseif ( 'Shop Shaurya' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Shop Shaurya' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Craft-18 Shop' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Craft-18 Shop' );
        	if ( isset( $front_page_id->ID ) ) {
 			update_option( 'page_on_front', $front_page_id->ID );
         	update_option( 'show_on_front', 'page' );
@@ -294,14 +369,14 @@ add_action( 'pt-ocdi/after_import', 'icraft_after_import_setup' );
 /* Resetting default Widgets */
 function icraft_before_content_import( $selected_import ) {
 	wp_delete_post(1);
-	update_option( 'sidebars_widgets', $null );
+	update_option( 'sidebars_widgets', array() );
 }
 add_action( 'pt-ocdi/before_content_import', 'icraft_before_content_import' );
 
 /* change title for page and menu */
 function ocdi_plugin_page_setup( $default_settings ) {
-    $default_settings['page_title']  = esc_html__( 'i-craft One Click Demo Set-up', 'i-craft' );
-    $default_settings['menu_title']  = esc_html__( 'i-craft Demo Setup' ,'i-craft' );
+    $default_settings['page_title']  = esc_html__( 'One Click Demo Set-up', 'i-craft' );
+    $default_settings['menu_title']  = esc_html__( 'Theme Demo Setup' ,'i-craft' );
     return $default_settings;
 }
 add_filter( 'pt-ocdi/plugin_page_setup', 'ocdi_plugin_page_setup' );
@@ -327,7 +402,7 @@ function icraft_filter_active_widgets($active){
     $active['headline'] = true;	
     $active['image-grid'] = true;	
     $active['price-table'] = true;	
-    //$active['testimonial'] = true;	
+    $active['testimonial'] = true;	
     $active['editor'] = true;	
     $active['hero'] = true;	
     $active['image-slider'] = true;
