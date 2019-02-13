@@ -184,7 +184,7 @@ li.customize-control {
 	background-color: #006086;
 }
 
-
+/*
 #accordion-section-basic > h3.accordion-section-title,
 #accordion-section-layout > h3.accordion-section-title,
 #accordion-section-social > h3.accordion-section-title,
@@ -248,7 +248,7 @@ li.customize-control {
 #accordion-section-nxfooter:hover > h3.accordion-section-title:after {
 	color: #FFF!important;	
 }
-
+*/
 #accordion-section-nxpromo > h3.accordion-section-title  {
 	background-color: #dd6a08;
 	color: #FFF;
@@ -267,7 +267,7 @@ li.customize-control {
 #accordion-section-nxpromo > h3.accordion-section-title:after {
 	color: #FFF!important;	
 }
-
+/*
 #accordion-section-woocomm > h3.accordion-section-title  {
 	background-color: #96588a;
 	color: #FFF;
@@ -286,7 +286,7 @@ li.customize-control {
 #accordion-section-woocomm > h3.accordion-section-title:after {
 	color: #FFF!important;	
 }
-
+*/
 #customize-control-logo_trans {
 	background-image: url("../images/logo-bg.png");
 	background-position: center;
@@ -328,7 +328,7 @@ li.customize-control {
 	color: #FFFFFF;
 }
 
-/* Coming soon section */
+/* Coming soon section 
 #accordion-section-mmode > h3.accordion-section-title  {
 	background-color: #777777;
 	color: #FFF;
@@ -347,7 +347,7 @@ li.customize-control {
 #accordion-section-mmode > h3.accordion-section-title:after {
 	color: #FFF!important;	
 }
-
+*/
 .tx-dash-notice {
 	position: relative;
 }

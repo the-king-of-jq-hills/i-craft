@@ -4,7 +4,7 @@ Theme URI: 			http://www.templatesnext.org/i-craft/
 Author: 			templatesnext team
 Author URI: 		http://templatesnext.org/
 Description: 		The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
-Version: 			3.1.6
+Version: 			3.1.9
 License: 			GNU General Public License v2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 Tags: 				one-column, news, blog, two-columns, rtl-language-support, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
@@ -5300,7 +5300,9 @@ body .widget .star-rating {
 .ibanner.nxs-max19 .nx-slider .nx-slider-container p,
 .ibanner.nxs-max19 .nx-slider .nx-slider-container h2,
 .ibanner.nxs-semitrans2 .nx-slider .nx-slider-container p,
-.ibanner.nxs-semitrans2 .nx-slider .nx-slider-container h2 {
+.ibanner.nxs-semitrans2 .nx-slider .nx-slider-container h2,
+.ibanner.nxs-gradient .nx-slider .nx-slider-container p,
+.ibanner.nxs-gradient .nx-slider .nx-slider-container h2 {
 	background: none;
 	padding-left: 0px;
 	padding-right: 0px;
@@ -5311,7 +5313,8 @@ body .widget .star-rating {
 .ibanner.nxs-shadow .nx-slider .nx-slider-container h2,
 .ibanner.nxs-max18 .nx-slider .nx-slider-container h2,
 .ibanner.nxs-max19 .nx-slider .nx-slider-container h2,
-.ibanner.nxs-semitrans2 .nx-slider .nx-slider-container h2 {
+.ibanner.nxs-semitrans2 .nx-slider .nx-slider-container h2,
+.ibanner.nxs-gradient .nx-slider .nx-slider-container h2 {
 	margin-bottom: 0px;
 	font-size: 48px;
 }
@@ -6551,7 +6554,7 @@ Menu item highlight style
 	padding-right: 0px;
 }
 
-.nav-container .nav-menu:not(.nx-navicons) li:last-child {
+.nav-container .nav-menu:not(.nx-navicons) > li:last-child {
 	padding-right: 10px;
 }
 
@@ -6568,106 +6571,10 @@ Menu item highlight style
 	opacity: 0.56;
 }
 
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
+.social-bar.tb-reversed {
+    border-bottom: none;
+}
+.sow-slider-pagination li {
+    border-bottom: none;
 }
 
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    visibility: visible;
-  }
-
-  100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.nx-ticker-wrap {  
-	bottom: 0;
-	width: 100%;
-	overflow: hidden;
-	height: 20px;
-	/*
-	background-color: rgba(215,29,77, 0.64); 
-	*/
-	box-sizing: content-box;
-	font-size: 16px;
-}
-
-.nx-ticker {
-    display: block;
-    height: 20px;
-    line-height: 1;  
-    white-space: nowrap;
-    box-sizing: content-box;
-	margin: 0px;
-	padding: 0px;
-	padding-top: 2px;
-}
-
-.nx-ticker {
-    -webkit-animation-iteration-count: infinite; 
-    animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    animation-timing-function: linear;
-   	-webkit-animation-name: ticker;
-    animation-name: ticker;
-    -webkit-animation-duration: 30s;
-    animation-duration: 30s;
-}
-
-.nx-ticker .nx-ticker__item {
-    display: inline-block;
-    padding: 0 32px;
-	list-style-type: square;
-}
-
-.nx-ticker .nx-ticker__item:first-child {
-	margin-left: 300px;
-}
-
-.entry-content .panel-grid .so-panel.widget .notice-board h3.widget-title {
-	margin-bottom: 24px;
-}
-
-.entry-content .panel-layout .panel-grid .notice-board ul {
-	margin-left: 0px;
-}
-
-.entry-content .panel-layout .panel-grid .notice-board ul,
-.entry-content .panel-layout .panel-grid .notice-board ul li {
-	color: #fff;
-	line-height: 1.4;
-	margin-bottom: 12px;	
-}
-
-.entry-content .panel-layout .panel-grid .so-panel.widget .notice-board ul li a {
-	font-size: 16px;
-}
-
-.entry-content .panel-layout .panel-grid .notice-board ul li span.post-date {
-	display: block; 
-	clear: both;
-	font-size: 17px;
-	font-weight: 600;
-}
-
-.tx-post-comm {
-	display: none;
-}
-
-.tx-meta .tx-author {
-	display: none;
-}

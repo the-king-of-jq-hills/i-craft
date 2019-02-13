@@ -317,6 +317,14 @@ function icraft_register_meta_boxes( $meta_boxes )
 				'std'   => __( '', 'i-craft' ),
 				'desc' => __('Enter an additional page class, will be added to body. "hide-page-header" for no header, "boxed" for boxed page for wide layout.', 'i-craft'),
 			),
+			// additional page Style			
+			array(
+				'name'  => __( 'Additional Page CSS', 'i-craft' ),
+				'id'    => "{$prefix}page_styles",
+				'type'  => 'textarea',
+				'std'   => '',
+				'desc' => __('Enter an additional page CSS Codes, Styles will be applied on this page only.', 'i-craft'),
+			),			
 						
 		)
 	);			

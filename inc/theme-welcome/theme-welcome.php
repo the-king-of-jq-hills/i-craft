@@ -110,7 +110,6 @@ function welcome_screen_content() {
                                 	<li><b><?php esc_attr_e('15:03','i-craft'); ?> </b><?php esc_html_e('Setting A Page As Your Front/Home Page', 'i-craft'); ?></li>
                                 	<li><b><?php esc_attr_e('15:34','i-craft'); ?> </b><?php esc_html_e('A Preview : Premium Theme I-SPIRIT', 'i-craft'); ?></li>
                                 </ul>
-								<a href="//www.youtube.com/watch?v=M_-HUs4EN-8?autoplay=1" target="_blank" style="display: block; margin: 16px 0px;"><?php printf( esc_html__( 'Demo import video guide.', 'i-craft' )); ?></a>                                
                             </div>                                                       
                         </div>
                         
@@ -134,9 +133,6 @@ function welcome_screen_content() {
                     <a href="?page=welcome-screen-about&tab=icraft_about" class="nav-tab <?php echo $active_tab == 'icraft_about' ? 'nav-tab-active' : ''; ?>">
                    		<?php _e( 'Setting Up i-craft', 'i-craft' ); ?>
                     </a>
-                    <a href="?page=welcome-screen-about&tab=icraft_ocdi" class="nav-tab <?php echo $active_tab == 'icraft_ocdi' ? 'nav-tab-active' : ''; ?>">
-                   		<?php _e( 'One Click Demo Import', 'i-craft' ); ?>
-                    </a>                    
                     <a href="?page=welcome-screen-about&tab=icraft_plugins" class="nav-tab <?php echo $active_tab == 'icraft_plugins' ? 'nav-tab-active' : ''; ?> nx-kick">
                     	<?php _e( 'Recommended Plugins', 'i-craft' ); ?>
                     </a>

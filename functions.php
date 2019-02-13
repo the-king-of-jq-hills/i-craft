@@ -889,7 +889,6 @@ function icraft_admin_notice_008() {
     if ( ! get_user_meta($user_id, 'icraft_ignore_notice_008') ) {
         echo '<div class="updated tx-dash-notice"><p><div style="line-height: 20px;">'; 
 		printf(__('<div style="font-size: 16px;">Welcome to I-CRAFT! To know more about I-CRAFT and its features go to <a href="%1$s">about page</a>.</div>', 'i-craft'), $about_url);
-		printf(__('<div style="font-size: 16px;">New ready to use demos are added. View &quot;One Click Demo Import&quot; <a href="%1$s" target="_blank">video guide</a> to know more.</div>', 'i-craft'), $ocdi_url);		
 		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero" style="margin-top: 16px;">Get Started With I-CRAFT</a><div class="clear"></div>', 'i-craft' ), $about_url);			
 		printf(__('<a href="%1$s" class="tx-dashnotice-close">Dismiss</a>', 'i-craft' ), '?icraft_notice_ignore_008=0');
         echo "</div></p></div>";

@@ -203,7 +203,61 @@ function icraft_get_attachment_id_from_url( $attachment_url = '' ) {
 
 function icraft_import_files() {
   return array(
-  	/**/
+		array(
+		  'import_file_name'             	=> 'Restaurant',
+		  'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/restaurant.xml',
+		  //'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/restaurant.wie',
+		  'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/restaurant.dat',
+		  'import_preview_image_url'     	=> '//wp-demos.com/downloads/demos/i-craft/elementor/restaurant.jpg',
+		  'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/i-craft-restaurant/',
+		  'required_plugin'					=> array(
+												'elementor',
+												'essential-addons-for-elementor-lite',
+												'contact-form-7',
+											),
+		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
+		),
+		array(
+		  'import_file_name'             	=> 'Small Business',
+		  'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/small-business.xml',
+		  //'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/small-business.wie',
+		  'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/small-business.dat',
+		  'import_preview_image_url'     	=> '//wp-demos.com/downloads/demos/i-craft/elementor/business.jpg',
+		  'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/i-craft-smallbusiness/',
+		  'required_plugin'					=> array(
+												'elementor',
+												'essential-addons-for-elementor-lite',
+												'contact-form-7',
+											),
+		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
+		),		
+		array(
+		  'import_file_name'             	=> 'Personal',
+		  'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.xml',
+		  //'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.wie',
+		  'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.dat',
+		  'import_preview_image_url'     	=> '//wp-demos.com/downloads/demos/i-craft/elementor/personal.jpg',
+		  'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/i-craft-personal/',
+		  'required_plugin'					=> array(
+												'elementor',
+												'essential-addons-for-elementor-lite',
+												'contact-form-7',
+											),
+		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
+		),
+		array(
+		  'import_file_name'             	=> 'MAX Store',
+		  'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop.wie',
+		  'import_preview_image_url'     	=> '//wp-demos.com/downloads/demos/i-craft/elementor/maxstore.jpg',
+		  'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/maxstore/',
+		  'required_plugin'					=> '',
+		  'categories'                 		=> array( 'Premium', 'WooCommerce', 'Elementor' ),										
+		),	
+				
     array(
       'import_file_name'             	=> 'Agency 1',
       'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
@@ -211,18 +265,13 @@ function icraft_import_files() {
       'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-1.dat',
       'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-agency-1.jpg',
       'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/1635-2/',
+	  'preview_url'                		=> 'http://wp-demos.com/agency/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+  	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	
     ),
-    array(
-      'import_file_name'             	=> 'Agency 2',
-      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
-      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.wie',
-      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-2.dat',
-      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-agency-2.jpg',
-      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/agency-2-pb/',
-    ),
-	
     array(
       'import_file_name'             	=> 'Business Home 1',
       'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.xml',
@@ -230,7 +279,12 @@ function icraft_import_files() {
       'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-business-1.dat',
       'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-business-1.jpg',
       'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/business-home-1-pb//',	  
+	  'preview_url'                		=> 'http://wp-demos.com/agency/business-home-1-pb/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),		  
     ),	
 	
     array(
@@ -240,7 +294,14 @@ function icraft_import_files() {
       'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-fashion-shop-1.dat',
       'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-fashion-shop.jpg',
       'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/',
+	  'preview_url'                		=> 'http://www.wp-demos.com/shop/',
+	  'required_plugin'					=> array(
+											'breadcrumb-navxt',
+											'siteorigin-panels',
+											'so-widgets-bundle',
+											'contact-form-7',
+	  									),
+	  'categories'                 		=> array( 'Free','WooCommerce', 'SiteOrigin Page Builder' ),	
     ),
     array(
       'import_file_name'             	=> 'Shop Shaurya',
@@ -249,7 +310,14 @@ function icraft_import_files() {
       'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop-shaurya.dat',
       'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-shaurya.jpg',
       'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/shop-shaurya/',
+	  'preview_url'                		=> 'http://wp-demos.com/shop/shop-shaurya/',
+	  'required_plugin'					=> array(
+											'breadcrumb-navxt',
+											'siteorigin-panels',
+											'so-widgets-bundle',
+											'contact-form-7',
+	  									),
+	  'categories'                 		=> array( 'Free','WooCommerce', 'SiteOrigin Page Builder' ),
     ),
 	
     array(
@@ -259,8 +327,197 @@ function icraft_import_files() {
       'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-18-shop.dat',
       'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-craft-18.jpg',
       'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit", "WooCommerce" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
-	  'preview_url'                		=> 'http://templatesnext.in/demos/tx-demos/index.php/shop-blank/',	  
-    ),		
+	  'preview_url'                		=> 'http://wp-demos.com/shop/shop-blank/',
+	  'required_plugin'					=> array(
+											'breadcrumb-navxt',
+											'siteorigin-panels',
+											'so-widgets-bundle',
+											'contact-form-7',
+	  									),
+	  'categories'                 		=> array( 'Free','WooCommerce', 'SiteOrigin Page Builder' ),
+    ),
+	
+	
+    array(
+      'import_file_name'             	=> 'Agency 3',
+      'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.xml',
+      'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.wie',
+      'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.dat',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/agency-3.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "SiteOrigin Page Builder" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/agency/agency-3/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),		  
+    ),	
+
+    array(
+      'import_file_name'             	=> 'Agency 4',
+      'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.xml',
+      'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.wie',
+      'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.dat',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/agency-4.jpg',
+      'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/creative/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	  
+    ),
+    array(
+      'import_file_name'             	=> 'School',
+      'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.xml',
+      'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.wie',
+      'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.dat',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/school.jpg',
+      'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/creative/graceland-school/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	  
+    ),
+    array(
+      'import_file_name'             	=> 'Charity',
+      'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.xml',
+      'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.wie',
+      'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.dat',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/ngo-charity.jpg',
+      'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/creative/visionale/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	  
+    ),
+    array(
+      'import_file_name'             	=> 'Computer',
+      'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.xml',
+      'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.wie',
+      'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/creative/i-craft-creative.dat',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/computer.jpg',
+      'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/creative/computers-1/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	  
+    ),	
+    array(
+      'import_file_name'             	=> 'Agency 2',
+      'import_file_url'            		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-2.xml',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency.wie',
+      'import_customizer_file_url' 		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-agency-2.dat',
+      'import_preview_image_url'     	=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/thumb-agency-2.jpg',
+      'import_notice'                	=> __( 'Please make sure you have plugin "TemplatesNext ToolKit" and "Contact Form 7" installed and active before you start the import process. <br> This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+	  'preview_url'                		=> 'http://wp-demos.com/agency/agency-2-pb/',
+	  'required_plugin'					=> array(
+											'siteorigin-panels',
+											'so-widgets-bundle',
+	  									),
+	  'categories'                 		=> array( 'Free', 'SiteOrigin Page Builder' ),	
+    ),	
+    array(
+      'import_file_name'             	=> 'Classic 1',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/classic-1.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/classic/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),
+	
+    array(
+      'import_file_name'             	=> 'Modern 1',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/modern-1.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/modern/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),	
+    array(
+      'import_file_name'             	=> 'Flat 1',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/flat-1.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/flat/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),			
+	
+    array(
+      'import_file_name'             	=> 'Shop 1',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/shop-1.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/shop/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium','WooCommerce', 'WPBakery Page Builder' ),										
+    ),
+    array(
+      'import_file_name'             	=> 'Modern 2',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/modern-2.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/modern/home-visual-composer/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),	
+    array(
+      'import_file_name'             	=> 'Classic MAX',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/classic-max.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/classic/classic-max',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),	
+    array(
+      'import_file_name'             	=> 'Classic 2',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/classic-2.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/classic/nx-front/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),
+	
+    array(
+      'import_file_name'             	=> 'Shop 2',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/shop-2.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/shop/nx-shop/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium','WooCommerce', 'WPBakery Page Builder' ),										
+    ),	
+    array(
+      'import_file_name'             	=> 'Flat 2',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/flat-2.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/flat/home-fullscreen-image-slider/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),	
+    array(
+      'import_file_name'             	=> 'Modern MAX',
+      'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-excel-demo/master/i-excel-shop.wie',
+      'import_preview_image_url'     	=> '//www.wp-demos.com/images/small-images/modern-max.jpg',
+      'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+	  'preview_url'                		=> 'http://www.wp-demos.com/ispirit/modern/home-halfscreen-slider-3/',
+	  'required_plugin'					=> '',
+	  'categories'                 		=> array( 'Premium', 'WPBakery Page Builder' ),										
+    ),	
+		
+	
   );
 }
 add_filter( 'pt-ocdi/import_files', 'icraft_import_files' );
@@ -268,7 +525,53 @@ add_filter( 'pt-ocdi/import_files', 'icraft_import_files' );
 add_filter( 'pt-ocdi/disable_pt_branding', '__return_true' );
 
 function icraft_after_import_setup($selected_import) {
-		if ( 'Agency 1' === $selected_import['import_file_name'] ) {
+	
+	if ( 'Restaurant' === $selected_import['import_file_name'] ) {
+
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+	
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Home' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
+	} elseif ( 'Small Business' === $selected_import['import_file_name'] ) {
+
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+	
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Front Page' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
+	} elseif ( 'Personal' === $selected_import['import_file_name'] ) {
+
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+	
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Home' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
+	} elseif ( 'Agency 1' === $selected_import['import_file_name'] ) {
 
 		// Assign menus to their locations.
 			$main_menu = get_term_by( 'name', 'i-craft Main Nav', 'nav_menu' );
@@ -294,6 +597,36 @@ function icraft_after_import_setup($selected_import) {
 		);
 		
 		$front_page_id = get_page_by_title( 'Agency 2' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Agency 3' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Agency 3' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Agency 4' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Agency 4 PB' );
        	if ( isset( $front_page_id->ID ) ) {
 			update_option( 'page_on_front', $front_page_id->ID );
         	update_option( 'show_on_front', 'page' );
@@ -360,6 +693,51 @@ function icraft_after_import_setup($selected_import) {
         	update_option( 'show_on_front', 'page' );
        	}			
 	
+	} elseif ( 'School' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Graceland School' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Charity' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Vision Eartth' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
+	} elseif ( 'Computer' === $selected_import['import_file_name'] ) {
+	
+		// Assign menus to their locations.
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Computers 1' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}			
+	
 	}
 
 }
@@ -384,6 +762,7 @@ add_filter( 'pt-ocdi/plugin_page_setup', 'ocdi_plugin_page_setup' );
 
 /* Calling Theme Welcome on activation */
 require_once( get_template_directory() . '/inc/theme-welcome/theme-welcome.php' );
+require_once( get_template_directory() . '/inc/txoc/txoc.php' );
 
 /* activating all site origin widgets bundle */
 function icraft_filter_active_widgets($active){
