@@ -884,11 +884,17 @@ function icraft_admin_notice_008() {
         $user_id = $current_user->ID;
 		$about_url = admin_url('themes.php?page=welcome-screen-about');
 		$support_url = esc_url('https://wordpress.org/support/theme/i-craft/');
-		$notice_url = esc_url('https://wordpress.org/support/theme/i-craft/reviews/?filter=5');
-		$ocdi_url = esc_url('https://www.youtube.com/watch?v=M_-HUs4EN-8');		
+		
+		$demo_url = esc_url('//www.templatesnext.org/i-craft/?ref=ictw#tx-demos');
+		$video_url = esc_url('//www.youtube.com/watch?v=9m1MQUFGQN8');		
+			
     if ( ! get_user_meta($user_id, 'icraft_ignore_notice_008') ) {
         echo '<div class="updated tx-dash-notice"><p><div style="line-height: 20px;">'; 
 		printf(__('<div style="font-size: 16px;">Welcome to I-CRAFT! To know more about I-CRAFT and its features go to <a href="%1$s">about page</a>.</div>', 'i-craft'), $about_url);
+		
+		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero tx-livedemo" style="margin-top: 16px;">Live Demos</a>', 'i-craft' ), $demo_url);					
+		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero tx-scdivideo" style="margin-top: 16px;">How To Import Demos?</a>', 'i-craft' ), $video_url);			
+		
 		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero" style="margin-top: 16px;">Get Started With I-CRAFT</a><div class="clear"></div>', 'i-craft' ), $about_url);			
 		printf(__('<a href="%1$s" class="tx-dashnotice-close">Dismiss</a>', 'i-craft' ), '?icraft_notice_ignore_008=0');
         echo "</div></p></div>";

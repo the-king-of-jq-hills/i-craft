@@ -263,7 +263,7 @@ function icraft_custom_setting( $controls ) {
         'settings'  => 'top_email',
         'label'    => __( 'Email Address', 'i-craft' ),
         'section'  => 'nxtopbar',
-        'default'  => sanitize_email('email@i-create.com'),
+        'default'  => sanitize_email('email@example.com'),
         'priority' => 1,
 		'description' => __( 'Email Id that appears on top bar.', 'i-craft' ),		
     );
@@ -578,7 +578,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Facebook', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),		
         'section'  => 'nxtopbar',
-		'default'  => '#',		
+		'default'  => esc_url('https://www.facebook.com/templatesnext'),		
         'priority' => 1,
     );	
 	
@@ -588,7 +588,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Twitter', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => esc_url('https://www.twitter.com/templatesnext'),
         'priority' => 1,
     );
 	
@@ -598,7 +598,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Flickr', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => '',	
         'priority' => 1,
     );	
 	
@@ -608,7 +608,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'RSS', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => '',	
         'priority' => 1,
     );	
 	
@@ -618,7 +618,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Instagram', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => esc_url('https://www.instagram.com/templatesnext'),	
         'priority' => 1,
     );	
 	
@@ -628,7 +628,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'Google Plus', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => '',
         'priority' => 1,
     );	
 	
@@ -638,7 +638,7 @@ function icraft_custom_setting( $controls ) {
         'label'    => __( 'YouTube', 'i-craft' ),
 		'description' => __( 'Empty the field to remove the icon', 'i-craft' ),			
         'section'  => 'nxtopbar',
-		'default'  => '#',	
+		'default'  => esc_url('https://www.youtube.com/templatesnext'),
         'priority' => 1,
     );	
 	

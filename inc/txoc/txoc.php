@@ -12,7 +12,7 @@ function icraft_txoc_admin_js() {
 	if ( is_plugin_active( 'templatesnext-toolkit/tx-toolkit.php' ) ) {
 		$intropop_content = icraft_customizer_demolist();
 	} else {
-		$intropop_content = icraft_customizer_intropop();
+		$intropop_content = icraft_customizer_intropop() . icraft_customizer_demolist();
 	}
 	
 	wp_localize_script('icraft-txoc-admin-js', 'intropop_content', $intropop_content);
@@ -31,6 +31,7 @@ function icraft_customizer_intropop () {
     global $current_user ;
     $user_id = $current_user->ID;
 	$show_pop_meta = get_user_meta($user_id, 'icraft_txoc_show_pops');
+	$how_to_import = esc_url('https://www.youtube.com/watch?v=9m1MQUFGQN8');
 	
 	if ( !empty($show_pop_meta) ){
 		if ( '1' == $show_pop_meta[0] ) {
@@ -44,7 +45,11 @@ function icraft_customizer_intropop () {
 	
 	$intropop_content .= '<div class="closepop"><a href="#" title="Close"></a></div>';
 	$intropop_content .= '<h1>'. esc_html__('Welcome To I-CRAFT', 'i-craft') .'</h1>';
-	$intropop_content .= '<h4>'. esc_html__('Please Install accompanying plugin Templatesnext ToolKit to take full advantage of all the features.', 'i-craft') .'</h4>';		
+	$intropop_content .= '<h4>'. esc_html__('Please Install accompanying plugin Templatesnext ToolKit to take full advantage of all the features.', 'i-craft') .'</h4>';
+	
+	$intropop_content .= '<a href="'.$how_to_import.'" target="_blank" title="How To Import Demo Layouts" class="howtoimport">';
+	$intropop_content .= '</a>';
+		
 	$intropop_content .= '</div>';
 	$intropop_content .= '<div class="tx-features">';
 	$intropop_content .= '<h1>'. esc_html__('Main Features', 'i-craft') .'</h1>';
@@ -74,12 +79,12 @@ function icraft_customizer_intropop () {
 	if ( is_plugin_active( 'templatesnext-toolkit/tx-toolkit.php' ) ) {
 		$activation_button .= '<a href="#" class="button disabled button-hero">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';  
 	} elseif( icraft_is_plugin_installed($pluginTitle) == false ) {
-		$activation_button .= '<a data-slug="templatesnext-toolkit" data-active-lebel="' . __( 'Installing...', 'i-craft' ) . '" class="install-nx-now button button-hero" href="' . esc_url( $nonce_install ) . '" data-name="templatesnext-toolkit" aria-label="Install templatesnext-toolkit">' . __( 'Install and activate', 'i-craft' ) . '</a>';
-		$activation_button .= '<a class="button activate-nx-now button-primary button-hero" data-active-lebel="' . __( 'Activating...', 'i-craft' ) . '" data-slug="templatesnext-toolkit" href="' . esc_url( $pluginLink ) . '" aria-label="Activate templatesnext-toolkit" style="display: none;">' . __( 'Activate', 'i-craft' ) . '</a>';
-		$activation_button .= '<a href="#" class="tx-active button disabled button-hero" style="display: none;">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';
+		$activation_button .= '<a data-slug="templatesnext-toolkit" data-active-lebel="' . __( 'Installing...', 'i-craft' ) . '" class="install-nx-now install-txtk-now button button-hero" href="' . esc_url( $nonce_install ) . '" data-name="templatesnext-toolkit" aria-label="Install templatesnext-toolkit">' . __( 'Install and activate', 'i-craft' ) . '</a>';
+		$activation_button .= '<a class="button activate-nx-now activate-txtk-now button-primary button-hero" data-active-lebel="' . __( 'Activating...', 'i-craft' ) . '" data-slug="templatesnext-toolkit" href="' . esc_url( $pluginLink ) . '" aria-label="Activate templatesnext-toolkit" style="display: none;">' . __( 'Activate', 'i-craft' ) . '</a>';
+		$activation_button .= '<a href="#" class="tx-active txtk-active button disabled button-hero" style="display: none;">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';
 	} else {
-		$activation_button .= '<a class="button activate-nx-now button-primary button-hero" data-active-lebel="' . __( 'Activating...', 'i-craft' ) . '" data-slug="templatesnext-toolkit" href="' . esc_url( $pluginLink ) . '" aria-label="Activate templatesnext-toolkit">' . __( 'Activate', 'i-craft' ) . '</a>';
-		$activation_button .= '<a href="#" class="tx-active button disabled button-hero" style="display: none;">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';  
+		$activation_button .= '<a class="button activate-nx-now activate-txtk-now button-primary button-hero" data-active-lebel="' . __( 'Activating...', 'i-craft' ) . '" data-slug="templatesnext-toolkit" href="' . esc_url( $pluginLink ) . '" aria-label="Activate templatesnext-toolkit">' . __( 'Activate', 'i-craft' ) . '</a>';
+		$activation_button .= '<a href="#" class="tx-active txtk-active button disabled button-hero" style="display: none;">' . __( 'Plugin installed and active', 'i-craft' ) . '</a>';  
 	}
 	$activation_button .= '</div></div></div>';	
 	
@@ -100,15 +105,28 @@ function icraft_customizer_demolist () {
 		
 	$show_pop_meta = get_user_meta($user_id, 'icraft_txoc_show_pops');
 	
-	if ( !empty($show_pop_meta) ){
-		if ( '1' == $show_pop_meta[0] ) {
-			$intropop_content .= '<div class="txoc-stage2 txoc-show">';
-		} elseif ( '0' == $show_pop_meta[0] )	{
+	if ( is_plugin_active( 'templatesnext-toolkit/tx-toolkit.php' ) ) {
+		if ( !empty($show_pop_meta) ){
+			if ( '1' == $show_pop_meta[0] ) {
+				$intropop_content .= '<div class="txoc-stage2 txoc-show">';
+			} elseif ( '0' == $show_pop_meta[0] )	{
+				$intropop_content .= '<div class="txoc-stage2 txoc-noshow">';
+			}
+		} else {
 			$intropop_content .= '<div class="txoc-stage2 txoc-noshow">';
-		}
+		}	
 	} else {
-		$intropop_content .= '<div class="txoc-stage2 txoc-noshow">';
-	}	
+		if ( !empty($show_pop_meta) ){
+			if ( '1' == $show_pop_meta[0] ) {
+				$intropop_content .= '<div class="txoc-stage2 txoc-show" style="display: none;">';
+			} elseif ( '0' == $show_pop_meta[0] )	{
+				$intropop_content .= '<div class="txoc-stage2 txoc-noshow" style="display: none;">';
+			}
+		} else {
+			$intropop_content .= '<div class="txoc-stage2 txoc-noshow" style="display: none;">';
+		}
+	}
+	
 	
 	$intropop_content .= '<div class="intropop-top demolist-head">';
 	$intropop_content .= '<div class="closepop popstage2"><a href="#" title="Close"></a></div>';

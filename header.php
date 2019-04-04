@@ -17,7 +17,7 @@ $top_email = '';
 $nav_dropdown_class = '';
 
 $top_phone = esc_attr(get_theme_mod('top_phone', '1-000-123-4567'));
-$top_email = esc_attr(get_theme_mod('top_email', 'email@i-create.com'));
+$top_email = esc_attr(get_theme_mod('top_email', 'email@example.com'));
 $icraft_logo = get_theme_mod( 'logo', get_template_directory_uri() . '/images/logo-black-2.png' );
 $icraft_logo_trans = get_theme_mod( 'logo_trans', get_template_directory_uri() . '/images/logo-white-2.png' );
 

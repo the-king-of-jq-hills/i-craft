@@ -12,7 +12,7 @@ jQuery(document).ready(function($) {
 	
 	var introwin = "";
 
-	if( intropop_content.indexOf('popdemolist') != -1 ){
+	if( intropop_content.indexOf('popdemolist') != -1 && intropop_content.indexOf('txoc-stage1') == -1 ){
     	$( "body" ).addClass('nx-demolist');
 	} else if( intropop_content.indexOf('install-tx') != -1 ){
 		$( "body" ).addClass('nx-install-tx');
@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
 	});	
 	
 	
-    $('.wp-customizer').on('click', '.install-nx-now', function (e) {
+    $('.wp-customizer').on('click', '.install-txtk-now', function (e) {
         var installButton = $(this);
         e.preventDefault();
 		
@@ -64,10 +64,10 @@ jQuery(document).ready(function($) {
                     success: function () {
                         //Reload the page.
                         //location.reload();
-						$('.install-nx-now, .updating-message').css("display", "none");
-						$('.activate-nx-now').css("display", "inline-block");
+						$('.install-txtk-now, .txoc-stage1 .updating-message').css("display", "none");
+						$('.activate-txtk-now').css("display", "inline-block");
 						
-						activateNXPlugin();							
+						activateNXPlugin();			
                     }
                 });
             }
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
     });
 	
 	
-	$('.wp-customizer').on('click', '.activate-nx-now', function (e) {
+	$('.wp-customizer').on('click', '.activate-txtk-now', function (e) {
 	
         var activateButton = $(this);
         e.preventDefault();
@@ -98,9 +98,19 @@ jQuery(document).ready(function($) {
                     success: function () {
                         //Reload the page.
                         //location.reload();
-						$('.activate-nx-now, .updating-message').css("display", "none");
-						$('.tx-active').css("display", "inline-block");	
-						location.reload();	
+						$('.activate-txtk-now, .txoc-stage1 .updating-message').css("display", "none");
+						$('.txtk-active').css("display", "inline-block");	
+						
+						//location.reload();
+						
+						$('.txoc-stage1').css("display", "none");
+						$('.txoc-stage2').css("display", "block");
+						
+    					$( "body" ).removeClass('nx-install-tx');
+						$( "body" ).addClass('nx-demolist');
+						
+						//resizepoDemilist();
+						setTimeout(resizepoDemilist, 800);
                     }
                 });
             }
@@ -110,12 +120,12 @@ jQuery(document).ready(function($) {
 	
 	function activateNXPlugin() {
 		
-        var activateButton = $('.activate-nx-now');
+        var activateButton = $('.activate-txtk-now');
         
 		if ($(activateButton).length) {
 			
             var url = $(activateButton).attr('href');
-			var lebel = $('.activate-nx-now').data('active-lebel');			
+			var lebel = $('.activate-txtk-now').data('active-lebel');			
             
 			if (typeof url !== 'undefined') {
                 //Request plugin activation.
@@ -129,10 +139,20 @@ jQuery(document).ready(function($) {
                     success: function () {
                         //Reload the page.
                         //location.reload();
-						$('.activate-nx-now, .updating-message').css("display", "none");
-						$('.tx-active').css("display", "inline-block");
+						$('.activate-txtk-now, .txoc-stage1 .updating-message').css("display", "none");
+						$('.txtk-active').css("display", "inline-block");
+
+						//location.reload();	
 						
-						location.reload();					
+						$('.txoc-stage1').css("display", "none");
+						$('.txoc-stage2').css("display", "block");
+
+    					$( "body" ).removeClass('nx-install-tx');
+						$( "body" ).addClass('nx-demolist');
+												
+						//resizepoDemilist();
+						setTimeout(resizepoDemilist, 800);
+																
                     }
                 });
             }
@@ -168,7 +188,7 @@ jQuery(document).ready(function($) {
 				}
 			});
 			
-		} else if ( $('.install-nx-now').length > 0 )
+		} else if ( $('.nx-ocdi-install .install-nx-now').length > 0 )
 		{
 			installOCDIPlugin(fileName);	
 		} else
@@ -266,8 +286,7 @@ jQuery(document).ready(function($) {
     });			
 		
 	
-	if( $('.nx-demolist .nx-intropopwrap').length > 0 )
-	{
+	if( $('.nx-demolist .nx-intropopwrap').length > 0 ) {
 		resizepoDemilist();
 	}
 
@@ -308,7 +327,7 @@ jQuery(document).ready(function($) {
     		$( "body" ).addClass('nx-demolist');
 			resizepoDemilist();
 			
-			setTimeout(resizepoDemilist, 800)
+			setTimeout(resizepoDemilist, 800);
 			
 		} else
 		{

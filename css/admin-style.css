@@ -376,3 +376,23 @@ li.customize-control {
 	font-size: 17px;
 	content: "\f153";
 }
+
+
+.wp-admin .tx-dash-notice .button-hero {
+	margin-right: 12px;
+}
+
+.wp-admin .tx-dash-notice .tx-livedemo.button-hero {
+    background-color: #a42c81;
+    color: #FFFFFF;
+    border: 1px solid #630047;
+    text-transform: capitalize;
+    font-weight: 600;
+	box-shadow: 0 2px 0 #91186e;
+	
+	text-shadow: 0 -1px 1px #91186e, 1px 0 1px #91186e, 0 1px 1px #91186e, -1px 0 1px #91186e;
+}
+
+.wp-admin .tx-dash-notice .tx-livedemo.button-hero:hover {
+    background-color: #ad3c8c;
+}
