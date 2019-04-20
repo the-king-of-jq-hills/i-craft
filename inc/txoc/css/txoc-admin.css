@@ -702,6 +702,15 @@ body .tx-ocdi-item-footer .ocdi__ajax-loader.js-ocdi-ajax-loader {
 	background-position: 0px -55px;	
 }
 
+.ocdi-reqplug .button,
+.nx-ocdi-install .button,
+.nx-tx-activation .button {
+	border: none!important;
+	box-shadow: none!important;
+}
+
+
+
 @media only screen and (max-width: 1500px) {
 	.nx-demolist .popdemolist li {
 		margin: 2%;

@@ -308,6 +308,21 @@ function icraft_custom_setting( $controls ) {
 		'priority'    => 3,
 	);
 	
+	$controls[] = array(
+		'type'        => 'radio-buttonset',
+		'settings'     => 'show_polylang',
+		'label'       => __( 'Show Polylang Language Switch', 'i-craft' ),
+		'description' => __( 'Show multilingual plugin polylang language switch on top bar.', 'i-craft' ),
+		'section'     => 'basic',
+		'choices'     => array(
+							'0' => esc_html__( 'Off', 'i-craft' ),
+							'1' => esc_html__( 'On with Flags', 'i-craft' ),
+							'2' => esc_html__( 'On With Names', 'i-craft' ),
+		),		
+		'default'     => '2',
+		'priority'    => 4,
+	);	
+		
 	$controls[] = array(  
 		'type'        => 'switch',
 		'settings'     => 'pre_loader',
@@ -1238,7 +1253,7 @@ function icraft_custom_setting( $controls ) {
         'section'  => 'rmsettings',			
 	);
 	
-	// i-design typography
+	// i-craft typography
 	$controls[] = array(
 		'type'        => 'typography',
 		'settings'    => 'body_font',

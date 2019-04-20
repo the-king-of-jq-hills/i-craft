@@ -44,8 +44,8 @@ function icraft_customizer_intropop () {
 	}
 	
 	$intropop_content .= '<div class="closepop"><a href="#" title="Close"></a></div>';
-	$intropop_content .= '<h1>'. esc_html__('Welcome To I-CRAFT', 'i-craft') .'</h1>';
-	$intropop_content .= '<h4>'. esc_html__('Please Install accompanying plugin Templatesnext ToolKit to take full advantage of all the features.', 'i-craft') .'</h4>';
+	$intropop_content .= '<h1>'. esc_html__('Welcome To I-CRAFT Setup', 'i-craft') .'</h1>';
+	$intropop_content .= '<h4>'. esc_html__('Installing accompanying plugin Templatesnext ToolKit.', 'i-craft') .'</h4>';
 	
 	$intropop_content .= '<a href="'.$how_to_import.'" target="_blank" title="How To Import Demo Layouts" class="howtoimport">';
 	$intropop_content .= '</a>';
@@ -55,8 +55,9 @@ function icraft_customizer_intropop () {
 	$intropop_content .= '<h1>'. esc_html__('Main Features', 'i-craft') .'</h1>';
 	$intropop_content .= '<ul>';
 	$intropop_content .= '<li>'. esc_html__('Ready To Import Sites.', 'i-craft') .'</li>';
-	$intropop_content .= '<li>'. esc_html__('Portfolio, Team, Custom Slider, etc.', 'i-craft') .'</li>';
+	$intropop_content .= '<li>'. esc_html__('Portfolio, Team, Custom Slider., etc.', 'i-craft') .'</li>';
 	$intropop_content .= '<li>'. esc_html__('Page/Post Meta Options.', 'i-craft') .'</li>';
+	$intropop_content .= '<li>'. esc_html__('20+ Custom Shortcodes.', 'i-craft') .'</li>';	
 	$intropop_content .= '<li>'. esc_html__('Wishlist And Products Compare.', 'i-craft') .'</li>';	
 	$intropop_content .= '<li>'. esc_html__('And Much More..', 'i-craft') .'</li>';					
 	$intropop_content .= '</ul>';		
@@ -130,7 +131,7 @@ function icraft_customizer_demolist () {
 	
 	$intropop_content .= '<div class="intropop-top demolist-head">';
 	$intropop_content .= '<div class="closepop popstage2"><a href="#" title="Close"></a></div>';
-	$intropop_content .= '<h1>'. esc_html__('Ready to Import Websites', 'i-craft') .'</h1>';
+	$intropop_content .= '<h1>'. esc_html__('Ready to Import Demos', 'i-craft') .'</h1>';
 	$intropop_content .= '<h4>'. esc_html__('Start With A Pre-designed Website', 'i-craft') .'</h4>';
 
 	$intropop_content .= '<ul class="nxl-filter">';
@@ -312,7 +313,7 @@ function icraft_customizer_demolist () {
 	
 	$intropop_content .= '<div class="txoc-sitelink" style="display: none;">';
 	$intropop_content .= '<a href="'.site_url().'/wp-admin/customize.php?icraft_txoc_pops=0" class="button" target="_self" >'. esc_html__( 'Customize', 'i-craft' ) .'</a>';
-	$intropop_content .= '<a href="'.site_url().'" class="button button-primary" target="_blank" >'. esc_html__( 'Visit Site', 'i-craft' ) .'</a>';
+	$intropop_content .= '<a href="'.site_url().'/?icraft_txoc_pops=0" class="button button-primary" target="_blank" >'. esc_html__( 'Visit Site', 'i-craft' ) .'</a>';
 	$intropop_content .= '</div>';
 	
 	
@@ -454,7 +455,27 @@ function icraft_ocdi_required_plugins() {
 				'slug' => 'woocommerce',
 				'pluginfile' => 'woocommerce.php',
 				'ocdi' => 1,			
-		),					
+		),
+		array(
+				'name' => __( 'Loco Translate (<span class="nx-red">Optional</span>)', 'i-craft' ),
+				'desc' => __( 'Theme translation plugin.', 'i-craft' ),
+				'pluginurl' => esc_url( 'https://wordpress.org/plugins/loco-translate/' ),
+				'title' => 'Loco Translate',			
+				'slug' => 'loco-translate',
+				'pluginfile' => 'loco.php',
+				'ocdi'      => 1,
+				'repourl'	=> '',					
+		),
+		array(
+				'name' => __( 'Polylang (<span class="nx-red">Optional</span>)', 'i-craft' ),
+				'desc' => __( 'Multilingual plugin', 'i-craft' ),
+				'pluginurl' => esc_url( 'https://wordpress.org/plugins/polylang/' ),
+				'title' => 'Polylang',			
+				'slug' => 'polylang',
+				'pluginfile' => 'polylang.php',
+				'ocdi'      => 1,
+				'repourl'	=> '',					
+		),							
 		
 	);
 }

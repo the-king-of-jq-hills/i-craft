@@ -886,16 +886,19 @@ function icraft_admin_notice_008() {
 		$support_url = esc_url('https://wordpress.org/support/theme/i-craft/');
 		
 		$demo_url = esc_url('//www.templatesnext.org/i-craft/?ref=ictw#tx-demos');
-		$video_url = esc_url('//www.youtube.com/watch?v=9m1MQUFGQN8');		
+		$video_url = esc_url('//www.youtube.com/watch?v=9m1MQUFGQN8');
+		$import_url = esc_url('customize.php?icraft_txoc_pops=1');						
 			
     if ( ! get_user_meta($user_id, 'icraft_ignore_notice_008') ) {
         echo '<div class="updated tx-dash-notice"><p><div style="line-height: 20px;">'; 
-		printf(__('<div style="font-size: 16px;">Welcome to I-CRAFT! To know more about I-CRAFT and its features go to <a href="%1$s">about page</a>.</div>', 'i-craft'), $about_url);
+		printf(__('<div style="font-size: 18px; line-height: 32px;">Welcome to I-CRAFT, one of the most flexible theme with Multilingual and RTL support! </div><div style="font-size: 16px;"> To know more about I-CRAFT and its features go to <a href="%1$s">about page</a>.</div>', 'i-craft'), $about_url);
 		
-		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero tx-livedemo" style="margin-top: 16px;">Live Demos</a>', 'i-craft' ), $demo_url);					
-		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero tx-scdivideo" style="margin-top: 16px;">How To Import Demos?</a>', 'i-craft' ), $video_url);			
+		printf(__('<a href="%1$s" target="self" class="button button-primary button-hero tx-livedemo txocwiz" style="margin-top: 24px;">Demo Setup Wizard</a>', 'i-craft' ), $import_url);
+		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero tx-livedemo" style="margin-top: 24px;">Live Demos</a>', 'i-craft' ), $demo_url);					
 		
-		printf(__('<a href="%1$s" target="_blank" class="button button-primary button-hero" style="margin-top: 16px;">Get Started With I-CRAFT</a><div class="clear"></div>', 'i-craft' ), $about_url);			
+		printf('<div class="clear"></div>');			
+		
+		printf(__('<a href="%1$s" target="_blank" class="button" style="margin-top: 16px;">Get Started With I-CRAFT</a><div class="clear"></div>', 'i-craft' ), $about_url);			
 		printf(__('<a href="%1$s" class="tx-dashnotice-close">Dismiss</a>', 'i-craft' ), '?icraft_notice_ignore_008=0');
         echo "</div></p></div>";
     }

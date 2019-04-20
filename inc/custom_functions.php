@@ -260,6 +260,47 @@ function icraft_import_files() {
 		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
 		),
 		array(
+		  'import_file_name'             	=> 'Multilingual',
+		  'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/multilingual.xml',
+		  //'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.wie',
+		  'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/multilingual.dat',
+		  'import_preview_image_url'     	=> trailingslashit( get_template_directory_uri() ) . 'inc/txoc/small-images/multilingual.jpg',
+		  'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/i-craft-multilingual/',
+		  'required_plugin'					=> array(
+												'elementor',
+												'essential-addons-for-elementor-lite',
+												'contact-form-7',
+												'polylang',												
+											),
+		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
+		),
+		array(
+		  'import_file_name'             	=> 'RTL',
+		  'import_file_url'            		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/rtl.xml',
+		  //'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.wie',
+		  'import_customizer_file_url' 		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/rtl.dat',
+		  'import_preview_image_url'     	=> trailingslashit( get_template_directory_uri() ) . 'inc/txoc/small-images/rtl.jpg',
+		  'import_notice'                	=> __( 'This process involves transfer of data and media from server to server and might take some time.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/i-craft-rtl/',
+		  'required_plugin'					=> array(
+												'elementor',
+												'essential-addons-for-elementor-lite',
+												'contact-form-7',
+												'loco-translate',												
+											),
+		  'categories'                 		=> array( 'Free', 'Elementor' ),	  
+		),
+		array(
+		  'import_file_name'             	=> 'Online Courses',
+		  'import_widget_file_url'     		=> 'http://wp-demos.com/downloads/demos/i-craft/elementor/personal.wie',
+		  'import_preview_image_url'     	=> trailingslashit( get_template_directory_uri() ) . 'inc/txoc/small-images/max-institute.jpg',
+		  'import_notice'                	=> __( 'This demo design is only available with premium theme I-SPIRIT.', 'i-craft' ),
+		  'preview_url'                		=> 'http://www.wp-demos.com/i-spirit/max-institute/',
+		  'required_plugin'					=> '',
+		  'categories'                 		=> array( 'Premium', 'Elementor' ),										
+		),
+		array(
 		  'import_file_name'             	=> 'MAX Store',
 		  'import_widget_file_url'     		=> 'https://raw.githubusercontent.com/TemplatesNext/i-craft-demo/master/i-craft-shop.wie',
 		  'import_preview_image_url'     	=> trailingslashit( get_template_directory_uri() ) . 'inc/txoc/small-images/maxstore.jpg',
@@ -632,6 +673,51 @@ function icraft_after_import_setup($selected_import) {
         	update_option( 'show_on_front', 'page' );
        	}		
 		
+	} elseif ( 'Multilingual' === $selected_import['import_file_name'] ) {
+		
+		if ( class_exists( 'PLL_Model' ) ) {
+			
+			$polylang_options = get_option( 'polylang');			
+			if( !array_key_exists('default_lang', $polylang_options) ) {
+				
+				$polylang_options['default_lang'] = 'en';
+				update_option( 'polylang', $polylang_options );
+								
+			}		
+		}			
+
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+		$main_menu_de = get_term_by( 'name', 'Main Navigation De', 'nav_menu' );
+		$main_menu_ru = get_term_by( 'name', 'Main Navigation Ru', 'nav_menu' );		
+	
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+				'primary___de' => $main_menu_de->term_id,
+				'primary___ru' => $main_menu_ru->term_id,				
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Home' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
+	} elseif ( 'RTL' === $selected_import['import_file_name'] ) {
+
+		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
+	
+		set_theme_mod( 'nav_menu_locations', array(
+				'primary' => $main_menu->term_id,
+			)
+		);
+		
+		$front_page_id = get_page_by_title( 'Home' );
+       	if ( isset( $front_page_id->ID ) ) {
+			update_option( 'page_on_front', $front_page_id->ID );
+        	update_option( 'show_on_front', 'page' );
+       	}		
+		
 	} elseif ( 'SEO' === $selected_import['import_file_name'] ) {
 
 		$main_menu = get_term_by( 'name', 'Main Navigation', 'nav_menu' );
@@ -849,6 +935,34 @@ function ocdi_plugin_page_setup( $default_settings ) {
     return $default_settings;
 }
 add_filter( 'pt-ocdi/plugin_page_setup', 'ocdi_plugin_page_setup' );
+
+
+/*
+ * Polylang language switcher
+ *
+ * @since icraft 1.0.1
+ */
+
+function icraft_polylang_switcher(){
+
+	$tb_plylang = 2;
+	$tb_plylang = intval(get_theme_mod('show_polylang', '2'));
+	//$tb_plylang = $ispirit_data['tb-polylang'];
+		
+	if( $tb_plylang == 1 || $tb_plylang == 2 ) {
+		$tx_topbar_output .= '<div class="tb-right tb-polylang">';
+		$tx_topbar_output .= '<ul>';
+		if( $tb_plylang == 1 ) {
+			$tx_topbar_output .= pll_the_languages( array( 'show_flags' => 1,'show_names' => 0,'echo' => 0,'hide_current' => 1 ) );
+		} else {
+			$tx_topbar_output .= pll_the_languages( array( 'show_flags' => 1,'show_names' => 1,'echo' => 0,'hide_current' => 1 ) );
+		}
+		$tx_topbar_output .= '</ul>';
+		$tx_topbar_output .= '</div>';
+	}
+	
+	return $tx_topbar_output;
+}
 
 
 /* Calling Theme Welcome on activation */

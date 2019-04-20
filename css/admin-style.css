@@ -388,11 +388,33 @@ li.customize-control {
     border: 1px solid #630047;
     text-transform: capitalize;
     font-weight: 600;
-	box-shadow: 0 2px 0 #91186e;
-	
+	box-shadow: 0 2px 0 #91186e;	
 	text-shadow: 0 -1px 1px #91186e, 1px 0 1px #91186e, 0 1px 1px #91186e, -1px 0 1px #91186e;
 }
 
 .wp-admin .tx-dash-notice .tx-livedemo.button-hero:hover {
     background-color: #ad3c8c;
 }
+
+.wp-admin .tx-dash-notice {
+	margin-left: 2px;
+	border-left-color: #a42c81;
+	margin-top: 16px;
+}
+
+.wp-admin #wpwrap .tx-dash-notice {
+	display: none!important;
+}
+.wp-admin.index-php #wpwrap .tx-dash-notice,
+.wp-admin.appearance_page_welcome-screen-about #wpwrap .tx-dash-notice {
+	display: block!important;
+}
+
+.wp-admin .tx-dash-notice .tx-scdivideo {
+	margin-right: 12px;
+}
+
+.wp-admin.appearance_page_tgmpa-install-plugins .tx-dash-notice {
+	display: none;
+}
+

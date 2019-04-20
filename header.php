@@ -103,7 +103,12 @@ if ( function_exists( 'rwmb_meta' ) ) {
                         <?php echo sanitize_email($top_email); ?>
                     <?php endif; ?>
                 </div>
-                <?php endif; ?>                
+                <?php endif; ?> 
+                
+                <?php if ( function_exists('pll_the_languages') ) : ?>
+               	<?php echo icraft_polylang_switcher(); ?>
+                <?php endif; ?>
+                                               
             </div> 
         </div>
         <?php endif; ?>

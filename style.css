@@ -4,7 +4,7 @@ Theme URI: 			http://www.templatesnext.org/i-craft/
 Author: 			templatesnext team
 Author URI: 		http://templatesnext.org/
 Description: 		The i-craft responsive WooCommerce ecommerce multipupose theme packed with features like product carousels, unlimited color, boxed/wide layout, product search, optional login menu item and shopping cart in main navigation, multiple blog layout, etc. It comes with custom slider and option to use any 3rd party slider in any page or post through page/post meta option. Perfect for start-up ecommerce web sites.
-Version: 			3.2.0
+Version: 			3.2.4
 License: 			GNU General Public License v2 or later
 License URI: 		http://www.gnu.org/licenses/gpl-2.0.html
 Tags: 				one-column, news, blog, two-columns, rtl-language-support, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, e-commerce
@@ -6578,3 +6578,79 @@ Menu item highlight style
     border-bottom: none;
 }
 
+/* Polylang Start */
+
+.utilitybar .tb-right.tb-polylang {
+	display: inline-block;
+	float: right;
+}
+
+.utilitybar .tb-right.tb-polylang ul,
+.utilitybar .tb-right.tb-polylang ul li {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.utilitybar .tb-right.tb-polylang ul li {
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	margin: 4px 0px;
+}
+
+.utilitybar .tb-right.tb-polylang ul li a {
+	display: block;
+	border-right: 1px solid rgba(255,255,255, 0.32);
+	color: #FFFFFF;
+	padding: 0px 16px;
+	font-size: 12px;
+	text-decoration: none;	
+}
+
+.utilitybar .tb-right.tb-polylang ul li a:hover {
+	text-decoration: underline;
+}
+
+
+.utilitybar .tb-right.tb-polylang ul li:last-child a {
+	border-right: none;
+}	
+
+@media (max-width: 1069px) {
+	.utilitybar {
+		display: block;
+		clear: both;
+		height: auto;
+	}
+	.ubarinnerwrap {
+		display: block;
+		float: none;
+		clear: both;
+	}
+	.ubarinnerwrap:after,
+	.ubarinnerwrap .top_email:after,
+	.utilitybar .socialicons:after {
+		display: block;
+		clear: both;
+		content: " ";
+		height: 0px;
+	}	
+	
+	.utilitybar .socialicons,
+	.utilitybar .tb-right.tb-polylang {
+		display: block;
+		clear: both;
+		float: none;	
+	}
+	
+	.utilitybar .tb-right.tb-polylang ul li:first-child a {
+		padding-left: 0px;
+	}
+	.utilitybar .tb-right.tb-polylang ul li:last-child a {
+		padding-right: 0px;
+	}
+	.screen-reader-text.skip-link {
+		display: none;
+	}
+}
